@@ -107,8 +107,36 @@ function qwertyuiop_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__('Footer left widget', 'qwertyuiop'),
+		'id'            => 'footer_widget_col_1',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__('Footer center widget', 'qwertyuiop'),
+		'id'            => 'footer_widget_col_2',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__('Footer left widget', 'qwertyuiop'),
+		'id'            => 'footer_widget_col_3',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_widget( 'LawyeriaX_About_Us' );
+	register_widget( 'Foo_Widget' );
 }
 add_action( 'widgets_init', 'qwertyuiop_widgets_init' );
+
+//Custom widgets
+require get_template_directory() . "/widgets/about-us.php";
+require get_template_directory() . "/widgets/trial.php";
 
 /**
  * Enqueue scripts and styles.
