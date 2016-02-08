@@ -7,7 +7,7 @@
  * @package qwertyuiop
  */
 
-get_header(); 
+get_header();
 get_sidebar();
 ?>
 

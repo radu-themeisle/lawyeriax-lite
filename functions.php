@@ -126,11 +126,50 @@ function qwertyuiop_scripts() {
 
 	wp_enqueue_script( 'qwertyuiop-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
+	wp_enqueue_style( 'qwertyuiop-font-awesome', lawyeriax_lite_get_file('/css/font-awesome.min.css'), array(), 'v4.5.0', false );
+
+
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'qwertyuiop_scripts' );
+
+
+function repeater_customizer_script() {
+
+	wp_enqueue_script( 'lawyeriax_ddslick', get_template_directory_uri() .'/js/jquery.ddslick.js', array("jquery"),'1.0.0', true  );
+
+	wp_enqueue_script( 'repeater_customizer_script', lawyeriax_lite_get_file('/js/lawyeriax_lite_customizer.js'), array("jquery","jquery-ui-draggable","lawyeriax_ddslick"),'1.0.0', true);
+
+	wp_enqueue_style( 'qwertyuiop-font-awesome', lawyeriax_lite_get_file('/css/font-awesome.min.css'), array(), 'v4.5.0', false );
+}
+add_action( 'customize_controls_enqueue_scripts', 'repeater_customizer_script' );
+
+/**
+ * Enqueue admin style.
+ */
+function parallax_one_admin_styles() {
+	wp_enqueue_style( 'qwertyuiop_admin_stylesheet', lawyeriax_lite_get_file('/css/admin-style.css'),'1.0.0' );
+}
+add_action( 'admin_enqueue_scripts', 'parallax_one_admin_styles', 10 );
+
+/**
+ * Get file function.
+ */
+function lawyeriax_lite_get_file($file){
+	$file_parts = pathinfo($file);
+	$accepted_ext = array('jpg','img','png','css','js');
+	if( in_array($file_parts['extension'], $accepted_ext) ){
+		$file_path = get_stylesheet_directory() . $file;
+		if ( file_exists( $file_path ) ){
+			return esc_url(get_stylesheet_directory_uri() . $file);
+		} else {
+			return esc_url(get_template_directory_uri() . $file);
+		}
+	}
+}
 
 /**
  * Implement the Custom Header feature.
@@ -161,6 +200,3 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-
-
