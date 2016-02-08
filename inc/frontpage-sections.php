@@ -6,6 +6,80 @@
 
 
 
+
+if ( ! function_exists( 'qwertyuiop_slider_section' ) ) :
+/**
+ * Ribbon sections
+ */
+function qwertyuiop_slider_section() {	
+	?>
+
+	<section id="slider" class="header-slider">
+
+		<div id="main-slider" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#main-slider" data-slide-to="0" class="active"></li>
+				<li data-target="#main-slider" data-slide-to="1"></li>
+				<li data-target="#main-slider" data-slide-to="2"></li>
+			</ol>
+
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<div class="item-inner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slider/slider.jpg?>);">
+						<div class="carousel-caption">
+							<div class="container">
+								<p class="col-md-8 carousel-title">Meet Lawyeria</p>
+								<p class="col-md-8 carousel-content">A WordPress theme for lawyers websites.Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.</p>
+								<p class="col-md-8 carousel-button"><a href="#" class="slider-button" title="Title">Request Legal Advice</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="item-inner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slider/slider.jpg?>);">
+						<div class="carousel-caption">
+							<div class="container">
+								<p class="col-md-8 carousel-title">Meet Lawyeria</p>
+								<p class="col-md-8 carousel-content">A WordPress theme for lawyers websites.Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.</p>
+								<p class="col-md-8 carousel-button"><a href="#" class="slider-button" title="Title">Request Legal Advice</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="item-inner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slider/slider.jpg?>);">
+						<div class="carousel-caption">
+							<div class="container">
+								<p class="col-md-8 carousel-title">Meet Lawyeria</p>
+								<p class="col-md-8 carousel-content">A WordPress theme for lawyers websites.Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.</p>
+								<p class="col-md-8 carousel-button"><a href="#" class="slider-button" title="Title">Request Legal Advice</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<a class="left carousel-control" href="#main-slider" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#main-slider" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+
+	</section><!-- #slider -->
+
+	<?php
+}
+endif;
+
+
+
 if ( ! function_exists( 'qwertyuiop_ribbon_section' ) ) :
 /**
  * Ribbon sections
@@ -118,6 +192,154 @@ endif;
 
 
 
+if ( ! function_exists( 'qwertyuiop_lawyers_section' ) ) :
+/**
+ * Ribbon sections
+ */
+function qwertyuiop_lawyers_section() {	
+	?>
+
+	<section id="lawyer" class="home-section lawyer">
+		<div class="container">
+
+			<div class="home-section-title-wrap">
+				<h2 class="home-section-title">Our Lawyers</h2>
+			</div>
+
+			<div class="home-section-inner lawyer-box-wrap">
+
+				<div class="col-xs-12 col-sm-4 lawyer-box">
+					<div class="lawyer-box-image">
+						<a href="#" title="Eu Doris Pavel">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/lawyer1.jpg" alt="Mare lawyer frate">
+						</a>
+					</div>
+					<div class="lawyer-box-content">
+						<h5 class="lawyer-title">
+							<a href="#" title="Marele Doris">Doris Patel</a>
+						</h5>
+						<div class="border-left lawyer-box-content-inner">
+							<div class="lawyer-box-inside">
+								<p class="lawyer-box-info">Litigation</p>
+								<ul class="lawyer-media-icons">
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+								</ul>
+							</div>
+							<a href="#" class="view-profile" title="View Profile">View Profile</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 lawyer-box">
+					<div class="lawyer-box-image">
+						<a href="#" title="Eu Doris Pavel">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/lawyer1.jpg" alt="Mare lawyer frate">
+						</a>
+					</div>
+					<div class="lawyer-box-content">
+						<h5 class="lawyer-title">
+							<a href="#" title="Marele Doris">Doris Patel</a>
+						</h5>
+						<div class="border-left lawyer-box-content-inner">
+							<div class="lawyer-box-inside">
+								<p class="lawyer-box-info">Litigation</p>
+								<ul class="lawyer-media-icons">
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+								</ul>
+							</div>
+							<a href="#" class="view-profile" title="View Profile">View Profile</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 lawyer-box">
+					<div class="lawyer-box-image">
+						<a href="#" title="Eu Doris Pavel">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/lawyer1.jpg" alt="Mare lawyer frate">
+						</a>
+					</div>
+					<div class="lawyer-box-content">
+						<h5 class="lawyer-title">
+							<a href="#" title="Marele Doris">Doris Patel</a>
+						</h5>
+						<div class="border-left lawyer-box-content-inner">
+							<div class="lawyer-box-inside">
+								<p class="lawyer-box-info">Litigation</p>
+								<ul class="lawyer-media-icons">
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+								</ul>
+							</div>
+							<a href="#" class="view-profile" title="View Profile">View Profile</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 lawyer-box">
+					<div class="lawyer-box-image">
+						<a href="#" title="Eu Doris Pavel">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/lawyer1.jpg" alt="Mare lawyer frate">
+						</a>
+					</div>
+					<div class="lawyer-box-content">
+						<h5 class="lawyer-title">
+							<a href="#" title="Marele Doris">Doris Patel</a>
+						</h5>
+						<div class="border-left lawyer-box-content-inner">
+							<div class="lawyer-box-inside">
+								<p class="lawyer-box-info">Litigation</p>
+								<ul class="lawyer-media-icons">
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+								</ul>
+							</div>
+							<a href="#" class="view-profile" title="View Profile">View Profile</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 lawyer-box">
+					<div class="lawyer-box-image">
+						<a href="#" title="Eu Doris Pavel">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/lawyer1.jpg" alt="Mare lawyer frate">
+						</a>
+					</div>
+					<div class="lawyer-box-content">
+						<h5 class="lawyer-title">
+							<a href="#" title="Marele Doris">Doris Patel</a>
+						</h5>
+						<div class="border-left lawyer-box-content-inner">
+							<div class="lawyer-box-inside">
+								<p class="lawyer-box-info">Litigation</p>
+								<ul class="lawyer-media-icons">
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
+								</ul>
+							</div>
+							<a href="#" class="view-profile" title="View Profile">View Profile</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			
+			<div class="col-md-10 col-md-offset-1 section-line"></div>
+		</div><!-- .container -->
+	</section>
+
+	<?php
+}
+endif;
+
+
+
 if ( ! function_exists( 'qwertyuiop_about_us_section' ) ) :
 /**
  * About us sections
@@ -206,7 +428,7 @@ function qwertyuiop_latest_news_section() {
 						</div>
 						<div class="news-post-title-wrap">
 							<h4 class="news-post-title">
-								<a href="#" title="Hmm">Sed quid sentiat, non videtis.</a>
+								<a href="#" title="Hmm">Sed quid sentiat, non videtis. Hopa tzop. Mentosanu</a>
 							</h4>
 						</div>
 						<div class="news-posted-on">
