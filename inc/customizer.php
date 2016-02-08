@@ -34,7 +34,10 @@ function qwertyuiop_customize_register( $wp_customize ) {
 			'panel'					=> 'lawyeriax_top_bar_panel'
 	));
 
-	//Features Left repeater
+/*=============================================================================
+		Social icons
+=============================================================================*/
+
 $wp_customize->add_setting('lawyeriax_top_bar_social_icons', array(
 		'sanitize_callback' => 'sanitize_repeater',
 		'default'           => json_encode(array(
@@ -70,6 +73,35 @@ $wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_top_ba
 		'repeater_link_control'   => true,
 )));
 
+/*=============================================================================
+	Phone number
+=============================================================================*/
+
+	$wp_customize->add_setting('lawyeriax_top_bar_phone_number', array(
+			'default'           => esc_html__('+1-888-846173', 'lawyeriax-lite'),
+			'sanitize_callback' => 'lawyeriax_sanitize_text'
+	));
+
+	$wp_customize->add_control('lawyeriax_top_bar_phone_number', array(
+			'label'       => __('Phone Number', 'aza-lite'),
+			'section'     => 'lawyeriax_top_bar_section',
+			'priority'    => '2',
+	));
+
+	/*=============================================================================
+	Email address
+	=============================================================================*/
+
+	$wp_customize->add_setting('lawyeriax_top_bar_email_address', array(
+			'default'           => esc_html__('example@themeisle.com', 'lawyeriax-lite'),
+			'sanitize_callback' => 'lawyeriax_sanitize_text'
+	));
+	$wp_customize->add_control('lawyeriax_top_bar_email_address', array(
+			'label'       => __('Email Address', 'lawyeriax-lite'),
+			'section'     => 'lawyeriax_top_bar_section',
+			'priority'    => '3',
+	));
+
 
 
 }
@@ -91,6 +123,14 @@ require_once ( 'class/repeater-general-control.php');
 
 
 
+
+/**
+ * Sanitize text.
+ */
+ function lawyeriax_sanitize_text($input)
+{
+    return wp_kses_post(force_balance_tags($input));
+}
 
 /**
  * Sanitize repeater.

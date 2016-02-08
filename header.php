@@ -9,7 +9,9 @@
  * @package qwertyuiop
  */
 
- $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons', json_encode(array(
+$phone_number = get_theme_mod('lawyeriax_top_bar_phone_number', '+1-888-846173');
+$email_address = get_theme_mod('lawyeriax_top_bar_email_address', 'example@themeisle.com');
+$social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons', json_encode(array(
 		 array(
 				 'icon_value'  => 'fa-facebook-square',
 				 'link'				=> '#'
@@ -31,7 +33,6 @@
 				 'link'				=> '#'
 		 )
  )));
-
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -60,6 +61,11 @@
 					}
 				}
 			?>
+      <p>
+        <i class="fa fa-phone-square"></i><?php echo esc_html($phone_number); ?>
+        <i class="fa fa-envelope-square"></i><?php echo esc_html($email_address); ?>
+
+      </p>
 			</div> <!-- container -->
 		</div> <!-- row -->
 	</section>
