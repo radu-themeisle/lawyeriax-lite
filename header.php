@@ -9,6 +9,30 @@
  * @package qwertyuiop
  */
 
+ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons', json_encode(array(
+		 array(
+				 'icon_value'  => 'fa-facebook-square',
+				 'link'				=> '#'
+		 ),
+		 array(
+				 'icon_value'  => 'fa-twitter-square',
+				 'link'				=> '#'
+		 ),
+		 array(
+				 'icon_value'  => 'fa-linkedin-square',
+				 'link'				=> '#'
+		 ),
+		 array(
+				 'icon_value'  => 'fa-google-plus-square',
+				 'link'				=> '#'
+		 ),
+		 array(
+				 'icon_value'  => 'fa-rss-square',
+				 'link'				=> '#'
+		 )
+ )));
+
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -22,8 +46,23 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'qwertyuiop' ); ?></a>
-
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'lawyeriax-lite' ); ?></a>
+	<section id="top-bar">
+		<div class="row">
+			<div class="container">
+				<?php
+				if(!empty($social_icons)) {
+					$social_icons_decoded = json_decode($social_icons);
+					if(!empty($social_icons_decoded)) {
+						foreach($social_icons_decoded as $icon) {
+							echo '<a href="' . esc_url( $icon->link) . '"><i class="fa ' .$icon->icon_value. '"></i></a>';
+						}
+					}
+				}
+			?>
+			</div> <!-- container -->
+		</div> <!-- row -->
+	</section>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="container">
 			<div class="site-branding">
@@ -43,7 +82,7 @@
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'qwertyuiop' ); ?></button>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'lawyeriax-lite' ); ?></button>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav><!-- #site-navigation -->
 		</div><!-- .container -->
