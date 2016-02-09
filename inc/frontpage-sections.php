@@ -1,5 +1,7 @@
 <?php
 
+$news_heading = get_theme_mod('news_section_heading', esc_html__('Latest News','lawyeriax-lite'));
+
 /*
  * Frontpage sections
  */
@@ -10,7 +12,7 @@ if ( ! function_exists( 'qwertyuiop_ribbon_section' ) ) :
 /**
  * Ribbon sections
  */
-function qwertyuiop_ribbon_section() {	
+function qwertyuiop_ribbon_section() {
 	?>
 
 	<section id="ribbon" class="home-section ribbon">
@@ -19,7 +21,7 @@ function qwertyuiop_ribbon_section() {
 			<div class="home-section-inner">
 				<p class="ribbon-big-title">The safety of the people shall be the highest law.</p>
 			</div>
-			
+
 			<div class="col-md-10 col-md-offset-1 section-line"></div>
 		</div><!-- .container -->
 	</section>
@@ -34,13 +36,13 @@ if ( ! function_exists( 'qwertyuiop_features_section' ) ) :
 /**
  * Features sections
  */
-function qwertyuiop_features_section() {	
+function qwertyuiop_features_section() {
 	?>
 
 	<section id="features" class="features">
 		<div class="container">
 			<div class="home-section-inner feature-boxes-wrap">
-				
+
 				<div class="col-xs-12 col-sm-6 col-md-3 feature-box">
 					<div class="features-title">
 						<span class="features-title-icon"></span>
@@ -122,7 +124,7 @@ if ( ! function_exists( 'qwertyuiop_about_us_section' ) ) :
 /**
  * About us sections
  */
-function qwertyuiop_about_us_section() {	
+function qwertyuiop_about_us_section() {
 	?>
 
 	<section id="about" class="home-section about">
@@ -144,7 +146,7 @@ function qwertyuiop_about_us_section() {
 
 
 			</div>
-			
+
 			<div class="col-md-10 col-md-offset-1 section-line"></div>
 		</div><!-- .container -->
 	</section>
@@ -159,103 +161,42 @@ if ( ! function_exists( 'qwertyuiop_latest_news_section' ) ) :
 /**
  * Latest news section
  */
-function qwertyuiop_latest_news_section() {	
+function qwertyuiop_latest_news_section() {
+	global $news_heading;
+	global $news_section_posts_number_real;
 	?>
 
 	<section id="news" class="home-section news">
 		<div class="container">
 
 			<div class="home-section-title-wrap">
-				<h2 class="home-section-title">Latest news</h2>
+				<?php
+					if(!empty($heading)) {
+						echo '<h2 class="home-section-title">'. $heading .'</h2>';
+					}
+				 ?>
 			</div>
 
 			<div class="home-section-inner latest-news">
-
-				<div class="col-md-4 news-box">
-					<div class="news-title-wrap">
-						<div class="news-date">
-							<span>25</span>
-							<span>Jan</span>
-						</div>
-						<div class="news-post-title-wrap">
-							<h4 class="news-post-title">
-								<a href="#" title="Hmm">Sed quid sentiat, non videtis.</a>
-							</h4>
-						</div>
-						<div class="news-posted-on">
-							<a href="#" title="codeinwp">codeinwp</a>
-							<a href="#" title="14 comments">14 comments</a>
-						</div>
-					</div>
-					<div class="news-img-wrap">
-						<a href="#" title="Title fratele meu">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/img-blog.jpg" alt="Alt alt frate">
-						</a>
-					</div>
-					<div class="border-left news-content-wrap">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eo enim positum est id, quod dicimus esse expetendum. At, illa, ut vobis placet, partem quandam tuetur, reliquam deserit. O magnam vim ingenii causamque iustam, cur nova existeret disciplina...</p>
-						<a href="#" title="Read more" class="read-more">Read more...</a>
-					</div>
-				</div>
-
-				<div class="col-md-4 news-box">
-					<div class="news-title-wrap">
-						<div class="news-date">
-							<span>25</span>
-							<span>Jan</span>
-						</div>
-						<div class="news-post-title-wrap">
-							<h4 class="news-post-title">
-								<a href="#" title="Hmm">Sed quid sentiat, non videtis.</a>
-							</h4>
-						</div>
-						<div class="news-posted-on">
-							<a href="#" title="codeinwp">codeinwp</a>
-							<a href="#" title="14 comments">14 comments</a>
-						</div>
-					</div>
-					<div class="news-img-wrap">
-						<a href="#" title="Title fratele meu">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/img-blog.jpg" alt="Alt alt frate">
-						</a>
-					</div>
-					<div class="border-left news-content-wrap">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eo enim positum est id, quod dicimus esse expetendum. At, illa, ut vobis placet, partem quandam tuetur, reliquam deserit. O magnam vim ingenii causamque iustam, cur nova existeret disciplina...</p>
-						<a href="#" title="Read more" class="read-more">Read more...</a>
-					</div>
-				</div>
-
-				<div class="col-md-4 news-box">
-					<div class="news-title-wrap">
-						<div class="news-date">
-							<span>25</span>
-							<span>Jan</span>
-						</div>
-						<div class="news-post-title-wrap">
-							<h4 class="news-post-title">
-								<a href="#" title="Hmm">Sed quid sentiat, non videtis.</a>
-							</h4>
-						</div>
-						<div class="news-posted-on">
-							<a href="#" title="codeinwp">codeinwp</a>
-							<a href="#" title="14 comments">14 comments</a>
-						</div>
-					</div>
-					<div class="news-img-wrap">
-						<a href="#" title="Title fratele meu">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/img-blog.jpg" alt="Alt alt frate">
-						</a>
-					</div>
-					<div class="border-left news-content-wrap">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eo enim positum est id, quod dicimus esse expetendum. At, illa, ut vobis placet, partem quandam tuetur, reliquam deserit. O magnam vim ingenii causamque iustam, cur nova existeret disciplina...</p>
-						<a href="#" title="Read more" class="read-more">Read more...</a>
-					</div>
-				</div>
-
+				<!-- Posts Loop -->
+				<?php
+				if ( have_posts() ) : query_posts("showposts= 2" );
+					if ( is_home() && ! is_front_page() ) : ?>
+						<header>
+							<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+						</header>
+					<?php endif;
+					while ( have_posts() ) : the_post();
+						get_template_part( 'template-parts/content-home-single', get_post_format() );
+					endwhile;
+				else :
+					get_template_part( 'template-parts/content', 'none' );
+					wp_reset_query();
+				endif; ?>
 			</div>
-			
+
 			<div class="col-md-10 col-md-offset-1 section-line"></div>
-		</div><!-- .container -->
+			</div><!-- .container -->
 	</section>
 
 	<?php

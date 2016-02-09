@@ -41,6 +41,8 @@ function qwertyuiop_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 350, 230, true );
+
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -129,22 +131,20 @@ function qwertyuiop_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 
-	register_widget( 'LawyeriaX_About_Us' );
-	register_widget( 'Foo_Widget' );
+	// register_widget( 'LawyeriaX_About_Us' );
+	// register_widget( 'Foo_Widget' );
 }
 add_action( 'widgets_init', 'qwertyuiop_widgets_init' );
 
 //Custom widgets
-require get_template_directory() . "/widgets/about-us.php";
-require get_template_directory() . "/widgets/trial.php";
+// require get_template_directory() . "/widgets/about-us.php";
+// require get_template_directory() . "/widgets/trial.php";
 
 /**
  * Enqueue scripts and styles.
  */
 function qwertyuiop_scripts() {
 	wp_enqueue_style( 'qwertyuiop-style', get_stylesheet_uri(), array('qwertyuiop-boostrap-css') );
-
-	wp_enqueue_style( 'qwertyuiop-fonts', '//fonts.googleapis.com/css?family=Playfair+Display:400,700|Open+Sans:400,300,600,700');
 
 	wp_enqueue_style ( 'qwertyuiop-boostrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'v3.3.6', 'all' );
 
@@ -154,7 +154,7 @@ function qwertyuiop_scripts() {
 
 	wp_enqueue_script( 'qwertyuiop-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-	wp_enqueue_style( 'qwertyuiop-font-awesome', lawyeriax_lite_get_file('/css/font-awesome.min.css'), array(), 'v4.5.0', false );
+	wp_enqueue_style( 'qwertyuiop-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
 
 
 
@@ -167,37 +167,51 @@ add_action( 'wp_enqueue_scripts', 'qwertyuiop_scripts' );
 
 function repeater_customizer_script() {
 
+	wp_enqueue_style( 'qwertyuiop-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
+
 	wp_enqueue_script( 'lawyeriax_ddslick', get_template_directory_uri() .'/js/jquery.ddslick.js', array("jquery"),'1.0.0', true  );
 
-	wp_enqueue_script( 'repeater_customizer_script', lawyeriax_lite_get_file('/js/lawyeriax_lite_customizer.js'), array("jquery","jquery-ui-draggable","lawyeriax_ddslick"),'1.0.0', true);
+	wp_enqueue_script( 'repeater_customizer_script', get_template_directory_uri() . '/js/lawyeriax_lite_customizer.js', array("jquery","jquery-ui-draggable","lawyeriax_ddslick"),'1.0.0', true);
 
-	wp_enqueue_style( 'qwertyuiop-font-awesome', lawyeriax_lite_get_file('/css/font-awesome.min.css'), array(), 'v4.5.0', false );
 }
 add_action( 'customize_controls_enqueue_scripts', 'repeater_customizer_script' );
+
+function lawyeriax_fonts_url() {
+	$fonts_url = '';
+	/* Translators: If there are characters in your language that are not
+	* supported by Lora, translate this to 'off'. Do not translate
+	* into your own language.
+	*/
+	$playfair_display = _x( 'on', 'Playfair Display font: on or off', 'lawyeriax-lite' );
+	$open_sans = _x( 'on', 'Open Sans font: on or off', 'lawyeriax-lite' );
+	if( 'off' !== $playfair_display || 'off' !== $open_sans ){
+		$font_families = array();
+		if( 'off' !== $playfair_display ){
+			$font_families[] = 'Playfair Display:400,700';
+		}
+		if( 'off' !== $open_sans ){
+			$font_families[] = 'Open Sans:400,300,600,700';
+		}
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+	return $fonts_url;
+}
+function lawyeriax_scripts_styles() {
+	wp_enqueue_style( 'lawyeriax-fonts', lawyeriax_fonts_url(), array(), null );
+}
+add_action( 'wp_enqueue_scripts', 'lawyeriax_scripts_styles' );
 
 /**
  * Enqueue admin style.
  */
-function parallax_one_admin_styles() {
-	wp_enqueue_style( 'qwertyuiop_admin_stylesheet', lawyeriax_lite_get_file('/css/admin-style.css'),'1.0.0' );
+function qwertyuiop_admin_styles() {
+	wp_enqueue_style( 'qwertyuiop_admin_stylesheet', get_template_directory_uri() . '/css/admin-style.css', '1.0.0' );
 }
-add_action( 'admin_enqueue_scripts', 'parallax_one_admin_styles', 10 );
-
-/**
- * Get file function.
- */
-function lawyeriax_lite_get_file($file){
-	$file_parts = pathinfo($file);
-	$accepted_ext = array('jpg','img','png','css','js');
-	if( in_array($file_parts['extension'], $accepted_ext) ){
-		$file_path = get_stylesheet_directory() . $file;
-		if ( file_exists( $file_path ) ){
-			return esc_url(get_stylesheet_directory_uri() . $file);
-		} else {
-			return esc_url(get_template_directory_uri() . $file);
-		}
-	}
-}
+add_action( 'admin_enqueue_scripts', 'qwertyuiop_admin_styles', 10 );
 
 /**
  * Implement the Custom Header feature.
