@@ -34,6 +34,8 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons', json_encode(arr
 		 )
  )));
 
+$website_logo = get_theme_mod('lawyeriax_navbar_logo', get_template_directory_uri() . '/images/logo.png')
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -80,18 +82,18 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons', json_encode(arr
 				<div class="site-branding-wrap">
 					<div class="site-branding">
 						<?php
-						if ( is_front_page() && is_home() ) : ?>
+							if ( !empty ($website_logo) ) { ?>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo('title'); ?>">
+									<img src="<?php echo esc_url($website_logo); ?>" alt="<?php get_bloginfo( 'title' ); ?>"/>
+								</a>
+							<?php } else { ?>
 							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						<?php else : ?>
-							<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-						<?php
-						endif;
-
+						 <?php
 						$description = get_bloginfo( 'description', 'display' );
-						if ( $description || is_customize_preview() ) : ?>
+						if ( $description || is_customize_preview() ) { ?>
 							<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 						<?php
-						endif; ?>
+					}} ?>
 					</div><!-- .site-branding -->
 				</div><!-- .site-branding-wrap -->
 

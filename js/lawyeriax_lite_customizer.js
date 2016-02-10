@@ -177,7 +177,7 @@ jQuery(document).ready(function(){
         repeater_refresh_general_control_values();
         return false;
     });
-    media_upload('.custom_media_button_repeater_one');
+    media_upload('.custom_media_button_repeater');
     jQuery(".custom_media_url").live('change',function(){
         repeater_refresh_general_control_values();
         return false;

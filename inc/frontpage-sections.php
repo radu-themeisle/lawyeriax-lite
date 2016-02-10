@@ -1,7 +1,4 @@
 <?php
-
-$news_heading = get_theme_mod('news_section_heading', esc_html__('Latest News','lawyeriax-lite'));
-
 /*
  * Frontpage sections
  */
@@ -13,54 +10,74 @@ $news_heading = get_theme_mod('news_section_heading', esc_html__('Latest News','
   * Ribbon sections
   */
  function qwertyuiop_slider_section() {
+   $slider_content = get_theme_mod('lawyeriax_slider_content', json_encode(array(
+       array(
+           'title'      => esc_html__('Meet Lawyeria', 'lawyeriax-lite'),
+           'text'       => esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
+           'subtitle'   => esc_html__('Request Legal Advice', 'lawyeriax-lite'),
+           'link'				=> '#',
+           'image'				=> get_template_directory_uri() . '/images/slider/slider.jpg'
+       ),
+       array(
+           'title'      => esc_html__('Business Ready', 'lawyeriax-lite'),
+           'text'       => esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
+           'subtitle'   => esc_html__('Buy Now', 'lawyeriax-lite'),
+           'link'				=> '#',
+           'image'				=> get_template_directory_uri() . '/images/slider/slider.jpg'
+       ),
+       array(
+           'title'      => esc_html__('Fully Responsive', 'lawyeriax-lite'),
+           'text'       => esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
+           'subtitle'   => esc_html__('More Themes', 'lawyeriax-lite'),
+           'link'				=> '#',
+           'image'				=> get_template_directory_uri() . '/images/slider/slider.jpg'
+       ),
+     )));
+       $var   = 0;
+       $var1  = 0;
  	?>
 
  	<section id="slider" class="header-slider">
-
  		<div id="main-slider" class="carousel slide" data-ride="carousel">
- 			<ol class="carousel-indicators">
- 				<li data-target="#main-slider" data-slide-to="0" class="active"></li>
- 				<li data-target="#main-slider" data-slide-to="1"></li>
- 				<li data-target="#main-slider" data-slide-to="2"></li>
+      <?php if(!empty($slider_content)){
+        $slider_content_decoded = json_decode($slider_content);
+        if(!empty($slider_content_decoded)) { ?>
+      <ol class="carousel-indicators">
+
+        <?php
+
+            foreach($slider_content_decoded as $slider_content) {
+              if($var == 0) {
+                echo '<li data-target="#main-slider" data-slide-to="'. $var .'" class="active"></li>';
+                $var++;
+              } else {
+                echo '<li data-target="#main-slider" data-slide-to="'. $var .'"></li>';
+                $var++;
+              }} ?>
  			</ol>
 
  			<div class="carousel-inner" role="listbox">
- 				<div class="item active">
- 					<div class="item-inner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slider/slider.jpg?>);">
- 						<div class="carousel-caption">
- 							<div class="container">
- 								<p class="col-md-8 carousel-title">Meet Lawyeria</p>
- 								<p class="col-md-8 carousel-content">A WordPress theme for lawyers websites.Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.</p>
- 								<p class="col-md-8 carousel-button"><a href="#" class="slider-button" title="Title">Request Legal Advice</a></p>
- 							</div>
- 						</div>
- 					</div>
- 				</div>
 
- 				<div class="item">
- 					<div class="item-inner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slider/slider.jpg?>);">
- 						<div class="carousel-caption">
- 							<div class="container">
- 								<p class="col-md-8 carousel-title">Meet Lawyeria</p>
- 								<p class="col-md-8 carousel-content">A WordPress theme for lawyers websites.Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.</p>
- 								<p class="col-md-8 carousel-button"><a href="#" class="slider-button" title="Title">Request Legal Advice</a></p>
- 							</div>
- 						</div>
- 					</div>
- 				</div>
+        <?php
 
- 				<div class="item">
- 					<div class="item-inner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slider/slider.jpg?>);">
- 						<div class="carousel-caption">
- 							<div class="container">
- 								<p class="col-md-8 carousel-title">Meet Lawyeria</p>
- 								<p class="col-md-8 carousel-content">A WordPress theme for lawyers websites.Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.</p>
- 								<p class="col-md-8 carousel-button"><a href="#" class="slider-button" title="Title">Request Legal Advice</a></p>
- 							</div>
- 						</div>
- 					</div>
- 				</div>
+          foreach($slider_content_decoded as $slider_content) {
+            if($var1 == 0) { ?>
+              <div class="item active">
+                <?php } else { ?>
+              <div class="item">
+                <?php } ?>
+   					<div class="item-inner" style="background-image: url('<?php echo esc_url($slider_content->image_url) ?>');">
+   						<div class="carousel-caption">
+   							<div class="container">
+   								<p class="col-md-8 carousel-title"> <?php echo esc_html($slider_content->title); ?> </p>
+   								<p class="col-md-8 carousel-content"> <?php echo esc_html($slider_content->text); ?> </p>
+   								<p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php echo esc_html($slider_content->subtitle); ?></a></p>
+   							</div>
+   						</div>
+   					</div>
+   				</div>
 
+        <?php $var1++; } } } ?>
  			</div>
 
  			<a class="left carousel-control" href="#main-slider" role="button" data-slide="prev">
@@ -76,8 +93,8 @@ $news_heading = get_theme_mod('news_section_heading', esc_html__('Latest News','
  	</section><!-- #slider -->
 
  	<?php
- }
- endif;
+}
+endif;
 
 
 
@@ -375,14 +392,14 @@ $news_heading = get_theme_mod('news_section_heading', esc_html__('Latest News','
  	<?php
  }
  endif;
- 
+
 if ( ! function_exists( 'qwertyuiop_latest_news_section' ) ) :
 /**
  * Latest news section
  */
 function qwertyuiop_latest_news_section() {
-	global $news_heading;
-	global $news_section_posts_number_real;
+  $news_heading = get_theme_mod('news_heading', esc_html__('Latest News','lawyeriax-lite'));
+
 	?>
 
 	<section id="news" class="home-section news">
@@ -390,8 +407,8 @@ function qwertyuiop_latest_news_section() {
 
 			<div class="home-section-title-wrap">
 				<?php
-					if(!empty($heading)) {
-						echo '<h2 class="home-section-title">'. $heading .'</h2>';
+					if(!empty($news_heading)) {
+						echo '<h2 class="home-section-title">'. $news_heading .'</h2>';
 					}
 				 ?>
 			</div>
