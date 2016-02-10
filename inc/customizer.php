@@ -15,28 +15,38 @@ function qwertyuiop_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+
+
 	/********************************************************/
-	/************** PRE-NAVBAR AREA  ************************/
+	/****************** Navbar Logo  ************************/
 	/********************************************************/
 
-	$wp_customize->add_panel('lawyeriax_top_bar_panel', array(
-			'priority'        => 30,
-			'capability'      => 'edit_theme_options',
-			'theme_supports'  => '',
-			'title'           => __('Top Bar', 'lawyeriax_lite'),
-			'description'     => __('Customize the pre-navbar area.', 'lawyeriax_lite')
-	));
+	$wp_customize->add_setting('lawyeriax_navbar_logo', array(
+        'default'           => get_template_directory_uri() . '/images/logo.png',
+        'sanitize_callback' => 'esc_url'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'lawyeriax_navbar_logo', array(
+        'label'       => __('Website Logo', 'lawyeriax_lite'),
+        'section'     => 'title_tagline',
+        'priority'    => 5,
+    )));
+
+
+/********************************************************/
+/***************** TOP BAR AREA  ************************/
+/********************************************************/
+
+$wp_customize->add_section('lawyeriax_top_bar_section', array(
+	'title' 				=> __('Top Bar', 'lawyeriax-lite'),
+	'description' 	=> __('Top Bar Content', 'lawyeriax_lite'),
+	'priority'        => 30,
+));
+
 
 /*=============================================================================
 		Social icons
 =============================================================================*/
-$wp_customize->add_section('lawyeriax_top_bar_social_section', array(
-		'title' 				=> __('Social Icons', 'lawyeriax-lite'),
-		'priority' 			=> "1",
-		'description' 	=> __('Top Bar Content', 'lawyeriax_lite'),
-		'panel'					=> 'lawyeriax_top_bar_panel'
-));
-
 $wp_customize->add_setting('lawyeriax_top_bar_social_icons', array(
 		'sanitize_callback' => 'sanitize_repeater',
 		'default'           => json_encode(array(
@@ -66,7 +76,7 @@ $wp_customize->add_setting('lawyeriax_top_bar_social_icons', array(
 $wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_top_bar_social_icons', array(
 		'label'                   => __('Social Links', 'lawyeriax-lite'),
 		'description'             => __('Edit, add or remove social links from the top bar', 'lawyeriax-lite'),
-		'section'                 => 'lawyeriax_top_bar_social_section',
+		'section'                 => 'lawyeriax_top_bar_section',
 		'priority'                => '1',
 		'repeater_icon_control'   => true,
 		'repeater_link_control'   => true,
@@ -75,12 +85,7 @@ $wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_top_ba
 /*=============================================================================
 	Phone number
 =============================================================================*/
-	$wp_customize->add_section('lawyeriax_top_bar_contact_section', array(
-			'title' 				=> __('Contact information', 'lawyeriax-lite'),
-			'priority' 			=> "1",
-			'description' 	=> __('Top Bar Content', 'lawyeriax_lite'),
-			'panel'					=> 'lawyeriax_top_bar_panel'
-	));
+
 	$wp_customize->add_setting('lawyeriax_top_bar_phone_number', array(
 			'default'           => esc_html__('+1-888-846173', 'lawyeriax-lite'),
 			'sanitize_callback' => 'lawyeriax_sanitize_text'
@@ -88,7 +93,7 @@ $wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_top_ba
 
 	$wp_customize->add_control('lawyeriax_top_bar_phone_number', array(
 			'label'       => __('Phone Number', 'lawyeriax-lite'),
-			'section'     => 'lawyeriax_top_bar_contact_section',
+			'section'     => 'lawyeriax_top_bar_section',
 			'priority'    => '2',
 	));
 
@@ -102,38 +107,79 @@ $wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_top_ba
 	));
 	$wp_customize->add_control('lawyeriax_top_bar_email_address', array(
 			'label'       => __('Email Address', 'lawyeriax-lite'),
-			'section'     => 'lawyeriax_top_bar_contact_section',
+			'section'     => 'lawyeriax_top_bar_section',
 			'priority'    => '3',
 	));
+
+
+/********************************************************/
+/******************* Slider Section *********************/
+/********************************************************/
+
+	$wp_customize->add_section('lawyeria_slider_section', array(
+			'description'		=> __('Edit, add or remove slides from the front page hero area', 'lawyeriax-lite'),
+			'title' 				=> __('Slider Area', 'lawyeriax-lite'),
+			'priority' 			=> 31,
+	));
+
+	$wp_customize->add_setting('lawyeriax_slider_content', array(
+			'sanitize_callback' => 'sanitize_repeater',
+			'default'           => json_encode(array(
+					array(
+							'title'       => esc_html__('Meet Lawyeria', 'lawyeriax-lite'),
+							'text'    		=> esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
+							'subtitle'    => esc_html__('Request Legal Advice', 'lawyeriax-lite'),
+							'link'				=> '#',
+							'image'				=> get_template_directory_uri() . '/images/slider/slider.jpg'
+					),
+					array(
+							'title'       => esc_html__('Business Ready', 'lawyeriax-lite'),
+							'text'    		=> esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
+							'subtitle'    => esc_html__('Buy Now', 'lawyeriax-lite'),
+							'link'				=> '#',
+							'image'				=> get_template_directory_uri() . '/images/slider/slider.jpg'
+					),
+					array(
+							'title'       => esc_html__('Fully Responsive', 'lawyeriax-lite'),
+							'text'   	 		=> esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
+							'subtitle'    => esc_html__('More Themes', 'lawyeriax-lite'),
+							'link'				=> '#',
+							'image'				=> get_template_directory_uri() . '/images/slider/slider.jpg'
+					),
+				))));
+
+	$wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_slider_content', array(
+			'title' 											=> __('Slider Area', 'lawyeriax-lite'),
+			'section'                 		=> 'lawyeria_slider_section',
+			'priority'                		=> '1',
+			'repeater_title_control'   		=> true,
+			'repeater_subtitle_control'   => true,
+			'repeater_text_control'   		=> true,
+			'repeater_link_control'   		=> true,
+			'repeater_image_control'   		=> true,
+	)));
+
 
 /********************************************************/
 /******************* News Section ***********************/
 /********************************************************/
-$wp_customize->add_panel('lawyeriax_news_section_panel', array(
-		'priority'        => 31,
-		'capability'      => 'edit_theme_options',
-		'theme_supports'  => '',
-		'title'           => __('Latest News', 'lawyeriax_lite'),
-		'description'     => __('Customize the "Latest News" section.', 'lawyeriax_lite')
-));
 
 $wp_customize->add_section('lawyeriax_news_section', array(
-		'title' 				=> __('Content', 'lawyeriax-lite'),
-		'priority' 			=> "1",
-		'description' 	=> __('"Latest News" Content', 'lawyeriax_lite'),
-		'panel'					=> 'lawyeriax_news_section_panel'
+		'title' 				=> __('Latest News', 'lawyeriax-lite'),
+		'description' 	=> __('Latest News Content', 'lawyeriax_lite'),
+		'priority'      => 70,
+
 ));
 
-$wp_customize->add_setting('news_section_heading', array(
+$wp_customize->add_setting('news_heading', array(
 			'default'           => esc_html__('Latest News', 'lawyeriax-lite'),
 			'sanitize_callback' => 'lawyeriax_sanitize_text'
 	));
 
-$wp_customize->add_control('news_section_heading', array(
+$wp_customize->add_control('news_heading', array(
 		'label'       => __('Section Heading', 'lawyeriax-lite'),
 		'section'     => 'lawyeriax_news_section',
-		'priority'    => 2,
-		'description' => __('Main heading', 'lawyeriax-lite')
+		'priority'    => 1,
 ));
 }
 add_action( 'customize_register', 'qwertyuiop_customize_register' );
