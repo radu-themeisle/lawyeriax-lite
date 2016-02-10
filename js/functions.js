@@ -86,11 +86,12 @@
 
 	/*** Sticky header ***/
 	var $body = jQuery( 'body' ),
-		$nav  = jQuery( '.sticky-navigation' );
-	var veryTopHeaderHeight,
+		$nav  = jQuery( '.sticky-navigation' ),
+		veryTopHeaderHeight,
 		adminBarHeight,
 		isAdminBar,
-		limit;
+		limit,
+		lastChanged;
 
 	$(document).ready( function() {
 		callback_mobile_dropdown();
@@ -100,6 +101,9 @@
 	    adminBarHeight      = 32;
 	    isAdminBar          = ( jQuery( '#wpadminbar').length != 0 ? true : false );
 	    limit               = 0;
+	    if( isAdminBar ) {
+	    	$nav.css('top', adminBarHeight );
+	    }
 	} );
 	$(window).load(function(){
 		fixFooterBottom();
@@ -147,10 +151,10 @@
 		}
 	}
 
-
-	/*** Sticky header ***/
+	
 	jQuery(window).scroll(function(){
-	    /* sticky menu without top part */
+	    
+	    /*** Sticky header ***/
 	    if( window.innerWidth > 768 ) {
 	        var window_offset  = $body.offset().top - jQuery(window).scrollTop();
 	        if( isAdminBar ) {
@@ -158,17 +162,24 @@
 	        } else {
 	            limit = -veryTopHeaderHeight;
 	        }
-	        if( window_offset < limit ) {
-	            $nav.css('top', limit );
-	        } else {
-	            $nav.css('top', window_offset );
-	        }
+	        var changed = (  window_offset < limit ? true : false );
+	        if( lastChanged != changed  ){
+		        if( changed == true ) {
+		            $nav.css('top', limit );
+
+		        } else {
+		            $nav.css('top', window_offset );
+		        }
+		        $( '.container-header' ).toggleClass( 'container-header-fixed' );
+		    }
+	        lastChanged = changed;
 	    }
+
 	});
 
 	/*** Sticky header ***/
 	function stickyHeader() {
-		$( 'body' ).css( 'padding-top', $( '.sticky-navigation' ).height() );
+		$( '#page' ).css( 'padding-top', $( '.sticky-navigation' ).height() );
 	}
 
 
