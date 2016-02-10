@@ -25,16 +25,14 @@ function qwertyuiop_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'qwertyuiop' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><i class="fa fa-clock-o"></i>' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'qwertyuiop' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"><i class="fa fa-user"></i>' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+	echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
 }
 endif;
@@ -49,13 +47,13 @@ function qwertyuiop_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'qwertyuiop' ) );
 		if ( $categories_list && qwertyuiop_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'qwertyuiop' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links"><i class="fa fa-folder"></i>' . esc_html__( '%1$s', 'qwertyuiop' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'qwertyuiop' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'qwertyuiop' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links"><i class="fa fa-tags"></i>' . esc_html__( '%1$s', 'qwertyuiop' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 

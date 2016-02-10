@@ -9,14 +9,15 @@
 
 get_header(); ?>
 
-	<div id="primary" class="col-sm-12 col-md-8 content-area">
+	<div id="primary" class="col-sm-12 col-md-9 content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php
 		while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', get_post_format() );
+			get_template_part( 'template-parts/content', 'single' );
 
+			echo '<div class="col-md-10 col-md-offset-1 section-line section-line-post"></div><div class="clearfix"></div>';
 			the_post_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.

@@ -84,18 +84,52 @@
 	} )();
 
 
+	/*** Sticky header ***/
+	var $body = jQuery( 'body' ),
+		$nav  = jQuery( '.sticky-navigation' );
+	var veryTopHeaderHeight,
+		adminBarHeight,
+		isAdminBar,
+		limit;
 
+	$(document).ready( function() {
+		callback_mobile_dropdown();
 
-
+		/*** Sticky header ***/
+	    veryTopHeaderHeight = jQuery( '#top-bar' ).height();
+	    adminBarHeight      = 32;
+	    isAdminBar          = ( jQuery( '#wpadminbar').length != 0 ? true : false );
+	    limit               = 0;
+	} );
 	$(window).load(function(){
-	  fixFooterBottom();
-	});
+		fixFooterBottom();
+		stickyHeader();
+	} );
 	$(window).resize(function() {
-	  fixFooterBottom();
-	});
+		fixFooterBottom();
+		stickyHeader();
 
+	} );
 
-	/* STICKY FOOTER */
+	/*** DROPDOWN FOR MOBILE MENU */
+	var callback_mobile_dropdown = function () {
+		var $navLi = $('#site-navigation li');
+	    $navLi.each(function(){
+	        if ( $(this).find('ul').length > 0 && !$(this).hasClass('has_children') ){
+	            $(this).addClass('has_children');
+	            $(this).find('a').first().after('<p class="dropdownmenu"><i class="fa fa-angle-down"></i></p>');
+	        }
+	    });
+	    $('.dropdownmenu').click(function(){
+	        if( $(this).parent('li').hasClass('this-open') ){
+	            $(this).parent('li').removeClass('this-open');
+	        }else{
+	            $(this).parent('li').addClass('this-open');
+	        }
+	    });
+	};
+
+	/*** STICKY FOOTER ****/
 	function fixFooterBottom(){
 		var $header      = $('#masthead'),
 			$footer      = $('colophon'),
@@ -112,5 +146,34 @@
 		  $content.css('min-height','1px');
 		}
 	}
+
+
+	/*** Sticky header ***/
+	jQuery(window).scroll(function(){
+	    /* sticky menu without top part */
+	    if( window.innerWidth > 768 ) {
+	        var window_offset  = $body.offset().top - jQuery(window).scrollTop();
+	        if( isAdminBar ) {
+	            limit = -veryTopHeaderHeight + adminBarHeight;
+	        } else {
+	            limit = -veryTopHeaderHeight;
+	        }
+	        if( window_offset < limit ) {
+	            $nav.css('top', limit );
+	        } else {
+	            $nav.css('top', window_offset );
+	        }
+	    }
+	});
+
+	/*** Sticky header ***/
+	function stickyHeader() {
+		$( 'body' ).css( 'padding-top', $( '.sticky-navigation' ).height() );
+	}
+
+
+
+
+
 
 } )(jQuery,window)

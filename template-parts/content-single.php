@@ -11,16 +11,6 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div class="post-thumbnail">
-		<?php 
-			if ( has_post_thumbnail() ) {
-				echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
-				the_post_thumbnail();
-				echo '</a>';
-			}
-		?> 
-	</div>
-
 	<header class="border-left entry-header">
 		<?php
 			if ( is_single() ) {
@@ -36,6 +26,14 @@
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
+
+	<div class="post-thumbnail-single">
+		<?php 
+			if ( has_post_thumbnail() ) {
+				the_post_thumbnail();
+			}
+		?> 
+	</div>
 
 	<div class="entry-content">
 
@@ -63,9 +61,5 @@
 	<footer class="entry-footer">
 		<?php qwertyuiop_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
-
-	<?php if ( !is_single() ) { ?>
-		<div class="col-md-10 col-md-offset-1 section-line section-line-blog-roll"></div><div class="clearfix"></div>
-	<?php } ?>
 
 </article><!-- #post-## -->

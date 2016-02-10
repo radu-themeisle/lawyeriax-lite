@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="border-left entry-header">
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
@@ -27,4 +27,7 @@
 	<footer class="entry-footer">
 		<?php qwertyuiop_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+
+	<div class="col-md-10 col-md-offset-1 section-line section-line-blog-roll"></div><div class="clearfix"></div>
+
 </article><!-- #post-## -->
