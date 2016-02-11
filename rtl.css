@@ -9,9 +9,186 @@ https://codex.wordpress.org/Right_to_Left_Language_Support
 
 */
 
-/*
+
 body {
 	direction: rtl;
 	unicode-bidi: embed;
 }
-*/
+
+.border-left {
+    padding-left: initial;
+    padding-right: 24px;
+    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+    -moz-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+    box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+}
+
+/* slider */
+.carousel-caption {
+	right: initial;
+}
+a.slider-button {
+	float: right;
+    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+}
+a.slider-button:hover {
+    -webkit-box-shadow: inset -320px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: inset -320px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    box-shadow: inset -320px 0px 0px 0px rgba(50, 50, 50, 0.25);
+}
+
+/* features section */
+.features-title-icon {
+	float: right;
+	margin-right: 0;
+	margin-left: 20px;
+    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+}
+.feature-title-wrap {
+    margin-right: 0;
+    margin-left: -60px;
+    float: left;
+}
+.features-title {
+    float: right;
+}
+h3.feature-title {
+    text-align: right;
+    padding-right: 0;
+    padding-left: 60px;
+}
+.features-content p {
+	text-align: right;
+}
+a.read-more {
+	float: right;
+}
+
+/* our lawyers section */
+.lawyer-box-image {
+	float: right;
+}
+.lawyer-box-content {
+    margin-right: 0;
+    margin-left: -170px;
+    float: left;
+    padding-right: 0;
+    padding-left: 170px;
+    text-align: right;
+}
+a.view-profile {
+    float: right;
+    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+}
+a.view-profile:hover {
+    -webkit-box-shadow: inset -120px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: inset -120px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    box-shadow: inset -120px 0px 0px 0px rgba(50, 50, 50, 0.25);
+}
+
+/* latest news section */
+.news-date {
+    margin-right: 0;
+    margin-left: 20px;
+    float: right;
+    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+}
+.news-post-title {
+    padding-right: 0;
+    padding-left: 65px;
+}
+.news-post-title-wrap {
+    margin-right: 0;
+    margin-left: -65px;
+    float: left;
+}
+.news-posted-on {
+    float: left;
+    margin-right: 0;
+    margin-left: -65px;
+}
+.news-posted-on a {
+    margin-right: 0;
+    margin-left: 10px;
+    float: right;
+}
+
+/* sidebar */
+.widget-area.border-left {
+    padding-left: 0;
+    padding-right: 24px;
+    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+    -moz-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+    box-shadow: inset -4px 0px 0px rgba(50, 50, 50, 0.1);
+}
+.content-area, .widget-area {
+	float: right;
+}
+.widget_search label {
+    float: right;
+	padding-right: 0;
+	padding-left: 120px;
+}
+.widget_search input[type="submit"] {
+    right: initial;
+    left: 0;
+    float: right;
+    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+}
+.widget_search input[type="submit"]:hover {
+    -webkit-box-shadow: inset -120px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: inset -120px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    box-shadow: inset -120px 0px 0px 0px rgba(50, 50, 50, 0.25);
+}
+.widget ul {
+	margin-left: 0;
+	margin-right: 20px;
+    padding-right: 0;
+}
+.nav-previous {
+	text-align: left;
+}
+
+/* footer */
+.site-footer .widget > ul, 
+.site-footer .widget_nav_menu > div > ul {
+    padding-left: 0;
+    padding-right: 24px;
+    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset -4px 0px 0px 0px rgba(255, 255, 255, 0.1);
+    box-shadow: inset -4px 0px 0px 0px rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+
+	/* header */ 
+	.top-bar-left {
+		float: right;
+	}
+	.top-bar-right {
+		float: left;
+	}
+
+	/* slider */
+	.carousel-title,
+	.carousel-content,
+	.carousel-button,
+	a.slider-button {
+		float: right;
+		text-align: right;
+	}
+	.about-image-wrap {
+		float: right;
+	}
+
+}

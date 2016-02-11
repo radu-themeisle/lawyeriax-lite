@@ -1401,9 +1401,13 @@ h3.feature-title {
     display: inline-block;
     text-align: left;
 	padding-right: 60px;
-	padding-top: 5px;
+	padding-top: 2px;
 }
 .features-title-icon {
+    color: #fff;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
     width: 40px;
     height: 40px;
     margin-right: 20px;
@@ -1462,13 +1466,15 @@ h3.about-title {
     box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.25);
 }
 .news-date span {
-	display: block;
-	text-align: center;
+	display: block.news-posted-on a	text-align: center;
 	color: #fff;
 	font-size: 11px;
 	line-height: 15px;
 	font-family: 'Playfair Display', serif;
 	font-weight: 400;
+	width: 100%;
+    display: block;
+    text-align: center;
 }
 .news-date span:first-child {
 	font-size: 16px;
@@ -1484,8 +1490,8 @@ h3.about-title {
     float: right;
     width: 100%;
     margin-right: -65px;
-    margin-top: 5px;
     margin-bottom: 20px;
+    margin-top: 4px;
 }
 .news-posted-on a {
 	font-size: 11px;
@@ -1493,6 +1499,7 @@ h3.about-title {
 	color: #775f5e;
 	font-style: italic;
 	margin-right: 10px;
+	float: left;
 }
 .news-posted-on a:hover {
 	color: #b03230;
@@ -2143,6 +2150,19 @@ h2.widget-title {
 	    width: 40px;
 	    top: 45%;
 	    left: 20px;
+	    font-size: 30px;
+	    line-height: 40px;
+	    background: rgba(255,255,255,0.25);
+	    -webkit-border-radius: 2px;
+	    -moz-border-radius: 2px;
+	    border-radius: 2px;
+	    text-align: center;
+		opacity: 1;
+		text-shadow: none;
+	}
+	.carousel-control.left:hover,
+	.carousel-control.right:hover {
+		background: rgba(255,255,255,0.5);
 	}
 	.carousel-control.right {
 		left: auto;

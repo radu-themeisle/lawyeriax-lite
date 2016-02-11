@@ -11,7 +11,7 @@ get_header();
 get_sidebar();
 ?>
 
-	<div id="primary" class="col-sm-12 col-md-8 content-area">
+	<div id="primary" class="col-sm-12 col-md-8 content-area content-area-left-sidebar">
 		<main id="main" class="site-main" role="main">
 
 			<?php
