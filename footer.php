@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package qwertyuiop
+ * @package lawyeriax-lite
  */
 
 ?>
@@ -38,9 +38,9 @@
 			<div class="site-info">
 				<div class="col-md-10 col-md-offset-1 section-line"></div>
 				<div class="site-info-inner">
-					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'qwertyuiop' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'qwertyuiop' ), 'WordPress' ); ?></a>
+					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'lawyeriax-lite' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'lawyeriax-lite' ), 'WordPress' ); ?></a>
 					<span class="sep"> | </span>
-					<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'qwertyuiop' ), 'qwertyuiop', '<a href="http://themeisle.com/" rel="designer">Themeisle.com</a>' ); ?>
+					<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'lawyeriax-lite' ), 'lawyeriax-lite', '<a href="http://themeisle.com/" rel="designer">Themeisle.com</a>' ); ?>
 				</div>
 			</div><!-- .site-info -->
 		</div>

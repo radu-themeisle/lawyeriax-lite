@@ -1,13 +1,13 @@
 <?php
 /**
- * qwertyuiop functions and definitions.
+ * lawyeriax-lite functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package qwertyuiop
+ * @package lawyeriax-lite
  */
 
-if ( ! function_exists( 'qwertyuiop_setup' ) ) :
+if ( ! function_exists( 'lawyeriax_lite_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'qwertyuiop_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function qwertyuiop_setup() {
+function lawyeriax_lite_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on qwertyuiop, use a find and replace
-	 * to change 'qwertyuiop' to the name of your theme in all the template files.
+	 * If you're building a theme based on lawyeriax-lite, use a find and replace
+	 * to change 'lawyeriax-lite' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'qwertyuiop', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'lawyeriax-lite', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -46,7 +46,7 @@ function qwertyuiop_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'qwertyuiop' ),
+		'primary' => esc_html__( 'Primary', 'lawyeriax-lite' ),
 	) );
 
 	/*
@@ -74,13 +74,13 @@ function qwertyuiop_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'qwertyuiop_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'lawyeriax_lite_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
 endif;
-add_action( 'after_setup_theme', 'qwertyuiop_setup' );
+add_action( 'after_setup_theme', 'lawyeriax_lite_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -89,19 +89,19 @@ add_action( 'after_setup_theme', 'qwertyuiop_setup' );
  *
  * @global int $content_width
  */
-function qwertyuiop_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'qwertyuiop_content_width', 640 );
+function lawyeriax_lite_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'lawyeriax_lite_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'qwertyuiop_content_width', 0 );
+add_action( 'after_setup_theme', 'lawyeriax_lite_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function qwertyuiop_widgets_init() {
+function lawyeriax_lite_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'qwertyuiop' ),
+		'name'          => esc_html__( 'Sidebar', 'lawyeriax-lite' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -111,50 +111,53 @@ function qwertyuiop_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__('Footer left widget', 'qwertyuiop'),
+		'name'          => esc_html__('Footer left widget', 'lawyeriax-lite'),
 		'id'            => 'footer_widget_col_1',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__('Footer center widget', 'qwertyuiop'),
+		'name'          => esc_html__('Footer center widget', 'lawyeriax-lite'),
 		'id'            => 'footer_widget_col_2',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__('Footer left widget', 'qwertyuiop'),
+		'name'          => esc_html__('Footer right widget', 'lawyeriax-lite'),
 		'id'            => 'footer_widget_col_3',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 
-	// register_widget( 'LawyeriaX_About_Us' );
-	// register_widget( 'Foo_Widget' );
+	register_sidebar( array(
+		'name'          => esc_html__('Team Widgets', 'lawyeriax-lite'),
+		'id'            => 'team_widgets',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
 }
-add_action( 'widgets_init', 'qwertyuiop_widgets_init' );
+add_action( 'widgets_init', 'lawyeriax_lite_widgets_init' );
 
 //Custom widgets
-// require get_template_directory() . "/widgets/about-us.php";
-// require get_template_directory() . "/widgets/trial.php";
 
 /**
  * Enqueue scripts and styles.
  */
-function qwertyuiop_scripts() {
-	wp_enqueue_style( 'qwertyuiop-style', get_stylesheet_uri(), array('qwertyuiop-boostrap-css') );
+function lawyeriax_lite_scripts() {
+	wp_enqueue_style( 'lawyeriax-lite-style', get_stylesheet_uri(), array('lawyeriax-lite-boostrap-css') );
 
-	wp_enqueue_style ( 'qwertyuiop-boostrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'v3.3.6', 'all' );
+	wp_enqueue_style ( 'lawyeriax-lite-boostrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'v3.3.6', 'all' );
 
 	wp_enqueue_script( 'wertyuiop-boostrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '20130115', true );
 
-	wp_enqueue_script( 'qwertyuiop-navigation', get_template_directory_uri() . '/js/functions.js', array(), '20120206', true );
+	wp_enqueue_script( 'lawyeriax-lite-navigation', get_template_directory_uri() . '/js/functions.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'qwertyuiop-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'lawyeriax-lite-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-	wp_enqueue_style( 'qwertyuiop-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
+	wp_enqueue_style( 'lawyeriax-lite-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
 
 
 
@@ -162,12 +165,12 @@ function qwertyuiop_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'qwertyuiop_scripts' );
+add_action( 'wp_enqueue_scripts', 'lawyeriax_lite_scripts' );
 
 
 function repeater_customizer_script() {
 
-	wp_enqueue_style( 'qwertyuiop-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
+	wp_enqueue_style( 'lawyeriax-lite-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
 
 	wp_enqueue_script( 'lawyeriax_ddslick', get_template_directory_uri() .'/js/jquery.ddslick.js', array("jquery"),'1.0.0', true  );
 
@@ -208,10 +211,10 @@ add_action( 'wp_enqueue_scripts', 'lawyeriax_scripts_styles' );
 /**
  * Enqueue admin style.
  */
-function qwertyuiop_admin_styles() {
-	wp_enqueue_style( 'qwertyuiop_admin_stylesheet', get_template_directory_uri() . '/css/admin-style.css', '1.0.0' );
+function lawyeriax_lite_admin_styles() {
+	wp_enqueue_style( 'lawyeriax_lite_admin_stylesheet', get_template_directory_uri() . '/css/admin-style.css', '1.0.0' );
 }
-add_action( 'admin_enqueue_scripts', 'qwertyuiop_admin_styles', 10 );
+add_action( 'admin_enqueue_scripts', 'lawyeriax_lite_admin_styles', 10 );
 
 /**
  * Implement the Custom Header feature.

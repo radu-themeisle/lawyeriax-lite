@@ -1,5 +1,5 @@
 /*
-Theme Name: qwertyuiop
+Theme Name: lawyeriax-lite
 Theme URI: http://underscores.me/
 Author: Underscores.me
 Author URI: http://underscores.me/
@@ -7,13 +7,13 @@ Description: Description
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: qwertyuiop
-Tags:
+Text Domain: lawyeriax-lite
+Tags: red, white
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-qwertyuiop is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+lawyeriax-lite is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -1226,7 +1226,7 @@ object {
 	padding-top: 6px;
 }
 .top-bar-contact {
-	padding-bottom: 2px; 
+	padding-bottom: 2px;
 }
 .site-branding {
 	text-align: center;
@@ -1276,14 +1276,14 @@ p.site-description {
 }
 .carousel-title {
 	font-family: 'Playfair Display', serif;
-	font-weight: 400; 
+	font-weight: 400;
 	font-size: 80px;
 	line-height: 90px;
 	margin-bottom: 30px;
 }
 .carousel-content {
 	font-family: 'Playfair Display', serif;
-	font-weight: 400; 
+	font-weight: 400;
 	font-size: 20px;
 	line-height: 30px;
 	margin-bottom: 30px;
@@ -1364,7 +1364,7 @@ h2.home-section-title {
 }
 .ribbon-big-title {
 	font-family: 'Playfair Display', serif;
-	font-weight: 400; 
+	font-weight: 400;
 	color: #330505;
 	font-size: 36px;
 	line-height: 40px;
@@ -1468,7 +1468,7 @@ h3.about-title {
 	font-size: 11px;
 	line-height: 15px;
 	font-family: 'Playfair Display', serif;
-	font-weight: 400; 
+	font-weight: 400;
 }
 .news-date span:first-child {
 	font-size: 16px;
@@ -1500,7 +1500,7 @@ h3.about-title {
 .news-post-title {
 	display: inline-block;
 	margin-top: 0;
-	margin-bottom: 0; 
+	margin-bottom: 0;
 	padding-right: 65px;
 }
 .news-post-title a {
@@ -1635,7 +1635,7 @@ h2.widget-title {
 	list-style: none;
 }
 .widget ul {
-	margin: 0; 
+	margin: 0;
 	margin-left: 20px;
 	padding-left: 0;
 }
@@ -1665,7 +1665,7 @@ h2.widget-title {
 	border: 1px solid #EBEBEB;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
-	border-radius: 2px;	
+	border-radius: 2px;
     background: #FFF;
     box-shadow: none;
     font-weight: 400;
@@ -1777,7 +1777,7 @@ h2.widget-title {
 ## Footer
 -------------------------*/
 .site-footer {
-	background: #200303;	
+	background: #200303;
 	color: rgba(255,255,255,0.7);
 	padding-top: 40px;
 	padding-bottom: 20px;
@@ -1803,10 +1803,10 @@ h2.widget-title {
 .site-footer .widget {
 	padding-bottom: 40px;
 }
-.site-footer .widget select, 
+.site-footer .widget select,
 .site-footer .widget input:not([type="submit"]) {
 	border: none;
-    background: rgba(255, 255, 255, 0.9);	
+    background: rgba(255, 255, 255, 0.9);
 }
 .site-footer .widget_calendar thead tr {
     background: rgba(235, 235, 235, 0.7);
@@ -1825,7 +1825,7 @@ h2.widget-title {
 	border-bottom: none;
 }
 .sote-footer .widget_calendar caption {
-    color: rgba(255,255,255,0.7);	
+    color: rgba(255,255,255,0.7);
 }
 .site-info-inner {
 	font-size: 10px;
@@ -1929,7 +1929,7 @@ h2.widget-title {
 	float: left;
 	margin-left: 20px;
 	font-family: 'Playfair Display', serif;
-	font-weight: 400; 
+	font-weight: 400;
 	font-size: 14px;
 	line-height: 32px;
 }
@@ -1937,7 +1937,7 @@ h2.widget-title {
 .comment-metadata a {
 	color: #330505;
 	font-family: 'Playfair Display', serif;
-	font-weight: 400; 
+	font-weight: 400;
 	font-size: 14px;
 	line-height: 32px;
 }
@@ -2005,7 +2005,7 @@ h2.widget-title {
 		float: right;
 		max-width: 50%;
 	}
-	.top-bar-social, 
+	.top-bar-social,
 	.top-bar-contact {
 		width: auto;
 	}
@@ -2013,7 +2013,7 @@ h2.widget-title {
 		padding-bottom: 2px;
 	}
 	.top-bar-contact {
-		padding-top: 6px; 
+		padding-top: 6px;
 	}
 	.top-bar-contact p:nth-child(2) {
 		padding-left: 30px;
@@ -2025,7 +2025,7 @@ h2.widget-title {
 		display: block;
 	}
 	.header-inner {
-		display: table; 
+		display: table;
 		width: 100%;
 	}
 	.site-branding-wrap,
@@ -2142,11 +2142,11 @@ h2.widget-title {
 	    height: 40px;
 	    width: 40px;
 	    top: 45%;
-	    left: 20px;	
+	    left: 20px;
 	}
 	.carousel-control.right {
 		left: auto;
-	    right: 20px;	
+	    right: 20px;
 	}
 	a.slider-button {
     	float: left;
@@ -2205,6 +2205,5 @@ h2.widget-title {
 /*
 	font-family: 'Playfair Display', serif;
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 400; 
+	font-weight: 400;
 */
-

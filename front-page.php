@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package qwertyuiop
+ * @package lawyeriax-lite
  */
 
 get_header(); ?>
@@ -14,22 +14,22 @@ get_header(); ?>
 	<?php 
 
 		/* Slider section */
-		qwertyuiop_slider_section();
+		lawyeriax_lite_slider_section();
 
 		/* Ribbon section */
-		qwertyuiop_ribbon_section();
+		lawyeriax_lite_ribbon_section();
 
 		/* Features section */
-		qwertyuiop_features_section();
+		lawyeriax_lite_features_section();
 		
 		/* Lawyers section */
-		qwertyuiop_lawyers_section();
+		lawyeriax_lite_lawyers_section();
 		
 		/* About us section */
-		qwertyuiop_about_us_section();
+		lawyeriax_lite_about_us_section();
 		
 		/* Latest news section */
-		qwertyuiop_latest_news_section();
+		lawyeriax_lite_latest_news_section();
 
 	?>
 

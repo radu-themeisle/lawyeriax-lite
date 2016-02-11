@@ -12,33 +12,33 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package qwertyuiop
+ * @package lawyeriax-lite
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses qwertyuiop_header_style()
+ * @uses lawyeriax_lite_header_style()
  */
-function qwertyuiop_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'qwertyuiop_custom_header_args', array(
+function lawyeriax_lite_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'lawyeriax_lite_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'qwertyuiop_header_style',
+		'wp-head-callback'       => 'lawyeriax_lite_header_style',
 	) ) );
 }
-add_action( 'after_setup_theme', 'qwertyuiop_custom_header_setup' );
+add_action( 'after_setup_theme', 'lawyeriax_lite_custom_header_setup' );
 
-if ( ! function_exists( 'qwertyuiop_header_style' ) ) :
+if ( ! function_exists( 'lawyeriax_lite_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog.
  *
- * @see qwertyuiop_custom_header_setup().
+ * @see lawyeriax_lite_custom_header_setup().
  */
-function qwertyuiop_header_style() {
+function lawyeriax_lite_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	/*
