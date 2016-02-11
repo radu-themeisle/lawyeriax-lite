@@ -27,13 +27,13 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="post-thumbnail-single">
-		<?php
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail();
-			}
-		?>
-	</div>
+	<?php
+		if ( has_post_thumbnail() ) {
+			echo '<div class="post-thumbnail-single">';
+			the_post_thumbnail();
+			echo '</div>';
+		}
+	?>
 
 	<div class="entry-content">
 

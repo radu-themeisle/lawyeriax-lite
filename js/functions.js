@@ -83,7 +83,6 @@
 		}
 	} )();
 
-
 	/*** Sticky header ***/
 	var $body = jQuery( 'body' ),
 		$nav  = jQuery( '.sticky-navigation' ),
@@ -95,24 +94,22 @@
 
 	$(document).ready( function() {
 		callback_mobile_dropdown();
-
-		/*** Sticky header ***/
-	    veryTopHeaderHeight = jQuery( '#top-bar' ).height();
-	    adminBarHeight      = 32;
-	    isAdminBar          = ( jQuery( '#wpadminbar').length != 0 ? true : false );
-	    limit               = 0;
-	    if( isAdminBar ) {
-	    	$nav.css('top', adminBarHeight );
-	    }
 	} );
 	$(window).load(function(){
-		fixFooterBottom();
+	    "use strict";
+
+		/* PRE LOADER */
+	    jQuery(".status").fadeOut();
+	    jQuery(".preloader").delay(1000).fadeOut("slow");
+
+		setTimeout( fixFooterBottom, 100 );
+		stickyHeaderInit();
 		stickyHeader();
 	} );
 	$(window).resize(function() {
-		fixFooterBottom();
-		stickyHeader();
-
+		setTimeout( fixFooterBottom, 100 );
+		stickyHeaderInit();
+		setTimeout( stickyHeader, 100 );
 	} );
 
 	/*** DROPDOWN FOR MOBILE MENU */
@@ -135,8 +132,8 @@
 
 	/*** STICKY FOOTER ****/
 	function fixFooterBottom(){
-		var $header      = $('#masthead'),
-			$footer      = $('colophon'),
+		var $header      = $('.sticky-navigation'),
+			$footer      = $('#colophon'),
 			$content     = $('#content');
 		$content.css('min-height', '1px');
 		var headerHeight  = $header.outerHeight(),
@@ -144,6 +141,7 @@
 			contentHeight = $content.outerHeight(),
 			windowHeight  = $(window).height();
 		var totalHeight = headerHeight + footerHeight + contentHeight;
+
 		if (totalHeight<windowHeight){
 		  $content.css('min-height', windowHeight - headerHeight - footerHeight );
 		}else{
@@ -178,6 +176,16 @@
 	});
 
 	/*** Sticky header ***/
+	function stickyHeaderInit() {
+		/*** Sticky header ***/
+	    veryTopHeaderHeight = $( '#top-bar' ).height();
+	    adminBarHeight      = $( '#wpadminbar' ).height();
+	    isAdminBar          = ( $( '#wpadminbar').length != 0 ? true : false );
+	    limit               = 0;
+	    if( isAdminBar ) {
+	    	$nav.css('top', adminBarHeight );
+	    }
+	}
 	function stickyHeader() {
 		$( '#page' ).css( 'padding-top', $( '.sticky-navigation' ).height() );
 	}

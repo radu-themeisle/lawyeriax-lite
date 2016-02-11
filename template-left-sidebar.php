@@ -8,10 +8,15 @@
  */
 
 get_header();
-get_sidebar();
 ?>
 
-	<div id="primary" class="col-sm-12 col-md-8 content-area content-area-left-sidebar">
+<div class="content-area-left-sidebar">
+
+<?php
+	get_sidebar();
+?>
+
+	<div id="primary" class="col-sm-12 col-md-8 content-area">
 		<main id="main" class="site-main" role="main">
 
 			<?php
@@ -29,6 +34,8 @@ get_sidebar();
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+
+</div>
 
 <?php
 get_footer();

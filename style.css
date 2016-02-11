@@ -557,10 +557,19 @@ textarea {
 	color: #200303;
     border: 1px solid #EBEBEB;
     border-radius: 2px;
+    max-width: 100%;
 }
 
 select {
-	border: 1px solid #ccc;
+	font-size: 13px;
+	color: #200303;
+    border: 1px solid #EBEBEB;
+    border-radius: 2px;
+    max-width: 100%;
+    padding: 7px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
 }
 
 input[type="text"]:focus,
@@ -667,9 +676,6 @@ a:active {
     color: #301700;
     padding: 5px 10px;
 }
-.main-navigation a:hover {
-	color: #d11717;
-}
 
 .main-navigation ul ul {
 	display: none;
@@ -694,6 +700,11 @@ a:active {
 
 .main-navigation ul ul li {
 
+}
+
+.main-navigation li:hover > a,
+.current_page_item > a {
+    color: #B03230;
 }
 
 .main-navigation li:hover > a,
@@ -756,25 +767,30 @@ a:active {
 	width: 50%;
 }
 
-.main-navigation.toggled .menu-toggle,
-.menu-toggle:hover,
-.menu-toggle:focus {
+.main-navigation.toggled button.menu-toggle,
+button.menu-toggle:hover,
+button.menu-toggle:focus {
 	color: #db3936;
 }
 
-.menu-toggle:focus {
+button.menu-toggle:focus {
 	outline: none;
 	box-shadow: none;
 }
 
-.menu-toggle {
-    margin-top: -38px;
+button.menu-toggle {
+    margin-top: -30px;
     float: right;
     border: none;
     box-shadow: none;
     background: none;
     font-size: 25px;
     padding: 5px 20px;
+    color: #200303;
+    margin-bottom: -10px;
+}
+button.menu-toggle:hover {
+	box-shadow: none;
 }
 
 .main-navigation-wrap {
@@ -819,6 +835,17 @@ a:active {
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
     color: #200303;
+}
+
+.main-navigation.toggled ul li.this-open > .dropdownmenu:hover {
+    -ms-transform: rotate(0deg); /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Safari */
+    transform: rotate(0deg);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+	color: #DB3936;
 }
 
 .main-navigation.toggled ul ul {
@@ -935,6 +962,7 @@ a:active {
 .content-area,
 .widget-area {
 	margin-top: 60px;
+	margin-bottom: 60px;
 	float: left;
 }
 
@@ -1179,9 +1207,36 @@ object {
 }
 
 /*-----------------------
+## preloader
+-------------------------*/
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fefefe;
+	z-index: 99999;
+	height: 100%;
+	width: 100%;
+	overflow: hidden !important;
+}
+.status {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -20px 0 0 -20px;
+	background: url(images/loading.gif);
+    background-size: cover;
+}
+
+/*-----------------------
 ## Header
 -------------------------*/
 .sticky-navigation {
+	position: absolute;
     -webkit-box-shadow: 0px 4px 10px 0px rgba(32, 3, 3, 0.1);
     -moz-box-shadow: 0px 4px 10px 0px rgba(32, 3, 3, 0.1);
     box-shadow: 0px 4px 10px 0px rgba(32, 3, 3, 0.1);
@@ -1277,8 +1332,8 @@ p.site-description {
 .carousel-title {
 	font-family: 'Playfair Display', serif;
 	font-weight: 400;
-	font-size: 80px;
-	line-height: 90px;
+	font-size: 40px;
+	line-height: 60px;
 	margin-bottom: 30px;
 }
 .carousel-content {
@@ -1664,7 +1719,7 @@ h2.widget-title {
 	margin-bottom: 0;
 }
 .widget select,
-.widget input {
+.widget input:not(input[type="submit"]):not(input[type="reset"]):not(input[type="button"]) {
 	max-width: 100%;
 	width: 100%;
 	font-size: 13px;
@@ -1742,6 +1797,9 @@ h2.widget-title {
 	font-size: 14px;
 	margin: 0;
 }
+.widget_calendar th {
+	border: none;
+}
 .widget_calendar th,
 .widget_calendar td {
 	padding: 0;
@@ -1769,7 +1827,8 @@ h2.widget-title {
 .site-footer .widget_calendar tbody td {
 	background-color: rgba(255, 255, 255, 0.05);
 }
-.widget_calendar tbody .pad, .site-footer .widget_calendar tbody .pad {
+.widget_calendar tbody .pad,
+.site-footer .widget_calendar tbody .pad {
 	background-color: transparent;
 }
 .widget_calendar thead tr {
@@ -1786,8 +1845,8 @@ h2.widget-title {
 .site-footer {
 	background: #200303;
 	color: rgba(255,255,255,0.7);
-	padding-top: 40px;
-	padding-bottom: 20px;
+	padding-top: 25px;
+	padding-bottom: 25px;
 }
 .site-footer h2.widget-title {
 	color: #fff;
@@ -1839,10 +1898,12 @@ h2.widget-title {
     width: 100%;
     float: left;
     text-align: center;
-    padding-top: 15px;
 }
 .site-info .section-line {
     background-color: rgba(255, 255, 255, 0.3);
+}
+.section-line-footer {
+	margin-bottom: 15px;
 }
 
 /*--------------------------------------------------------------
@@ -1955,7 +2016,7 @@ h2.widget-title {
     width: 100%;
     float: left;
     padding-left: 24px;
-    margin-left: 28px;
+    margin-left: 0;
     -webkit-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
     -moz-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
     box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
@@ -1980,6 +2041,59 @@ h2.widget-title {
 }
 
 /*--------------------------------------------------------------
+## Plugins
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+### Contact Form 7
+--------------------------------------------------------------*/
+div.wpcf7-validation-errors {
+    border: 2px solid #DB3936;
+    background: #DB3936;
+    color: #fff;
+    line-height: 16px;
+    padding: 10px 15px;
+    margin-left: 0;
+    margin-right: 0;
+}
+span.wpcf7-not-valid-tip {
+    color: #DB3936;
+    display: block;
+    font-style: italic;
+    font-size: 12px;
+}
+div.wpcf7-mail-sent-ng {
+    border: 2px solid #ba312e;
+    background: #ba312e;
+    color: #fff;
+    line-height: 16px;
+    padding: 10px 15px;
+    margin-left: 0;
+    margin-right: 0;
+}
+div.wpcf7-mail-sent-ok {
+    border: 2px solid #398f14;
+    background: #398f14;
+    color: #fff;
+    line-height: 16px;
+    padding: 10px 15px;
+    margin-left: 0;
+    margin-right: 0;
+}
+.wpcf7 p {
+	margin-bottom: 10px;
+}
+.site-footer .widget .wpcf7 input:not([type="submit"]) {
+	width: 100%;
+	max-width: 100%;
+	background: rgba(255,255,255,1);
+}
+.site-footer .widget .wpcf7 textarea {
+	height: 140px;
+}
+
+
+/*--------------------------------------------------------------
 ## Responsive
 --------------------------------------------------------------*/
 
@@ -1987,13 +2101,20 @@ h2.widget-title {
 @media screen and (min-width: 992px) {
 
 	/*-----------------------
-	### Slider
+	### Sidebar
 	-------------------------*/
 	.widget-area.border-left {
 	    padding-left: 24px;
 	    -webkit-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
 	    -moz-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
 	    box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+	}
+	.content-area-left-sidebar .widget-area.border-left {
+	    padding-left: 0;
+	    padding-right: 24px;
+	    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+	    -moz-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+	    box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
 	}
 
 }
@@ -2040,6 +2161,24 @@ h2.widget-title {
 	    display: table-cell;
 	    vertical-align: middle;
 	}
+	.main-navigation li.has_children > a {
+	    padding-right: 16px;
+	    position: relative;
+	    z-index: 10;
+	}
+	.main-navigation li.has_children > .dropdownmenu {
+		right: 2px;
+		z-index: 9;
+	}
+	.main-navigation ul ul li.has_children > a {
+	    padding-right: 16px;
+	    position: relative;
+	    z-index: 10;
+	}
+	.main-navigation ul ul li.has_children > .dropdownmenu {
+		right: 2px;
+		z-index: 9;
+	}
 
 	/*-----------------------
 	### Navigation
@@ -2074,12 +2213,7 @@ h2.widget-title {
 	.main-navigation ul {
 		padding-top: 0;
 	}
-	.main-navigation a:hover {
-		color: #200303;
-		background: #fff;
-	}
 	.main-navigation li.has_children {
-		padding-right: 2px;
 		font-size: 12px;
 		z-index: 1;
 	}
@@ -2103,9 +2237,14 @@ h2.widget-title {
 	.main-navigation ul li.focus > ul {
 		display: block;
 	}
-	.main-navigation ul li:hover > a {
-	    color: #200303;
-	    background: #fff;
+	.main-navigation ul ul li:hover {
+	    background: #962b29;
+	}
+	.main-navigation ul ul li:hover > a {
+	    color: #fff;
+	}
+	.main-navigation ul ul li.has_children:hover > .dropdownmenu {
+		color: #fff;
 	}
 	.main-navigation ul ul .dropdownmenu {
 		color: #fff;
@@ -2196,19 +2335,17 @@ h2.widget-title {
 }
 
 
-@media screen and (min-width: 768px) {
-
-
-
-
-
-}
-
 @media screen and (min-width: 600px) {
 
 
-
-
+	.carousel-title {
+		font-size: 80px;
+		line-height: 90px;
+		margin-bottom: 30px;	
+	}
+	.sticky-navigation {
+		position: fixed;
+	}
 
 }
 
@@ -2221,6 +2358,13 @@ h2.widget-title {
 
 }
 
+@media screen and (max-width: 600px) {
+
+	#page {
+		padding-top: 0 !important;
+	}
+
+}
 
 /*
 	font-family: 'Playfair Display', serif;
