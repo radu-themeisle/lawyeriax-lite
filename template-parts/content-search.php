@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package qwertyuiop
+ * @package lawyeriax-lite
  */
 
 ?>
@@ -15,7 +15,7 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php qwertyuiop_posted_on(); ?>
+			<?php lawyeriax_lite_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -25,7 +25,7 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php qwertyuiop_entry_footer(); ?>
+		<?php lawyeriax_lite_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
 	<div class="col-md-10 col-md-offset-1 section-line section-line-blog-roll"></div><div class="clearfix"></div>

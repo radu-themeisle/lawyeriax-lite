@@ -5,32 +5,32 @@
 
 
 
- if ( ! function_exists( 'qwertyuiop_slider_section' ) ) :
+ if ( ! function_exists( 'lawyeriax_lite_slider_section' ) ) :
  /**
   * Ribbon sections
   */
- function qwertyuiop_slider_section() {
+ function lawyeriax_lite_slider_section() {
    $slider_content = get_theme_mod('lawyeriax_slider_content', json_encode(array(
        array(
            'title'      => esc_html__('Meet Lawyeria', 'lawyeriax-lite'),
            'text'       => esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
            'subtitle'   => esc_html__('Request Legal Advice', 'lawyeriax-lite'),
            'link'				=> '#',
-           'image'				=> get_template_directory_uri() . '/images/slider/slider.jpg'
+           'image_url'	=> get_template_directory_uri() . '/images/slider/slider.jpg'
        ),
        array(
            'title'      => esc_html__('Business Ready', 'lawyeriax-lite'),
            'text'       => esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
            'subtitle'   => esc_html__('Buy Now', 'lawyeriax-lite'),
            'link'				=> '#',
-           'image'				=> get_template_directory_uri() . '/images/slider/slider.jpg'
+           'image_url'	=> get_template_directory_uri() . '/images/slider/slider.jpg'
        ),
        array(
            'title'      => esc_html__('Fully Responsive', 'lawyeriax-lite'),
            'text'       => esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
            'subtitle'   => esc_html__('More Themes', 'lawyeriax-lite'),
            'link'				=> '#',
-           'image'				=> get_template_directory_uri() . '/images/slider/slider.jpg'
+           'image_url'	=> get_template_directory_uri() . '/images/slider/slider.jpg'
        ),
      )));
        $var   = 0;
@@ -66,7 +66,7 @@
                 <?php } else { ?>
               <div class="item">
                 <?php } ?>
-   					<div class="item-inner" style="background-image: url('<?php echo esc_url($slider_content->image_url) ?>');">
+   					<div class="item-inner" style="background-image: url('<?php echo esc_attr($slider_content->image_url); ?>');">
    						<div class="carousel-caption">
    							<div class="container">
    								<p class="col-md-8 carousel-title"> <?php echo esc_html($slider_content->title); ?> </p>
@@ -98,111 +98,101 @@ endif;
 
 
 
- if ( ! function_exists( 'qwertyuiop_ribbon_section' ) ) :
+ if ( ! function_exists( 'lawyeriax_lite_ribbon_section' ) ) :
  /**
   * Ribbon sections
   */
- function qwertyuiop_ribbon_section() {
- 	?>
+ function lawyeriax_lite_ribbon_section() {
+  $ribbon_tagline = get_theme_mod('lawyeriax_ribbon_tagline', esc_html__('The safety of the people shall be the highest law.','lawyeriax-lite'));
 
- 	<section id="ribbon" class="home-section ribbon">
- 		<div class="container">
+  if(!empty($ribbon_tagline)) {?>
+   	<section id="ribbon" class="home-section ribbon">
+   		<div class="container">
 
- 			<div class="home-section-inner">
- 				<p class="ribbon-big-title">The safety of the people shall be the highest law.</p>
- 			</div>
+   			<div class="home-section-inner">
+   				<p class="ribbon-big-title"><?php echo esc_html($ribbon_tagline) ?></p>
+   			</div>
 
- 			<div class="col-md-10 col-md-offset-1 section-line"></div>
- 		</div><!-- .container -->
- 	</section>
+   			<div class="col-md-10 col-md-offset-1 section-line"></div>
+   		</div><!-- .container -->
+   	</section>
 
  	<?php
+  }
  }
  endif;
 
 
 
- if ( ! function_exists( 'qwertyuiop_features_section' ) ) :
+ if ( ! function_exists( 'lawyeriax_lite_features_section' ) ) :
  /**
   * Features sections
   */
- function qwertyuiop_features_section() {
- 	?>
+ function lawyeriax_lite_features_section() {
+   $features_content = get_theme_mod('lawyeriax_features_content', json_encode(array(
+       array(
+           'title'       => esc_html__('Lorem ipsum', 'lawyeriax-lite'),
+           'text'    		 => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.', 'lawyeriax-lite'),
+           'subtitle'    => esc_html__('Read more...', 'lawyeriax-lite'),
+           'link'				 => '#',
+           'icon_value'  => esc_html('fa-gavel')
+       ),
+
+       array(
+           'title'       => esc_html__('Lorem ipsum', 'lawyeriax-lite'),
+           'text'    	   => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.', 'lawyeriax-lite'),
+           'subtitle'    => esc_html__('Read more...', 'lawyeriax-lite'),
+           'link'				 => '#',
+           'icon_value'  => esc_html('fa-gavel')
+       ),
+
+       array(
+           'title'       => esc_html__('Lorem ipsum', 'lawyeriax-lite'),
+           'text'    		 => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.', 'lawyeriax-lite'),
+           'subtitle'    => esc_html__('Read more...', 'lawyeriax-lite'),
+           'link'				 => '#',
+           'icon_value'  => esc_html('fa-gavel')
+       ),
+
+       array(
+           'title'       => esc_html__('Lorem ipsum', 'lawyeriax-lite'),
+           'text'    		 => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.', 'lawyeriax-lite'),
+           'subtitle'    => esc_html__('Read more...', 'lawyeriax-lite'),
+           'link'				 => '#',
+           'icon_value'  => esc_html('fa-gavel')
+       ),
+     )));
+  ?>
 
  	<section id="features" class="features">
  		<div class="container">
  			<div class="home-section-inner feature-boxes-wrap">
 
- 				<div class="col-xs-12 col-sm-6 col-md-3 feature-box">
- 					<div class="features-title">
- 						<span class="features-title-icon"></span>
- 						<div class="feature-title-wrap">
- 							<h3 class="feature-title">Lorem ipsum</h3>
- 						</div>
- 					</div>
- 					<div class="border-left features-content">
- 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.</p>
- 						<a href="#" title="Read more" class="read-more">Read more...</a>
- 					</div>
- 				</div>
-
- 				<div class="col-xs-12 col-sm-6 col-md-3 feature-box">
- 					<div class="features-title">
- 						<span class="features-title-icon"></span>
- 						<div class="feature-title-wrap">
- 							<h3 class="feature-title">Lorem ipsum</h3>
- 						</div>
- 					</div>
- 					<div class="border-left  features-content">
- 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.</p>
- 						<a href="#" title="Read more" class="read-more">Read more...</a>
- 					</div>
- 				</div>
-
- 				<div class="col-xs-12 col-sm-6 col-md-3 feature-box">
- 					<div class="features-title">
- 						<span class="features-title-icon"></span>
- 						<div class="feature-title-wrap">
- 							<h3 class="feature-title">Lorem ipsum dolor cuculor modor</h3>
- 						</div>
- 					</div>
- 					<div class="border-left features-content">
- 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.</p>
- 						<a href="#" title="Read more" class="read-more">Read more...</a>
- 					</div>
- 				</div>
-
- 				<div class="col-xs-12 col-sm-6 col-md-3 feature-box">
- 					<div class="features-title">
- 						<span class="features-title-icon"></span>
- 						<div class="feature-title-wrap">
- 							<h3 class="feature-title">Lorem ipsum</h3>
- 						</div>
- 					</div>
- 					<div class="border-left features-content">
- 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.</p>
- 						<a href="#" title="Read more" class="read-more">Read more...</a>
- 					</div>
- 				</div>
-
- 				<div class="col-xs-12 col-sm-6 col-md-3 feature-box">
- 					<div class="features-title">
- 						<span class="features-title-icon"></span>
- 						<div class="feature-title-wrap">
- 							<h3 class="feature-title">Lorem ipsum</h3>
- 						</div>
- 					</div>
- 					<div class="border-left features-content">
- 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.</p>
- 						<a href="#" title="Read more" class="read-more">Read more...</a>
- 					</div>
- 				</div>
+        <?php if(!empty($features_content)){
+          $features_content_decoded = json_decode($features_content);
+          if(!empty($features_content_decoded)) {
+            foreach($features_content_decoded as $features_content) { ?>
+       				<div class="col-xs-12 col-sm-6 col-md-3 feature-box">
+       					<div class="features-title">
+       						<span class="features-title-icon"><i class="fa <?php echo $features_content->icon_value; ?>"></i></span>
+       						<div class="feature-title-wrap">
+       							<h3 class="feature-title"><?php echo esc_html($features_content->title); ?></h3>
+       						</div>
+       					</div>
+       					<div class="border-left features-content">
+       						<p><?php echo esc_html($features_content->text); ?></p>
+       						<a href="<?php echo esc_url($features_content->link); ?>" title="Read more" class="read-more"><?php echo esc_html($features_content->subtitle); ?></a>
+       					</div>
+       				</div>
+              <?php
+            }
+          }
+        } ?>
 
  			</div>
  			<div class="col-md-10 col-md-offset-1 section-line"></div>
  		</div><!-- .container -->
  	</section>
-
 
  	<?php
  }
@@ -210,19 +200,23 @@ endif;
 
 
 
- if ( ! function_exists( 'qwertyuiop_lawyers_section' ) ) :
+ if ( ! function_exists( 'lawyeriax_lite_lawyers_section' ) ) :
  /**
   * Ribbon sections
   */
- function qwertyuiop_lawyers_section() {
+ function lawyeriax_lite_lawyers_section() {
+   $lawyers_section = get_theme_mod('lawyeriax_lawyers_heading', esc_html__('Our Lawyers','lawyeriax-lite'));
  	?>
 
  	<section id="lawyer" class="home-section lawyer">
  		<div class="container">
 
- 			<div class="home-section-title-wrap">
- 				<h2 class="home-section-title">Our Lawyers</h2>
- 			</div>
+      <?php
+      if(!empty($lawyers_section)) { ?>
+   			<div class="home-section-title-wrap">
+   				<h2 class="home-section-title"><?php echo esc_html($lawyers_section) ?></h2>
+   			</div>
+      <?php } ?>
 
  			<div class="home-section-inner lawyer-box-wrap">
 
@@ -358,11 +352,15 @@ endif;
 
 
 
- if ( ! function_exists( 'qwertyuiop_about_us_section' ) ) :
+ if ( ! function_exists( 'lawyeriax_lite_about_us_section' ) ) :
  /**
   * About us sections
   */
- function qwertyuiop_about_us_section() {
+ function lawyeriax_lite_about_us_section() {
+   $about_image = get_theme_mod('lawyeria_about_image', get_template_directory_uri() . '/images/about-us.jpg');
+   $about_title = get_theme_mod('lawyeriax_about_heading', esc_html__('Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes', 'lawyeriax-lite'));
+   $about_text = get_theme_mod('lawyeria_about_text', esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete.', 'lawyeriax-lite'));
+
  	?>
 
  	<section id="about" class="home-section about">
@@ -370,19 +368,35 @@ endif;
 
  			<div class="home-section-inner">
 
+        <?php if(!empty($about_image)) { ?>
 
- 				<div class="col-sm-5 about-image-wrap">
- 					<img src="<?php echo get_template_directory_uri(); ?>/images/about-us.jpg" alt="Alt frate">
- 				</div>
- 				<div class="col-sm-7 about-content-wrap">
- 					<h3 class="about-title">Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes.</h3>
- 					<div class="border-left about-content">
- 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. </p>
- 						<p>Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete.</p>
- 					</div>
- 				</div>
+          <div class="col-sm-5 about-image-wrap">
+   					<img src="<?php echo esc_url($about_image); ?>" alt="About Us Image">
+   				</div>
 
+          <div class="col-sm-7 about-content-wrap">
 
+        <?php } else {?>
+
+          <div class="col-sm-12 about-content-wrap">
+
+        <?php }
+
+        if(!empty($about_title)) { ?>
+
+          <h3 class="about-title"><?php echo esc_html($about_title) ?></h3>
+
+          <?php }
+
+        if(!empty($about_text)) { ?>
+
+          <div class="border-left about-content">
+            <p><?php echo esc_html($about_text) ?></p>
+          </div>
+
+          <?php }
+        ?>
+ 				   </div>
  			</div>
 
  			<div class="col-md-10 col-md-offset-1 section-line"></div>
@@ -393,11 +407,11 @@ endif;
  }
  endif;
 
-if ( ! function_exists( 'qwertyuiop_latest_news_section' ) ) :
+if ( ! function_exists( 'lawyeriax_lite_latest_news_section' ) ) :
 /**
  * Latest news section
  */
-function qwertyuiop_latest_news_section() {
+function lawyeriax_lite_latest_news_section() {
   $news_heading = get_theme_mod('news_heading', esc_html__('Latest News','lawyeriax-lite'));
 
 	?>

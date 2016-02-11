@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package qwertyuiop
+ * @package lawyeriax-lite
  */
 
 ?>
@@ -31,7 +31,7 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php qwertyuiop_posted_on(); ?>
+			<?php lawyeriax_lite_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -48,20 +48,20 @@
 			} else {
 				the_content( sprintf(
 					/* translators: %s: Name of current post. */
-					wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'qwertyuiop' ), array( 'span' => array( 'class' => array() ) ) ),
+					wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'lawyeriax-lite' ), array( 'span' => array( 'class' => array() ) ) ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
 			}
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'qwertyuiop' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lawyeriax-lite' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php qwertyuiop_entry_footer(); ?>
+		<?php lawyeriax_lite_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
 	<?php if ( !is_single() ) { ?>

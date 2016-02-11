@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package qwertyuiop
+ * @package lawyeriax-lite
  */
 
 $phone_number = get_theme_mod('lawyeriax_top_bar_phone_number', '+1-888-846173');
