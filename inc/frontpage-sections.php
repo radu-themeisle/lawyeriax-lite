@@ -103,23 +103,29 @@ endif;
   * Ribbon sections
   */
  function lawyeriax_lite_ribbon_section() {
-  $ribbon_tagline = get_theme_mod('lawyeriax_ribbon_tagline', esc_html__('The safety of the people shall be the highest law.','lawyeriax-lite'));
+   global $wp_customize;
+   $ribbon_tagline = get_theme_mod('lawyeriax_ribbon_tagline', esc_html__('The safety of the people shall be the highest law.','lawyeriax-lite'));
 
-  if(!empty($ribbon_tagline)) {?>
+  if(!empty($ribbon_tagline)) { ?>
    	<section id="ribbon" class="home-section ribbon">
    		<div class="container">
-
    			<div class="home-section-inner">
    				<p class="ribbon-big-title"><?php echo esc_html($ribbon_tagline) ?></p>
    			</div>
-
    			<div class="col-md-10 col-md-offset-1 section-line"></div>
    		</div><!-- .container -->
    	</section>
-
- 	<?php
-  }
- }
+  <?php
+} else if (isset( $wp_customize ) ) { ?>
+    <section id="ribbon" class="home-section ribbon">
+      <div class="container">
+        <div class="home-section-inner">
+          <p class="ribbon-big-title lawyeriax_lite_only_customizer"></p>
+        </div>
+        <div class="col-md-10 col-md-offset-1 section-line"></div>
+      </div><!-- .container -->
+    </section>
+ <?php } }
  endif;
 
 
@@ -206,6 +212,7 @@ endif;
   */
  function lawyeriax_lite_lawyers_section() {
    $lawyers_section = get_theme_mod('lawyeriax_lawyers_heading', esc_html__('Our Lawyers','lawyeriax-lite'));
+   global $wp_customize;
  	?>
 
  	<section id="lawyer" class="home-section lawyer">
@@ -215,6 +222,11 @@ endif;
       if(!empty($lawyers_section)) { ?>
    			<div class="home-section-title-wrap">
    				<h2 class="home-section-title"><?php echo esc_html($lawyers_section) ?></h2>
+   			</div>
+      <?php } else if (isset ( $wp_customize ) ) { ?>
+
+        <div class="home-section-title-wrap">
+   				<h2 class="home-section-title lawyeriax_lite_only_customizer"></h2>
    			</div>
       <?php } ?>
 
@@ -359,8 +371,8 @@ endif;
  function lawyeriax_lite_about_us_section() {
    $about_image = get_theme_mod('lawyeria_about_image', get_template_directory_uri() . '/images/about-us.jpg');
    $about_title = get_theme_mod('lawyeriax_about_heading', esc_html__('Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes', 'lawyeriax-lite'));
-   $about_text = get_theme_mod('lawyeria_about_text', esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete.', 'lawyeriax-lite'));
-
+   $about_text = get_theme_mod('lawyeriax_about_text', esc_html('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete.', 'lawyeriax-lite'));
+   global $wp_customize;
  	?>
 
  	<section id="about" class="home-section about">
@@ -386,16 +398,30 @@ endif;
 
           <h3 class="about-title"><?php echo esc_html($about_title) ?></h3>
 
+          <?php } else if (isset ( $wp_customize ) ) { ?>
+
+            <h3 class="about-title lawyeriax_lite_only_customizer"></h3>
+
           <?php }
 
         if(!empty($about_text)) { ?>
 
           <div class="border-left about-content">
-            <p><?php echo esc_html($about_text) ?></p>
+
+            <p><?php echo esc_html($about_text); ?></p>
+
           </div>
 
-          <?php }
-        ?>
+          <?php } else if (isset ( $wp_customize ) ) { ?>
+
+            <div class="border-left about-content">
+
+              <p class="lawyeriax_lite_only_customizer"></p>
+
+            </div>
+
+          <?php } ?>
+
  				   </div>
  			</div>
 
@@ -412,20 +438,23 @@ if ( ! function_exists( 'lawyeriax_lite_latest_news_section' ) ) :
  * Latest news section
  */
 function lawyeriax_lite_latest_news_section() {
+  global $wp_customize;
   $news_heading = get_theme_mod('news_heading', esc_html__('Latest News','lawyeriax-lite'));
 
 	?>
 
 	<section id="news" class="home-section news">
 		<div class="container">
-
-			<div class="home-section-title-wrap">
-				<?php
-					if(!empty($news_heading)) {
-						echo '<h2 class="home-section-title">'. $news_heading .'</h2>';
-					}
-				 ?>
-			</div>
+      <?php
+      if(!empty($news_heading)) { ?>
+			     <div class="home-section-title-wrap">
+		           <h2 class="home-section-title"> <?php echo esc_html($news_heading) ?></h2>
+           </div>
+       <?php	} else if (isset ( $wp_customize ) ) { ?>
+           <div class="home-section-title-wrap">
+               <h2 class="home-section-title lawyeriax_lite_only_customizer"></h2>
+           </div>
+       <?php } ?>
 
 			<div class="home-section-inner latest-news">
 				<!-- Posts Loop -->

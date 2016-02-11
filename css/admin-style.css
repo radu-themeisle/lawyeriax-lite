@@ -20,6 +20,7 @@ button.repeater_remove_field {
   height: 57px !important;
   white-space: initial !important;
   line-height: 17px !important;
+  line-height: 17px !important;
   float: right;
 }
 button.repeater_general_control_remove_field {
@@ -31,6 +32,10 @@ button.repeater_general_control_remove_field:hover {
   color: #FFFFFF!important;
   border: 0;
 }
+#customize-control-lawyeriax_lawyers_content > div > div > div.repeater-box-content-hidden > div > div > input.repeater_social_repeater_link {
+  margin: 20px 0 5px 0;
+}
+
 .repeater_repeater_container .repeater_icon_link, .repeater_general_control_repeater_container .repeater_text_control, .repeater_general_control_repeater_container .repeater_link_control {
   width: 100% !important;
   margin: 3px 0 0 !important;
