@@ -88,7 +88,7 @@ $wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_top_ba
 
 	$wp_customize->add_setting('lawyeriax_top_bar_phone_number', array(
 			'default'           => esc_html__('+1-888-846173', 'lawyeriax-lite'),
-			'sanitize_callback' => 'lawyeriax_sanitize_text'
+			'sanitize_callback' => 'lawyeriax_sanitize_text',
 	));
 
 	$wp_customize->add_control('lawyeriax_top_bar_phone_number', array(
@@ -167,12 +167,13 @@ Email address
 $wp_customize->add_section('lawyeriax_ribbon_section', array(
 	'title' 				=> __('Ribbon Section', 'lawyeriax-lite'),
 	'description' 	=> __('Ribbon tagline', 'lawyeriax-lite'),
-	'priority'        => 32,
+	'priority'      => 32,
 ));
 
 $wp_customize->add_setting('lawyeriax_ribbon_tagline', array(
 		'default'           => esc_html__('The safety of the people shall be the highest law.', 'lawyeriax-lite'),
-		'sanitize_callback' => 'lawyeriax_sanitize_text'
+		'sanitize_callback' => 'lawyeriax_sanitize_text',
+		'transport'					=> 'postMessage',
 ));
 $wp_customize->add_control('lawyeriax_ribbon_tagline', array(
 		'label'       => __('Ribbon Tagline', 'lawyeriax-lite'),
@@ -230,7 +231,7 @@ $wp_customize->add_setting('lawyeriax_features_content', array(
 $wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_features_content', array(
 		'title' 											=> __('Features Area', 'lawyeriax-lite'),
 		'section'                 		=> 'lawyeria_features_section',
-		'priority'                		=> 1,
+		'priority'                		=> 2,
 		'repeater_title_control'   		=> true,
 		'repeater_text_control'   		=> true,
 		'repeater_link_control'   		=> true,
@@ -249,9 +250,15 @@ $wp_customize->add_section('lawyeriax_lawyers_section', array(
 	'priority'        => 33,
 ));
 
+/*=============================================================================
+	Heading
+=============================================================================*/
+
 $wp_customize->add_setting('lawyeriax_lawyers_heading', array(
 		'default'           => esc_html__('Our Lawyers', 'lawyeriax-lite'),
-		'sanitize_callback' => 'lawyeriax_sanitize_text'
+		'sanitize_callback' => 'lawyeriax_sanitize_text',
+		'transport'					=> 'postMessage',
+
 ));
 $wp_customize->add_control('lawyeriax_lawyers_heading', array(
 		'label'       => __('Section Heading', 'lawyeriax-lite'),
@@ -259,6 +266,40 @@ $wp_customize->add_control('lawyeriax_lawyers_heading', array(
 		'priority'    => 1,
 ));
 
+/*=============================================================================
+	Items Repeater
+=============================================================================*/
+
+$wp_customize->add_setting( 'lawyeriax_lawyers_content', array(
+		'sanitize_callback' => 'sanitize_repeater',
+		'default' => json_encode( array(
+									array(
+										'image_url' 	=> get_template_directory_uri() . '/images/lawyer1.jpg',
+										'title' 			=> esc_html__('Linda Guthrie','lawyeriax-lite'),
+										'subtitle' 		=> esc_html__('Business Development','lawyeriax-lite')
+									),
+									// array(
+									// 	'image_url' 	=> get_template_directory_uri() . '/images/lawyer1.jpg',
+									// 	'title' 			=> esc_html__('Linda Guthrie','lawyeriax-lite'),
+									// 	'subtitle' 		=> esc_html__('Business Development','lawyeriax-lite')
+									// ),
+									// array(
+									// 	'image_url' 	=> get_template_directory_uri() . '/images/lawyer1.jpg',
+									// 	'title' 			=> esc_html__('Linda Guthrie','lawyeriax-lite'),
+									// 	'subtitle' 		=> esc_html__('Business Development','lawyeriax-lite')
+									// )
+								)
+							)
+	));
+	$wp_customize->add_control( new General_Repeater( $wp_customize, 'lawyeriax_lawyers_content', array(
+		'label'															=> esc_html__('Add new lawyer','lawyeriax-lite'),
+		'section'														=> 'lawyeriax_lawyers_section',
+		'priority' 													=> 3,
+    'repeater_image_control' 						=> true,
+		'repeater_title_control' 						=> true,
+		'repeater_subtitle_control' 				=> true,
+		'repeater_socials_repeater_control' => true
+	) ) );
 
 /********************************************************/
 /******************* About us Section *******************/
@@ -291,7 +332,8 @@ $wp_customize->add_setting('lawyeria_about_image', array(
 
 	$wp_customize->add_setting('lawyeriax_about_heading', array(
 			'default'           => esc_html__('Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes.', 'lawyeriax-lite'),
-			'sanitize_callback' => 'lawyeriax_sanitize_text'
+			'sanitize_callback' => 'lawyeriax_sanitize_text',
+			'transport'					=> 'postMessage',
 	));
 
 	$wp_customize->add_control('lawyeriax_about_heading', array(
@@ -306,7 +348,8 @@ $wp_customize->add_setting('lawyeria_about_image', array(
 
 $wp_customize->add_setting('lawyeriax_about_text', array(
 		'default'           => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete.', 'lawyeriax-lite'),
-		'sanitize_callback' => 'lawyeriax_sanitize_text'
+		'sanitize_callback' => 'lawyeriax_sanitize_text',
+		'transport'					=> 'postMessage',
 ));
 
 $wp_customize->add_control('lawyeriax_about_text', array(
@@ -323,13 +366,17 @@ $wp_customize->add_control('lawyeriax_about_text', array(
 $wp_customize->add_section('lawyeriax_news_section', array(
 		'title' 				=> __('Latest News', 'lawyeriax-lite'),
 		'description' 	=> __('Latest News Content', 'lawyeriax-lite'),
-		'priority'      => 70,
-
+		'priority'      => 35,
 ));
+
+/*=============================================================================
+	Heading
+=============================================================================*/
 
 $wp_customize->add_setting('news_heading', array(
 			'default'           => esc_html__('Latest News', 'lawyeriax-lite'),
-			'sanitize_callback' => 'lawyeriax_sanitize_text'
+			'sanitize_callback' => 'lawyeriax_sanitize_text',
+			'transport'					=> 'postMessage',
 	));
 
 $wp_customize->add_control('news_heading', array(
