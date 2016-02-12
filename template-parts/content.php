@@ -65,7 +65,7 @@
 	</footer><!-- .entry-footer -->
 
 	<?php if ( !is_single() ) { ?>
-		<div class="col-md-10 col-md-offset-1 section-line section-line-blog-roll"></div><div class="clearfix"></div>
+		<div class="col-sm-10 col-sm-offset-1 section-line section-line-blog-roll"></div><div class="clearfix"></div>
 	<?php } ?>
 
 </article><!-- #post-## -->

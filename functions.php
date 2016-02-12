@@ -41,8 +41,9 @@ function lawyeriax_lite_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 350, 230, true );
+	set_post_thumbnail_size( 825, 450, true );
 
+	add_image_size( 'post-thumbnails-home', 350, 230, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -66,11 +67,7 @@ function lawyeriax_lite_setup() {
 	 * See https://developer.wordpress.org/themes/functionality/post-formats/
 	 */
 	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
 		'quote',
-		'link',
 	) );
 
 	// Set up the WordPress core custom background feature.
@@ -245,3 +242,11 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+function new_excerpt_more($more) {
+	global $post;
+	return '<a href="'. get_permalink($post->ID) . '" class="more-link">' . __('Continue reading ', 'lawyeriax-lite' ) . '<span class="screen-reader-text">' . get_the_title($post->ID) . '</span> <span class="meta-nav">→</span></a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+

@@ -112,7 +112,7 @@ endif;
    			<div class="home-section-inner">
    				<p class="ribbon-big-title"><?php echo esc_html($ribbon_tagline) ?></p>
    			</div>
-   			<div class="col-md-10 col-md-offset-1 section-line"></div>
+   			<div class="col-sm-10 col-sm-offset-1 section-line"></div>
    		</div><!-- .container -->
    	</section>
   <?php
@@ -122,7 +122,7 @@ endif;
         <div class="home-section-inner">
           <p class="ribbon-big-title lawyeriax_lite_only_customizer"></p>
         </div>
-        <div class="col-md-10 col-md-offset-1 section-line"></div>
+        <div class="col-sm-10 col-sm-offset-1 section-line"></div>
       </div><!-- .container -->
     </section>
  <?php } }
@@ -196,7 +196,7 @@ endif;
         } ?>
 
  			</div>
- 			<div class="col-md-10 col-md-offset-1 section-line"></div>
+ 			<div class="col-sm-10 col-sm-offset-1 section-line"></div>
  		</div><!-- .container -->
  	</section>
 
@@ -354,7 +354,7 @@ endif;
 
  			</div>
 
- 			<div class="col-md-10 col-md-offset-1 section-line"></div>
+ 			<div class="col-sm-10 col-sm-offset-1 section-line"></div>
  		</div><!-- .container -->
  	</section>
 
@@ -425,7 +425,7 @@ endif;
  				   </div>
  			</div>
 
- 			<div class="col-md-10 col-md-offset-1 section-line"></div>
+ 			<div class="col-sm-10 col-sm-offset-1 section-line"></div>
  		</div><!-- .container -->
  	</section>
 
@@ -474,7 +474,7 @@ function lawyeriax_lite_latest_news_section() {
 				endif; ?>
 			</div>
 
-			<div class="col-md-10 col-md-offset-1 section-line"></div>
+			<div class="col-sm-10 col-sm-offset-1 section-line"></div>
 			</div><!-- .container -->
 	</section>
 

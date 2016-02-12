@@ -14,27 +14,34 @@
 
 get_header(); ?>
 
-	<div id="primary" class="col-sm-12 col-md-9 content-area">
-		<main id="main" class="site-main" role="main">
+	<div class="content-wrap">
 
-			<?php
-			while ( have_posts() ) : the_post();
+		<div id="primary" class="col-sm-12 col-md-9 content-area">
+			<main id="main" class="site-main" role="main">
 
-				get_template_part( 'template-parts/content', 'page' );
+				<?php
+				while ( have_posts() ) : the_post();
 
-				echo '<div class="clearfix"></div><div class="col-md-10 col-md-offset-1 section-line section-line-post"></div><div class="clearfix"></div>';
+					get_template_part( 'template-parts/content', 'page' );
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+					echo '<div class="clearfix"></div><div class="col-sm-10 col-sm-offset-1 section-line section-line-post"></div><div class="clearfix"></div>';
 
-			endwhile; // End of the loop.
-			?>
+					// If comments are open or we have at least one comment, load up the comment template.
+					if ( comments_open() || get_comments_number() ) :
+						comments_template();
+					endif;
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+				endwhile; // End of the loop.
+				?>
+
+			</main><!-- #main -->
+		</div><!-- #primary -->
+
+		<?php
+		get_sidebar();
+		?>
+
+	</div><!-- .content-wrap -->
 
 <?php
-get_sidebar();
 get_footer();

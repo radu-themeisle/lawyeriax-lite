@@ -51,6 +51,20 @@ input[type="submit"]:active {
 }
 .hentry {
 	float: right;
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.sticky .border-left.entry-header {
+    -webkit-box-shadow: inset -4px 0px 0px 0px rgb(219, 57, 54);
+    -moz-box-shadow: inset -4px 0px 0px 0px rgb(219, 57, 54);
+    box-shadow: inset -4px 0px 0px 0px rgb(219, 57, 54);
+}
+
+.entry-content-quote {
+    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.25);
 }
 
 /* header */

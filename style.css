@@ -1062,6 +1062,61 @@ button.menu-toggle:hover {
 	margin-top: 20px;
 }
 
+.entry-content-quote {
+	background: #F7EAEA;
+    border: none;
+    margin: 0;
+    padding: 50px;
+    -webkit-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.25);
+    color: #23282D;
+	font-size: 17.5px;
+}
+
+.entry-content-quote cite,
+.entry-content-quote a {
+    padding-top: 20px;
+    display: block;
+}
+
+.entry-content-quote cite a {
+	padding-top: 0;
+}
+
+.entry-content-quote blockquote {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.sticky .border-left.entry-header {
+    -webkit-box-shadow: inset 4px 0px 0px 0px rgb(219, 57, 54);
+    -moz-box-shadow: inset 4px 0px 0px 0px rgb(219, 57, 54);
+    box-shadow: inset 4px 0px 0px 0px rgb(219, 57, 54);
+}
+
+.sticky .entry-content {
+	color: #200303;	
+}
+
+.content-wrap {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+
+.content-area,
+.widget-area {
+	flex: 1 100%;
+}
+
+.more-link {
+	margin-left: 10px;
+}
 
 /*--------------------------------------------------------------
 ## Asides
@@ -1222,8 +1277,8 @@ object {
 	overflow: hidden !important;
 }
 .status {
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -1258,6 +1313,8 @@ object {
 }
 .site-branding {
 	float: left;
+	padding-right: 20px;
+	min-width: 200px;
 }
 .top-bar-social a {
 	font-size: 18px;
@@ -1328,6 +1385,16 @@ p.site-description {
 	background-size: cover;
 	padding: 140px 0 120px;
 	min-height: 160px;
+}
+.item-inner:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(76,76,76,.5);
+
 }
 .carousel-title {
 	font-family: 'Playfair Display', serif;
@@ -1719,7 +1786,8 @@ h2.widget-title {
 	margin-bottom: 0;
 }
 .widget select,
-.widget input:not(input[type="submit"]):not(input[type="reset"]):not(input[type="button"]) {
+.widget input:not([type="submit"]):not([type="reset"]):not([type="button"]) {
+	width: 100%;
 	max-width: 100%;
 	width: 100%;
 	font-size: 13px;
@@ -1773,14 +1841,17 @@ h2.widget-title {
 .widget_search label {
     width: 100%;
     padding-right: 120px;
-    position: relative;
-    float: left;
+    position: relativew    float: left;
 }
 .widget-area.border-left {
 	padding-left: 15px;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+}
+.section-line-sidebar {
+	display: block;
+	width: 100%;
 }
 
 /* Calendar Widget */
@@ -2083,6 +2154,10 @@ div.wpcf7-mail-sent-ok {
 .wpcf7 p {
 	margin-bottom: 10px;
 }
+.widget-area .widget .wpcf7 input:not([type="submit"]) {
+	width: 100%;
+	max-width: 100%;
+}
 .site-footer .widget .wpcf7 input:not([type="submit"]) {
 	width: 100%;
 	max-width: 100%;
@@ -2115,6 +2190,20 @@ div.wpcf7-mail-sent-ok {
 	    -webkit-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
 	    -moz-box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
 	    box-shadow: inset -4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+	}
+	.content-area-left-sidebar .widget-area {
+		order: 1;
+	}
+	.content-area-left-sidebar .content-area {
+		float: right;
+		order: 2;
+	}
+	.content-area,
+	.widget-area {
+		flex: 1 auto;
+	}
+	.section-line-sidebar {
+		display: none;
 	}
 
 }

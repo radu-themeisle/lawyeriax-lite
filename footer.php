@@ -37,7 +37,7 @@
 		<div class="container">
 			<div class="site-info">
 				<?php if ( is_active_sidebar('footer_widget_col_1') || is_active_sidebar('footer_widget_col_2') || is_active_sidebar('footer_widget_col_3') ): ?>
-					<div class="col-md-10 col-md-offset-1 section-line section-line-footer"></div>
+					<div class="col-sm-10 col-sm-offset-1 section-line section-line-footer"></div>
 				<?php endif; ?>
 				<div class="site-info-inner">
 					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'lawyeriax-lite' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'lawyeriax-lite' ), 'WordPress' ); ?></a>

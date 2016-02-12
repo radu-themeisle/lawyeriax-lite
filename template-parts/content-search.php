@@ -28,6 +28,6 @@
 		<?php lawyeriax_lite_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
-	<div class="col-md-10 col-md-offset-1 section-line section-line-blog-roll"></div><div class="clearfix"></div>
+	<div class="col-sm-10 col-sm-offset-1 section-line section-line-blog-roll"></div><div class="clearfix"></div>
 
 </article><!-- #post-## -->
