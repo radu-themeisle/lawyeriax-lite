@@ -1,38 +1,49 @@
-=== lawyeriax-lite ===
+# LawyeriaX Lite
 
-Contributors: automattic
-Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
+Contributors:           codeinwp
 
-Requires at least: 4.0
-Tested up to: 4.3.1
-Stable tag: 1.0.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:				red, white, light, responsive-layout, one-column, two-columns, right-sidebar, custom-menu, featured-images, front-page-post-form, full-width-template, rtl-language-support, threaded-comments, translation-ready
 
-A starter theme called lawyeriax-lite, or underscores.
+Requires at least:	3.3.0
 
-== Description ==
+Tested up to:		4.4.2
 
-Hi. I'm a starter theme called lawyeriax-lite, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+LawyeriaX Lite
 
-== Installation ==
-	
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+## Description
 
-== Frequently Asked Questions ==
+LawyeriaX Lite is a neat and minimalist theme for lawyers, law-related websites, or any other business and agency. It has a professional and simple look, with full-width beautiful slider, simple content structure, easy-to-use interface, blog section, custom widgets, widgetized footer, live customizer, social links, customizable ribbon, custom logo, front page displays, and SEO friendly code. The theme comes with a range of great customization options, so you can change them the way you want.
 
-= Does this theme support any plugins? =
+## License #
 
-lawyeriax-lite includes support for Infinite Scroll in Jetpack.
+LawyeriaX Lite WordPress theme, Copyright (C) 2016 ThemeIsle.com
+LawyeriaX Lite WordPress theme is licensed under the GPL3.
 
-== Changelog ==
+Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
+The exceptions to this license are as follows:
 
-= 1.0 - May 12 2015 =
-* Initial release
+* Bootstrap v3.3.6 (http://getbootstrap.com)
+    Copyright 2011-2016 Twitter, Inc.
+    Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 
-== Credits ==
+* Fontawesome v4.5.0
+    Created by Dave Gandy
+    Licensed under SIL OFL 1.1 (http://scripts.sil.org/OFL)
 
-* Based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2015 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
+* ddSlick
+    Copyright (c) 2007-2013 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
+    Licensed under MIT
+
+* Images
+
+	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
+	License: All pexels.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
+
+	* images/slider0.jpg
+			Source: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=091311222ab12502202f18610a55088d
+	* images/slider1.jpg
+			Source: https://images.unsplash.com/photo-1447968954315-3f0c44f7313c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=dbefc6e14ea8c329ebe2799db99bfb7b
+	* images/slider2.jpg
+			Source: https://images.unsplash.com/photo-1426523038054-a260f3ef5bc9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=60e2c1af0221c9f5b39c091a11151da2
+  * images/about-us.jpg
+			Source: https://static.pexels.com/photos/3274/building-council-columns.jpg
