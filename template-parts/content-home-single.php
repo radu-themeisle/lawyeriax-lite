@@ -2,8 +2,11 @@
   <div class="news-title-wrap">
     <div class="news-date">
       <?php
-      $day = the_date('d', '<span>', '</span>'); ?>
-      <span> <?php $month = the_time('M'); ?> </span>
+      $day    = get_the_time('d');
+      $month  = get_the_time('M'); ?>
+
+      <span><?php echo $day ?></span>
+      <span><?php echo $month ?></span>
     </div>
     <div class="news-post-title-wrap">
       <h4 class="news-post-title">
@@ -21,8 +24,11 @@
       <?php the_post_thumbnail('post-thumbnails-home',array( 'alt' => get_the_title()));?>
 
     </a>
-  </div> <?php } ?>
+  </div> <?php }
+  if(!empty(get_post()->post_content)) {
+  ?>
   <div class="border-left news-content-wrap">
     <p><?php the_excerpt();?></p>
   </div>
+  <?php } ?>
 </div>
