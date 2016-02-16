@@ -24,6 +24,5 @@
   </div> <?php } ?>
   <div class="border-left news-content-wrap">
     <p><?php the_excerpt();?></p>
-    <a href="<?php echo get_permalink(); ?>" title="Read more" class="read-more">Read more...</a>
   </div>
 </div>

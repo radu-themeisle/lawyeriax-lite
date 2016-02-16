@@ -2,13 +2,13 @@
   margin-top: 15px;
   color: #313131;
 }
-.repeater_container, .repeater_general_control_container {
+.repeater_repeater_container, .repeater_general_control_repeater_container {
   width: 100%;
   float: left;
   padding: 5px 0;
   cursor: move;
 }
-.repeater_container .repeater-box-content-hidden, .repeater_general_control_container .repeater-box-content-hidden {
+.repeater_repeater_container .repeater-box-content-hidden, .repeater_general_control_repeater_container .repeater-box-content-hidden {
   padding: 5px;
   border: 1px solid #dfdfdf;
   border-top: 0;
@@ -36,11 +36,11 @@ button.repeater_general_control_remove_field:hover {
   margin: 20px 0 5px 0;
 }
 
-.repeater_container .repeater_icon_link, .repeater_general_control_container .repeater_text_control, .repeater_general_control_container .repeater_link_control {
+.repeater_repeater_container .repeater_icon_link, .repeater_general_control_repeater_container .repeater_text_control, .repeater_general_control_repeater_container .repeater_link_control {
   width: 100% !important;
   margin: 3px 0 0 !important;
 }
-.repeater_container .repeater_icons, .repeater_general_control_container .repeater_icon_control {
+.repeater_repeater_container .repeater_icons, .repeater_general_control_repeater_container .repeater_icon_control {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -57,7 +57,7 @@ button.repeater_general_control_remove_field:hover {
 .repeater_our_services_icon_control {
   display: none;
 }
-.repeater_general_control_container .repeater-box-content-hidden {
+.repeater_general_control_repeater_container .repeater-box-content-hidden {
   display: none;
 }
 .repeater-box-content-hidden {
@@ -96,6 +96,6 @@ button.repeater_general_control_remove_field:hover {
 .repeater_radio_control {
   margin-top: 0;
 }
-.repeater_general_control_container .repeater-box-content-hidden {
+.repeater_general_control_repeater_container .repeater-box-content-hidden {
   padding-top: 5px;
 }
