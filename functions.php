@@ -42,10 +42,11 @@ function lawyeriax_lite_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 825, 450, true );
-	add_image_size( 'post-thumbnails-home', 350, 230, true );
+	add_image_size( 'lawyeriax-lite-post-thumbnail-home', 350, 230, true );
 
 
 	remove_theme_support('custom-header');
+
 	/*
 	 * Enable support for Excerpt for pages.
 	 */
@@ -154,7 +155,7 @@ function lawyeriax_lite_scripts() {
 
 	wp_enqueue_style ( 'lawyeriax-lite-boostrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'v3.3.6', 'all' );
 
-	wp_enqueue_script( 'wertyuiop-boostrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '20130115', true );
+	wp_enqueue_script( 'lawyeriax-lite-boostrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '20130115', true );
 
 	wp_enqueue_script( 'lawyeriax-lite-navigation', get_template_directory_uri() . '/js/functions.js', array(), '20120206', true );
 
@@ -171,18 +172,18 @@ function lawyeriax_lite_scripts() {
 add_action( 'wp_enqueue_scripts', 'lawyeriax_lite_scripts' );
 
 
-function repeater_customizer_script() {
+function lawyeriax_lite_customizer_script() {
 
 	wp_enqueue_style( 'lawyeriax-lite-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
 
-	wp_enqueue_script( 'lawyeriax_ddslick', get_template_directory_uri() .'/js/jquery.ddslick.js', array("jquery"),'1.0.0', true  );
+	wp_enqueue_script( 'lawyeriax-lite-ddslick', get_template_directory_uri() .'/js/jquery.ddslick.js', array("jquery"),'1.0.0', true  );
 
-	wp_enqueue_script( 'repeater_customizer_script', get_template_directory_uri() . '/js/lawyeriax_lite_customizer.js', array("jquery","jquery-ui-draggable","lawyeriax_ddslick"),'1.0.0', true);
+	wp_enqueue_script( 'lwayeriax-lite-customizer-script', get_template_directory_uri() . '/js/lawyeriax_lite_customizer.js', array("jquery","jquery-ui-draggable","lawyeriax_lite_ddslick"),'1.0.0', true);
 
 }
-add_action( 'customize_controls_enqueue_scripts', 'repeater_customizer_script' );
+add_action( 'customize_controls_enqueue_scripts', 'lawyeriax_lite_customizer_script' );
 
-function lawyeriax_fonts_url() {
+function lawyeriax_lite_fonts_url() {
 	$fonts_url = '';
 	/* Translators: If there are characters in your language that are not
 	* supported by Lora, translate this to 'off'. Do not translate
@@ -206,16 +207,16 @@ function lawyeriax_fonts_url() {
 	}
 	return $fonts_url;
 }
-function lawyeriax_scripts_styles() {
-	wp_enqueue_style( 'lawyeriax-fonts', lawyeriax_fonts_url(), array(), null );
+function lawyeriax_lite_scripts_styles() {
+	wp_enqueue_style( 'lawyeriax-lite-fonts', lawyeriax_lite_fonts_url(), array(), null );
 }
-add_action( 'wp_enqueue_scripts', 'lawyeriax_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'lawyeriax_lite_scripts_styles' );
 
 /**
  * Enqueue admin style.
  */
 function lawyeriax_lite_admin_styles() {
-	wp_enqueue_style( 'lawyeriax_lite_admin_stylesheet', get_template_directory_uri() . '/css/admin-style.css', '1.0.0' );
+	wp_enqueue_style( 'lawyeriax-lite-admin-stylesheet', get_template_directory_uri() . '/css/admin-style.css', '1.0.0' );
 }
 add_action( 'admin_enqueue_scripts', 'lawyeriax_lite_admin_styles', 10 );
 
@@ -243,10 +244,3 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-
-function new_excerpt_more($more) {
-	global $post;
-	return '<a href="'. get_permalink($post->ID) . '" class="more-link">' . __('Continue reading ', 'lawyeriax-lite' ) . '<span class="screen-reader-text">' . get_the_title($post->ID) . '</span> <span class="meta-nav">→</span></a>';
-}
-add_filter('excerpt_more', 'new_excerpt_more');
