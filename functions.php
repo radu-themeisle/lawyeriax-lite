@@ -42,8 +42,14 @@ function lawyeriax_lite_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 825, 450, true );
-
 	add_image_size( 'post-thumbnails-home', 350, 230, true );
+
+
+	remove_theme_support('custom-header');
+	/*
+	 * Enable support for Excerpt for pages.
+	 */
+	add_post_type_support( 'page', 'excerpt' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -214,11 +220,6 @@ function lawyeriax_lite_admin_styles() {
 add_action( 'admin_enqueue_scripts', 'lawyeriax_lite_admin_styles', 10 );
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -249,4 +250,3 @@ function new_excerpt_more($more) {
 	return '<a href="'. get_permalink($post->ID) . '" class="more-link">' . __('Continue reading ', 'lawyeriax-lite' ) . '<span class="screen-reader-text">' . get_the_title($post->ID) . '</span> <span class="meta-nav">→</span></a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
-

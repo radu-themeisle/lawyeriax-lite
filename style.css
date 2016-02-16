@@ -1,14 +1,14 @@
 /*
-Theme Name: lawyeriax-lite
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
-Description: Description
+Theme Name: LawyeriaX Lite
+Theme URI: http://themeisle.com/themes/lawyeriax-lite
+Author: Themeisle
+Author URI: http://themeisle.com
+Description: Lawyeria is a neat and minimalist theme for lawyers, law-related websites, or any other business and agency. It has a professional and simple look, with full-width beautiful slider, simple content structure, easy-to-use interface, blog section, custom widgets, widgetized footer, live customizer, social links, customizable ribbon, custom logo, front page displays, and SEO friendly code. The theme comes with a range of great customization options, so you can change them the way you want.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: lawyeriax-lite
-Tags: red, white
+Tags: red, white, light, responsive-layout, one-column, two-columns, right-sidebar, custom-menu, featured-images, front-page-post-form, full-width-template, rtl-language-support, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -1097,7 +1097,7 @@ button.menu-toggle:hover {
 }
 
 .sticky .entry-content {
-	color: #200303;	
+	color: #200303;
 }
 
 .content-wrap {
@@ -1246,9 +1246,9 @@ object {
     margin: 5px 5px 15px;
     font-style: italic;
 }
-.gallery-columns-6 .gallery-caption, 
-.gallery-columns-7 .gallery-caption, 
-.gallery-columns-8 .gallery-caption, 
+.gallery-columns-6 .gallery-caption,
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
 .gallery-columns-9 .gallery-caption {
     display: none;
 }
@@ -1656,97 +1656,6 @@ h3.about-title {
 	padding-bottom: 50px;
 }
 .latest-news {
-	padding-bottom: 0;
-}
-
-/*-----------------------
-### Our lawyers [frontpage]
--------------------------*/
-.lawyer-box-image {
-    overflow: hidden;
-    float: left;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-}
-.lawyer-box-content {
-    width: 100%;
-    margin-right: -170px;
-    float: right;
-    padding-right: 170px;
-    text-align: left;
-}
-.lawyer-title {
-	margin-top: 0;
-	margin-bottom: 10px;
-	font-size: 24px;
-	line-height: 34px;
-}
-.lawyer-title a {
-	color: #330505;
-}
-.lawyer-title a:hover {
-    color: #b03230;
-}
-.lawyer-box-info {
-	font-size: 13px;
-	line-height: 22px;
-	font-style: italic;
-	margin-bottom: 5px;
-
-}
-ul.lawyer-media-icons {
-	margin: 0 0 10px 0;
-	padding: 0;
-}
-ul.lawyer-media-icons li {
-	display: inline-block;
-	margin-right: 5px;
-	list-style: none;
-}
-a.view-profile {
-    float: left;
-    background: #db3936;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    -webkit-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.25);
-    -moz-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.25);
-    box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.25);
-    color: #fff;
-    padding: 5px 10px;
-    font-size: 13px;
-    line-height: 20px;
-   	font-family: 'Playfair Display', serif;
-	font-weight: 400;
-	-webkit-transition: all .7s;
-	-moz-transition: all .7s;
-	-o-transition: all .7s;
-	transition: all .7s;
-}
-a.view-profile:hover {
-    -webkit-box-shadow: inset 120px 0px 0px 0px rgba(50, 50, 50, 0.25);
-    -moz-box-shadow: inset 120px 0px 0px 0px rgba(50, 50, 50, 0.25);
-    box-shadow: inset 120px 0px 0px 0px rgba(50, 50, 50, 0.25);
-	-webkit-transition: all .7s;
-	-moz-transition: all .7s;
-	-o-transition: all .7s;
-	transition: all .7s;
-}
-.lawyer-box-content-inner {
-	overflow: hidden;
-}
-.lawyer-box-inside {
-	min-height: 60px;
-}
-.lawyer-box {
-	margin-bottom: 50px;
-    float: none;
-    display: inline-block;
-    margin-left: -4px;
-}
-.lawyer-box-wrap {
-	text-align: center;
 	padding-bottom: 0;
 }
 
@@ -2430,7 +2339,7 @@ div.wpcf7-mail-sent-ok {
 	.carousel-title {
 		font-size: 80px;
 		line-height: 90px;
-		margin-bottom: 30px;	
+		margin-bottom: 30px;
 	}
 	.sticky-navigation {
 		position: fixed;

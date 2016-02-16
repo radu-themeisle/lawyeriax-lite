@@ -11,7 +11,7 @@ get_header(); ?>
 
 	</div><!-- .container -->
 
-	<?php 
+	<?php
 
 		/* Slider section */
 		lawyeriax_lite_slider_section();
@@ -21,13 +21,10 @@ get_header(); ?>
 
 		/* Features section */
 		lawyeriax_lite_features_section();
-		
-		/* Lawyers section */
-		lawyeriax_lite_lawyers_section();
-		
+
 		/* About us section */
 		lawyeriax_lite_about_us_section();
-		
+
 		/* Latest news section */
 		lawyeriax_lite_latest_news_section();
 

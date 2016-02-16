@@ -13,24 +13,24 @@
    $slider_content = get_theme_mod('lawyeriax_slider_content', json_encode(array(
        array(
            'title'      => esc_html__('Meet Lawyeria', 'lawyeriax-lite'),
-           'text'       => esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
+           'text'       => esc_html__('A WordPress theme for lawyer websites. Show everyone who you are, introduce your team, your activities, and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
            'subtitle'   => esc_html__('Request Legal Advice', 'lawyeriax-lite'),
            'link'				=> '#',
-           'image_url'	=> get_template_directory_uri() . '/images/slider/slider.jpg'
-       ),
-       array(
-           'title'      => esc_html__('Business Ready', 'lawyeriax-lite'),
-           'text'       => esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
-           'subtitle'   => esc_html__('Buy Now', 'lawyeriax-lite'),
-           'link'				=> '#',
-           'image_url'	=> get_template_directory_uri() . '/images/slider/slider.jpg'
+           'image_url'	=> get_template_directory_uri() . '/images/slider0.jpg'
        ),
        array(
            'title'      => esc_html__('Fully Responsive', 'lawyeriax-lite'),
-           'text'       => esc_html__('A WordPress theme for lawyers websites. Show everyone who you are, present your team, your activities and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
+           'text'       => esc_html__('Lawyeria will look incredibly well on all devices, as it was made to fit any mobile screen. Its beautiful design and the way your content looks won &#39;t be affected by the device you use. They will remain just the same as on desktop.', 'lawyeriax-lite'),
+           'subtitle'   => esc_html__('Buy Now', 'lawyeriax-lite'),
+           'link'				=> '#',
+           'image_url'	=> get_template_directory_uri() . '/images/slider1.jpg'
+       ),
+       array(
+           'title'      => esc_html__('Business Ready', 'lawyeriax-lite'),
+           'text'       => esc_html__('A business-oriented theme that provides a professional and clean design, made to build trust between you and your clients. It will put your professional purposes in the spotlight, promote your best skills in a modern way, and help you increase the number of your clients.', 'lawyeriax-lite'),
            'subtitle'   => esc_html__('More Themes', 'lawyeriax-lite'),
            'link'				=> '#',
-           'image_url'	=> get_template_directory_uri() . '/images/slider/slider.jpg'
+           'image_url'	=> get_template_directory_uri() . '/images/slider2.jpg'
        ),
      )));
        $var   = 0;
@@ -135,234 +135,63 @@ endif;
   * Features sections
   */
  function lawyeriax_lite_features_section() {
-   $features_content = get_theme_mod('lawyeriax_features_content', json_encode(array(
-       array(
-           'title'       => esc_html__('Lorem ipsum', 'lawyeriax-lite'),
-           'text'    		 => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.', 'lawyeriax-lite'),
-           'subtitle'    => esc_html__('Read more...', 'lawyeriax-lite'),
-           'link'				 => '#',
-           'icon_value'  => esc_html('fa-gavel')
-       ),
-
-       array(
-           'title'       => esc_html__('Lorem ipsum', 'lawyeriax-lite'),
-           'text'    	   => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.', 'lawyeriax-lite'),
-           'subtitle'    => esc_html__('Read more...', 'lawyeriax-lite'),
-           'link'				 => '#',
-           'icon_value'  => esc_html('fa-gavel')
-       ),
-
-       array(
-           'title'       => esc_html__('Lorem ipsum', 'lawyeriax-lite'),
-           'text'    		 => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.', 'lawyeriax-lite'),
-           'subtitle'    => esc_html__('Read more...', 'lawyeriax-lite'),
-           'link'				 => '#',
-           'icon_value'  => esc_html('fa-gavel')
-       ),
-
-       array(
-           'title'       => esc_html__('Lorem ipsum', 'lawyeriax-lite'),
-           'text'    		 => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu. vestibulum accumsan in in leo.', 'lawyeriax-lite'),
-           'subtitle'    => esc_html__('Read more...', 'lawyeriax-lite'),
-           'link'				 => '#',
-           'icon_value'  => esc_html('fa-gavel')
-       ),
-     )));
   ?>
 
  	<section id="features" class="features">
  		<div class="container">
  			<div class="home-section-inner feature-boxes-wrap">
 
-        <?php if(!empty($features_content)){
-          $features_content_decoded = json_decode($features_content);
-          if(!empty($features_content_decoded)) {
-            foreach($features_content_decoded as $features_content) { ?>
-       				<div class="col-xs-12 col-sm-6 col-md-3 feature-box">
-       					<div class="features-title">
-       						<span class="features-title-icon"><i class="fa <?php echo $features_content->icon_value; ?>"></i></span>
-       						<div class="feature-title-wrap">
-       							<h3 class="feature-title"><?php echo esc_html($features_content->title); ?></h3>
-       						</div>
-       					</div>
-       					<div class="border-left features-content">
-       						<p><?php echo esc_html($features_content->text); ?></p>
-       						<a href="<?php echo esc_url($features_content->link); ?>" title="Read more" class="read-more"><?php echo esc_html($features_content->subtitle); ?></a>
-       					</div>
-       				</div>
+        <?php
+        $box_ids = array(get_theme_mod('first_feature_box'), get_theme_mod('second_feature_box'), get_theme_mod('third_feature_box'), get_theme_mod('fourth_feature_box'));
+        if(!empty($box_ids)) {
+          foreach($box_ids as $id) {
+            if($id != 0) {
+            $page = get_post($id); ?>
+            <div class="col-xs-12 col-sm-6 col-md-3 feature-box">
+              <div class="features-title">
+                <span class="features-title-icon"><i class="fa fa-gavel"></i></span>
+
+                <?php if(!empty($page->post_title)) { ?>
+
+                  <div class="feature-title-wrap">
+                    <h3 class="feature-title"><?php echo esc_html($page->post_title); ?></h3>
+                  </div>
+
+                <?php } ?>
+
+              </div>
+
               <?php
-            }
+
+               if(!empty($page->post_excerpt)) { ?>
+                <div class="border-left features-content">
+                  <p><?php echo esc_html(substr($page->post_excerpt, 0, 100)) . '...'; ?></p>
+                  <a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more">Read more...</a>
+                </div>
+
+              <?php } else if(!empty($page->post_content)) { ?>
+
+                <div class="border-left features-content">
+                  <p><?php echo esc_html(substr($page->post_content, 0 , 100)) . '...'; ?></p>
+                  <a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more">Read more...</a>
+                </div>
+
+              <?php } ?>
+
+            </div>
+
+            <?php
           }
-        } ?>
+        }
+      }
+        ?>
 
- 			</div>
- 			<div class="col-sm-10 col-sm-offset-1 section-line"></div>
- 		</div><!-- .container -->
- 	</section>
-
- 	<?php
- }
- endif;
-
-
-
- if ( ! function_exists( 'lawyeriax_lite_lawyers_section' ) ) :
- /**
-  * Ribbon sections
-  */
- function lawyeriax_lite_lawyers_section() {
-   $lawyers_section = get_theme_mod('lawyeriax_lawyers_heading', esc_html__('Our Lawyers','lawyeriax-lite'));
-   global $wp_customize;
- 	?>
-
- 	<section id="lawyer" class="home-section lawyer">
- 		<div class="container">
-
-      <?php
-      if(!empty($lawyers_section)) { ?>
-   			<div class="home-section-title-wrap">
-   				<h2 class="home-section-title"><?php echo esc_html($lawyers_section) ?></h2>
-   			</div>
-      <?php } else if (isset ( $wp_customize ) ) { ?>
-
-        <div class="home-section-title-wrap">
-   				<h2 class="home-section-title lawyeriax_lite_only_customizer"></h2>
-   			</div>
-      <?php } ?>
-
- 			<div class="home-section-inner lawyer-box-wrap">
-
- 				<div class="col-xs-12 col-sm-4 lawyer-box">
- 					<div class="lawyer-box-image">
- 						<a href="#" title="Eu Doris Pavel">
- 							<img src="<?php echo get_template_directory_uri(); ?>/images/lawyer1.jpg" alt="Mare lawyer frate">
- 						</a>
- 					</div>
- 					<div class="lawyer-box-content">
- 						<h5 class="lawyer-title">
- 							<a href="#" title="Marele Doris">Doris Patel</a>
- 						</h5>
- 						<div class="border-left lawyer-box-content-inner">
- 							<div class="lawyer-box-inside">
- 								<p class="lawyer-box-info">Litigation</p>
- 								<ul class="lawyer-media-icons">
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 								</ul>
- 							</div>
- 							<a href="#" class="view-profile" title="View Profile">View Profile</a>
- 						</div>
- 					</div>
- 				</div>
-
- 				<div class="col-xs-12 col-sm-4 lawyer-box">
- 					<div class="lawyer-box-image">
- 						<a href="#" title="Eu Doris Pavel">
- 							<img src="<?php echo get_template_directory_uri(); ?>/images/lawyer1.jpg" alt="Mare lawyer frate">
- 						</a>
- 					</div>
- 					<div class="lawyer-box-content">
- 						<h5 class="lawyer-title">
- 							<a href="#" title="Marele Doris">Doris Patel</a>
- 						</h5>
- 						<div class="border-left lawyer-box-content-inner">
- 							<div class="lawyer-box-inside">
- 								<p class="lawyer-box-info">Litigation</p>
- 								<ul class="lawyer-media-icons">
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 								</ul>
- 							</div>
- 							<a href="#" class="view-profile" title="View Profile">View Profile</a>
- 						</div>
- 					</div>
- 				</div>
-
- 				<div class="col-xs-12 col-sm-4 lawyer-box">
- 					<div class="lawyer-box-image">
- 						<a href="#" title="Eu Doris Pavel">
- 							<img src="<?php echo get_template_directory_uri(); ?>/images/lawyer1.jpg" alt="Mare lawyer frate">
- 						</a>
- 					</div>
- 					<div class="lawyer-box-content">
- 						<h5 class="lawyer-title">
- 							<a href="#" title="Marele Doris">Doris Patel</a>
- 						</h5>
- 						<div class="border-left lawyer-box-content-inner">
- 							<div class="lawyer-box-inside">
- 								<p class="lawyer-box-info">Litigation</p>
- 								<ul class="lawyer-media-icons">
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 								</ul>
- 							</div>
- 							<a href="#" class="view-profile" title="View Profile">View Profile</a>
- 						</div>
- 					</div>
- 				</div>
-
- 				<div class="col-xs-12 col-sm-4 lawyer-box">
- 					<div class="lawyer-box-image">
- 						<a href="#" title="Eu Doris Pavel">
- 							<img src="<?php echo get_template_directory_uri(); ?>/images/lawyer1.jpg" alt="Mare lawyer frate">
- 						</a>
- 					</div>
- 					<div class="lawyer-box-content">
- 						<h5 class="lawyer-title">
- 							<a href="#" title="Marele Doris">Doris Patel</a>
- 						</h5>
- 						<div class="border-left lawyer-box-content-inner">
- 							<div class="lawyer-box-inside">
- 								<p class="lawyer-box-info">Litigation</p>
- 								<ul class="lawyer-media-icons">
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 								</ul>
- 							</div>
- 							<a href="#" class="view-profile" title="View Profile">View Profile</a>
- 						</div>
- 					</div>
- 				</div>
-
- 				<div class="col-xs-12 col-sm-4 lawyer-box">
- 					<div class="lawyer-box-image">
- 						<a href="#" title="Eu Doris Pavel">
- 							<img src="<?php echo get_template_directory_uri(); ?>/images/lawyer1.jpg" alt="Mare lawyer frate">
- 						</a>
- 					</div>
- 					<div class="lawyer-box-content">
- 						<h5 class="lawyer-title">
- 							<a href="#" title="Marele Doris">Doris Patel</a>
- 						</h5>
- 						<div class="border-left lawyer-box-content-inner">
- 							<div class="lawyer-box-inside">
- 								<p class="lawyer-box-info">Litigation</p>
- 								<ul class="lawyer-media-icons">
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 									<li><a href="#" class="fb"><img src="<?php echo get_template_directory_uri(); ?>/images//fb.jpg"></a></li>
- 								</ul>
- 							</div>
- 							<a href="#" class="view-profile" title="View Profile">View Profile</a>
- 						</div>
- 					</div>
- 				</div>
-
- 			</div>
-
- 			<div class="col-sm-10 col-sm-offset-1 section-line"></div>
- 		</div><!-- .container -->
- 	</section>
-
- 	<?php
- }
- endif;
-
-
+      </div>
+    <div class="col-sm-10 col-sm-offset-1 section-line"></div>
+  </div><!-- .container -->
+</section>
+ <?php }
+endif;
 
  if ( ! function_exists( 'lawyeriax_lite_about_us_section' ) ) :
  /**

@@ -34,7 +34,7 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons', json_encode(arr
 		 )
  )));
 
-$website_logo = get_theme_mod('lawyeriax_navbar_logo', get_template_directory_uri() . '/images/logo.png')
+$website_logo = get_theme_mod('lawyeriax_navbar_logo');
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
