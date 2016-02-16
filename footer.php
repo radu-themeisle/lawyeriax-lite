@@ -42,7 +42,7 @@
 				<div class="site-info-inner">
 					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'lawyeriax-lite' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'lawyeriax-lite' ), 'WordPress' ); ?></a>
 					<span class="sep"> | </span>
-					<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'lawyeriax-lite' ), 'lawyeriax-lite', '<a href="http://themeisle.com/" rel="designer">Themeisle.com</a>' ); ?>
+					<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'lawyeriax-lite' ), 'lawyeriax-lite', '<a href="http://themeisle.com/" rel="nofollow">Themeisle.com</a>' ); ?>
 				</div>
 			</div><!-- .site-info -->
 		</div>
