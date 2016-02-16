@@ -172,14 +172,14 @@ endif;
                if(!empty($page->post_excerpt)) { ?>
                 <div class="border-left features-content">
                   <p><?php echo esc_html(substr($page->post_excerpt, 0, 100)) . '...'; ?></p>
-                  <a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more">Read more...</a>
+                  <a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more"> <?php echo __('Read more...', 'lawyeriax-lite') ?> </a>
                 </div>
 
               <?php } else if(!empty($page->post_content)) { ?>
 
                 <div class="border-left features-content">
                   <p><?php echo esc_html(substr($page->post_content, 0 , 100)) . '...'; ?></p>
-                  <a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more">Read more...</a>
+                  <a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more"> <?php echo __('Read more...', 'lawyeriax-lite') ?> </a>
                 </div>
 
               <?php } ?>
