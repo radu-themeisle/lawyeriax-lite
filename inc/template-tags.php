@@ -17,6 +17,10 @@ function lawyeriax_lite_posted_on() {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 	}
 
+	$archive_year 	= get_the_time('Y');
+	$archive_month 	= get_the_time ('m');
+	$archive_day 		= get_the_time ('d');
+
 	$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() ),
@@ -25,7 +29,7 @@ function lawyeriax_lite_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><i class="fa fa-clock-o"></i>' . $time_string . '</a>'
+		'<a href="' . esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) ) . '" rel="bookmark"><i class="fa fa-clock-o"></i>' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
