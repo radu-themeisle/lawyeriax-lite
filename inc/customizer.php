@@ -338,7 +338,7 @@ $wp_customize->add_control('news_heading', array(
 
 	$wp_customize->remove_control('page_on_front');
 
-	$wp_customize->add_control(new Llorix_One_Frontpage_Templates($wp_customize, 'page_on_front',array(
+	$wp_customize->add_control(new LawyeriaX_Lite_Frontpage_Templates($wp_customize, 'page_on_front',array(
 			'label'    => __( 'Front page', 'lawyeriax-lite' ),
 			'section' => 'static_front_page',
 			'priority' => 10

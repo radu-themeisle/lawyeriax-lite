@@ -1,5 +1,5 @@
 <?php
-class Llorix_One_Frontpage_Templates extends WP_Customize_Control{
+class LawyeriaX_Lite_Frontpage_Templates extends WP_Customize_Control{
 
     public function __construct( $manager, $id, $args = array() ) {
         parent::__construct( $manager, $id, $args );
