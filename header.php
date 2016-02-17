@@ -28,10 +28,6 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons', json_encode(arr
 				 'icon_value' 	=> 'fa-google-plus-square',
 				 'link' 		=> '#'
 		 ),
-		 array(
-				 'icon_value' 	=> 'fa-rss-square',
-				 'link' 		=> '#'
-		 )
  )));
 
 $website_logo = get_theme_mod('lawyeriax_navbar_logo');
@@ -71,8 +67,8 @@ $website_logo = get_theme_mod('lawyeriax_navbar_logo');
 					?>
 				</div>
 				<div class="top-bar-right top-bar-contact">
-					<p><i class="fa fa-phone-square"></i><span><?php echo esc_html($phone_number); ?></span></p>
-				    <p><i class="fa fa-envelope-square"></i><span><?php echo esc_html($email_address); ?></span></p>
+					<p><i class="fa fa-phone-square"></i><span><?php esc_html_e($phone_number); ?></span></p>
+				    <p><i class="fa fa-envelope-square"></i><span><?php esc_html_e($email_address); ?></span></p>
 				</div>
 			</div> <!-- container -->
 		</div>

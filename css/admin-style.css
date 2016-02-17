@@ -2,62 +2,57 @@
   margin-top: 15px;
   color: #313131;
 }
-.repeater_repeater_container, .repeater_general_control_repeater_container {
+.lawyeriax_repeater_container, .lawyeriax_general_control_repeater_container {
   width: 100%;
   float: left;
   padding: 5px 0;
   cursor: move;
 }
-.repeater_repeater_container .repeater-box-content-hidden, .repeater_general_control_repeater_container .repeater-box-content-hidden {
+.lawyeriax_repeater_container .repeater-box-content-hidden, .lawyeriax_general_control_repeater_container .repeater-box-content-hidden {
   padding: 5px;
   border: 1px solid #dfdfdf;
   border-top: 0;
   padding-top: 0;
 }
-button.repeater_remove_field {
+button.lawyeriax_remove_field {
   display: inline-block;
   width: 25% !important;
   height: 57px !important;
   white-space: initial !important;
   line-height: 17px !important;
-  line-height: 17px !important;
   float: right;
 }
-button.repeater_general_control_remove_field {
+button.lawyeriax_general_control_remove_field {
   width: 100%;
   margin-top: 10px!important;
 }
-button.repeater_general_control_remove_field:hover {
+button.lawyeriax_general_control_remove_field:hover {
   background-color: #db3936!important;
   color: #FFFFFF!important;
   border: 0;
 }
-#customize-control-lawyeriax_lawyers_content > div > div > div.repeater-box-content-hidden > div > div > input.repeater_social_repeater_link {
-  margin: 20px 0 5px 0;
-}
-
-.repeater_repeater_container .repeater_icon_link, .repeater_general_control_repeater_container .repeater_text_control, .repeater_general_control_repeater_container .repeater_link_control {
+.lawyeriax_repeater_container .lawyeriax_icon_link, .lawyeriax_general_control_repeater_container .lawyeriax_text_control, .lawyeriax_general_control_repeater_container .lawyeriax_link_control {
   width: 100% !important;
   margin: 3px 0 0 !important;
 }
-.repeater_repeater_container .repeater_icons, .repeater_general_control_repeater_container .repeater_icon_control {
+.lawyeriax_repeater_container .lawyeriax_icons, .lawyeriax_general_control_repeater_container .lawyeriax_icon_control {
   width: 100%;
   margin: 0;
   padding: 0;
 }
-#repeater_new_field, #repeater_general_control_new_field {
+#lawyeriax_new_field, #lawyeriax_general_control_new_field {
   width: 100%;
 }
 .customize-control-widget_form .widget-control-save {
   display: block !important;
 }
-.repeater_our_services_image_control {
+.lawyeriax_our_services_image_control {
   display: none;
 }
-.repeater_our_services_icon_control {
+.lawyeriax_our_services_icon_control {
   display: none;
 }
-.repeater_general_control_repeater_container .repeater-box-content-hidden {
+.lawyeriax_general_control_repeater_container .repeater-box-content-hidden {
   display: none;
 }
 .repeater-box-content-hidden {
@@ -87,15 +82,17 @@ button.repeater_general_control_remove_field:hover {
   text-align: center;
   color: #B13735;
 }
-.repeater_image_control .custom_media_button_repeater {
+.lawyeriax_image_control .custom_media_button_repeater {
   margin-top: 5px;
 }
-#customize-control-repeater_contact_form_shortcode {
+#customize-control-lawyeriax_contact_form_shortcode {
   display: none;
 }
-.repeater_radio_control {
+.lawyeriax_radio_control {
   margin-top: 0;
 }
-.repeater_general_control_repeater_container .repeater-box-content-hidden {
+.lawyeriax_general_control_repeater_container .repeater-box-content-hidden {
   padding-top: 5px;
 }
+
+B13735

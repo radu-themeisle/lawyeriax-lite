@@ -11,27 +11,28 @@
   */
  function lawyeriax_lite_slider_section() {
    $slider_content = get_theme_mod('lawyeriax_slider_content', json_encode(array(
-       array(
-           'title'      => esc_html__('Meet Lawyeria', 'lawyeriax-lite'),
-           'text'       => esc_html__('A WordPress theme for lawyer websites. Show everyone who you are, introduce your team, your activities, and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
-           'subtitle'   => esc_html__('Request Legal Advice', 'lawyeriax-lite'),
-           'link'				=> '#',
-           'image_url'	=> get_template_directory_uri() . '/images/slider0.jpg'
-       ),
-       array(
-           'title'      => esc_html__('Fully Responsive', 'lawyeriax-lite'),
-           'text'       => esc_html__('Lawyeria will look incredibly well on all devices, as it was made to fit any mobile screen. Its beautiful design and the way your content looks won &#39;t be affected by the device you use. They will remain just the same as on desktop.', 'lawyeriax-lite'),
-           'subtitle'   => esc_html__('Buy Now', 'lawyeriax-lite'),
-           'link'				=> '#',
-           'image_url'	=> get_template_directory_uri() . '/images/slider1.jpg'
-       ),
-       array(
-           'title'      => esc_html__('Business Ready', 'lawyeriax-lite'),
-           'text'       => esc_html__('A business-oriented theme that provides a professional and clean design, made to build trust between you and your clients. It will put your professional purposes in the spotlight, promote your best skills in a modern way, and help you increase the number of your clients.', 'lawyeriax-lite'),
-           'subtitle'   => esc_html__('More Themes', 'lawyeriax-lite'),
-           'link'				=> '#',
-           'image_url'	=> get_template_directory_uri() . '/images/slider2.jpg'
-       ),
+     array(
+         'title'      => esc_html__('Meet Lawyeria', 'lawyeriax-lite'),
+         'text'       => esc_html__('A WordPress theme for lawyer websites. Show everyone who you are, introduce your team, your activities, and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
+         'subtitle'   => esc_html__('Request Legal Advice', 'lawyeriax-lite'),
+         'link'				=> '#',
+         'image_url'	=> get_template_directory_uri() . '/images/slider0.jpg'
+     ),
+     array(
+         'title'      => esc_html__('Fully Responsive', 'lawyeriax-lite'),
+         'text'       => esc_html__('Lawyeria will look incredibly well on all devices, as it was made to fit any mobile screen. Its beautiful design and the way your content looks will not be affected by the device you use. They will remain just the same as on desktop.', 'lawyeriax-lite'),
+         'subtitle'   => esc_html__('Buy Now', 'lawyeriax-lite'),
+         'link'				=> esc_url('#'),
+         'image_url'	=> get_template_directory_uri() . '/images/slider1.jpg'
+     ),
+     array(
+         'title'      => esc_html__('Business Ready', 'lawyeriax-lite'),
+         'text'       => esc_html__('A business-oriented theme that provides a professional and clean design, made to build trust between you and your clients. It will put your professional purposes in the spotlight, promote your best skills in a modern way, and help you increase the number of your clients.', 'lawyeriax-lite'),
+         'subtitle'   => esc_html__('More Themes', 'lawyeriax-lite'),
+         'link'				=> esc_url('#'),
+         'image_url'	=> get_template_directory_uri() . '/images/slider2.jpg'
+     ),
+
      )));
        $var   = 0;
        $var1  = 0;
@@ -70,13 +71,13 @@
    						<div class="carousel-caption">
    							<div class="container">
                   <?php if(!empty($slider_content->title)) { ?>
-   								<p class="col-md-8 carousel-title"> <?php echo esc_html($slider_content->title); ?> </p>
+   								<p class="col-md-8 carousel-title"> <?php esc_html_e($slider_content->title); ?> </p>
                   <?php }
                   if(!empty($slider_content->text)) { ?>
-                    <p class="col-md-8 carousel-content"> <?php echo esc_html($slider_content->text); ?> </p>
+                    <p class="col-md-8 carousel-content"> <?php esc_html_e($slider_content->text); ?> </p>
                   <?php }
                   if(!empty($slider_content->subtitle)) { ?>
-                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php echo esc_html($slider_content->subtitle); ?></a></p>
+                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php esc_html_e($slider_content->subtitle); ?></a></p>
                   <?php } ?>
                 </div>
    						</div>

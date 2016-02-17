@@ -51,7 +51,7 @@ $wp_customize->add_section('lawyeriax_top_bar_section', array(
 		Social icons
 =============================================================================*/
 $wp_customize->add_setting('lawyeriax_top_bar_social_icons', array(
-		'sanitize_callback' => 'sanitize_repeater',
+		'sanitize_callback' => 'lawyeriax_lite_sanitize_repeater',
 		'default'           => json_encode(array(
 				array(
 						'icon_value'  => 'fa-facebook-square',
@@ -69,20 +69,16 @@ $wp_customize->add_setting('lawyeriax_top_bar_social_icons', array(
 						'icon_value'  => 'fa-google-plus-square',
 						'link'				=> '#'
 				),
-				array(
-						'icon_value'  => 'fa-rss-square',
-						'link'				=> '#'
-				)
 		))
 ));
 
-$wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_top_bar_social_icons', array(
+$wp_customize->add_control(new LawyeriaX_General_Repeater($wp_customize, 'lawyeriax_top_bar_social_icons', array(
 		'label'                   => __('Social Links', 'lawyeriax-lite'),
 		'description'             => __('Edit, add or remove social links from the top bar', 'lawyeriax-lite'),
 		'section'                 => 'lawyeriax_top_bar_section',
 		'priority'                => 1,
-		'repeater_icon_control'   => true,
-		'repeater_link_control'   => true,
+		'lawyeriax_icon_control'   => true,
+		'lawyeriax_link_control'   => true,
 )));
 
 /*=============================================================================
@@ -91,7 +87,7 @@ $wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_top_ba
 
 	$wp_customize->add_setting('lawyeriax_top_bar_phone_number', array(
 			'default'           => esc_html__('+1-888-846173', 'lawyeriax-lite'),
-			'sanitize_callback' => 'lawyeriax_sanitize_text',
+			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 	));
 
 	$wp_customize->add_control('lawyeriax_top_bar_phone_number', array(
@@ -106,7 +102,7 @@ Email address
 
 	$wp_customize->add_setting('lawyeriax_top_bar_email_address', array(
 			'default'           => esc_html__('example@themeisle.com', 'lawyeriax-lite'),
-			'sanitize_callback' => 'lawyeriax_sanitize_text'
+			'sanitize_callback' => 'lawyeriax_lite_sanitize_text'
 	));
 	$wp_customize->add_control('lawyeriax_top_bar_email_address', array(
 			'label'       => __('Email Address', 'lawyeriax-lite'),
@@ -126,40 +122,40 @@ Email address
 	));
 
 	$wp_customize->add_setting('lawyeriax_slider_content', array(
-			'sanitize_callback' => 'sanitize_repeater',
+			'sanitize_callback' => 'lawyeriax_lite_sanitize_repeater',
 			'default'           => json_encode(array(
 					array(
-	            'title'      => esc_html__('Meet Lawyeria', 'lawyeriax-lite'),
-	            'text'       => esc_html__('A WordPress theme for lawyer websites. Show everyone who you are, introduce your team, your activities, and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
-	            'subtitle'   => esc_html__('Request Legal Advice', 'lawyeriax-lite'),
-	            'link'				=> '#',
-	            'image_url'	=> get_template_directory_uri() . '/images/slider0.jpg'
-	        ),
-	        array(
-	            'title'      => esc_html__('Fully Responsive', 'lawyeriax-lite'),
-	            'text'       => esc_html__('Lawyeria will look incredibly well on all devices, as it was made to fit any mobile screen. Its beautiful design and the way your content looks won &#39;t be affected by the device you use. They will remain just the same as on desktop.', 'lawyeriax-lite'),
-	            'subtitle'   => esc_html__('Buy Now', 'lawyeriax-lite'),
-	            'link'				=> '#',
-	            'image_url'	=> get_template_directory_uri() . '/images/slider1.jpg'
-	        ),
-	        array(
-	            'title'      => esc_html__('Business Ready', 'lawyeriax-lite'),
-	            'text'       => esc_html__('A business-oriented theme that provides a professional and clean design, made to build trust between you and your clients. It will put your professional purposes in the spotlight, promote your best skills in a modern way, and help you increase the number of your clients.', 'lawyeriax-lite'),
-	            'subtitle'   => esc_html__('More Themes', 'lawyeriax-lite'),
-	            'link'				=> '#',
-	            'image_url'	=> get_template_directory_uri() . '/images/slider2.jpg'
-	        ),
+		          'title'      => esc_html__('Meet Lawyeria', 'lawyeriax-lite'),
+		          'text'       => esc_html__('A WordPress theme for lawyer websites. Show everyone who you are, introduce your team, your activities, and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
+		          'subtitle'   => esc_html__('Request Legal Advice', 'lawyeriax-lite'),
+		          'link'				=> '#',
+		          'image_url'	=> get_template_directory_uri() . '/images/slider0.jpg'
+		      ),
+		      array(
+		          'title'      => esc_html__('Fully Responsive', 'lawyeriax-lite'),
+		          'text'       => esc_html__('Lawyeria will look incredibly well on all devices, as it was made to fit any mobile screen. Its beautiful design and the way your content looks will not be affected by the device you use. They will remain just the same as on desktop.', 'lawyeriax-lite'),
+		          'subtitle'   => esc_html__('Buy Now', 'lawyeriax-lite'),
+		          'link'				=> esc_url('#'),
+		          'image_url'	=> get_template_directory_uri() . '/images/slider1.jpg'
+		      ),
+		      array(
+		          'title'      => esc_html__('Business Ready', 'lawyeriax-lite'),
+		          'text'       => esc_html__('A business-oriented theme that provides a professional and clean design, made to build trust between you and your clients. It will put your professional purposes in the spotlight, promote your best skills in a modern way, and help you increase the number of your clients.', 'lawyeriax-lite'),
+		          'subtitle'   => esc_html__('More Themes', 'lawyeriax-lite'),
+		          'link'				=> esc_url('#'),
+		          'image_url'	=> get_template_directory_uri() . '/images/slider2.jpg'
+		      ),
 				))));
 
-	$wp_customize->add_control(new General_Repeater($wp_customize, 'lawyeriax_slider_content', array(
-			'title' 											=> __('Slider Area', 'lawyeriax-lite'),
+	$wp_customize->add_control(new LawyeriaX_General_Repeater($wp_customize, 'lawyeriax_slider_content', array(
+			'label' 											=> __('Slider Area', 'lawyeriax-lite'),
 			'section'                 		=> 'lawyeria_slider_section',
 			'priority'                		=> 1,
-			'repeater_title_control'   		=> true,
-			'repeater_subtitle_control'   => true,
-			'repeater_text_control'   		=> true,
-			'repeater_link_control'   		=> true,
-			'repeater_image_control'   		=> true,
+			'lawyeriax_title_control' 		=> true,
+			'lawyeriax_subtitle_control'	=> true,
+			'lawyeriax_text_control'  		=> true,
+			'lawyeriax_link_control'  		=> true,
+			'lawyeriax_image_control'			=> true,
 	)));
 
 
@@ -174,7 +170,7 @@ $wp_customize->add_section('lawyeriax_ribbon_section', array(
 
 $wp_customize->add_setting('lawyeriax_ribbon_tagline', array(
 		'default'           => esc_html__('The safety of the people shall be the highest law.', 'lawyeriax-lite'),
-		'sanitize_callback' => 'lawyeriax_sanitize_text',
+		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 		'transport'					=> 'postMessage',
 ));
 $wp_customize->add_control('lawyeriax_ribbon_tagline', array(
@@ -274,7 +270,7 @@ $wp_customize->add_setting('lawyeria_about_image', array(
 
 	$wp_customize->add_setting('lawyeriax_about_heading', array(
 			'default'           => esc_html__('Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes.', 'lawyeriax-lite'),
-			'sanitize_callback' => 'lawyeriax_sanitize_text',
+			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 			'transport'					=> 'postMessage',
 	));
 
@@ -290,7 +286,7 @@ $wp_customize->add_setting('lawyeria_about_image', array(
 
 $wp_customize->add_setting('lawyeriax_about_text', array(
 		'default'           => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete.', 'lawyeriax-lite'),
-		'sanitize_callback' => 'lawyeriax_sanitize_text',
+		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 		'transport'					=> 'postMessage',
 ));
 
@@ -317,7 +313,7 @@ $wp_customize->add_section('lawyeriax_news_section', array(
 
 $wp_customize->add_setting('news_heading', array(
 			'default'           => esc_html__('Latest News', 'lawyeriax-lite'),
-			'sanitize_callback' => 'lawyeriax_sanitize_text',
+			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 			'transport'					=> 'postMessage',
 	));
 
@@ -349,7 +345,7 @@ require_once ( 'class/repeater-general-control.php');
 /**
  * Sanitize text.
  */
- function lawyeriax_sanitize_text($input)
+ function lawyeriax_lite_sanitize_text($input)
 {
     return wp_kses_post(force_balance_tags($input));
 }
@@ -357,31 +353,39 @@ require_once ( 'class/repeater-general-control.php');
 /**
  * Sanitize repeater.
  */
- function sanitize_repeater($input){
-	$input_decoded = json_decode($input,true);
-	$allowed_html = array(
-								'br' => array(),
-								'em' => array(),
-								'strong' => array(),
-								'a' => array(
-									'href' => array(),
-									'class' => array(),
-									'id' => array(),
-									'target' => array()
-								),
-								'button' => array(
-									'class' => array(),
-									'id' => array()
-								)
-							);
-	foreach ($input_decoded as $boxk => $box ){
-		foreach ($box as $key => $value){
-			if ($key == 'text'){
-				$input_decoded[$boxk][$key] = wp_kses($value, $allowed_html);
+ function lawyeriax_lite_sanitize_repeater($input){
 
-			} else {
-				$input_decoded[$boxk][$key] = wp_kses_post( force_balance_tags( $value ) );
-			}
-		}}
-	return json_encode($input_decoded);
-}
+ 	$input_decoded = json_decode($input,true);
+ 	$allowed_html = array(
+ 								'br' => array(),
+ 								'em' => array(),
+ 								'strong' => array(),
+ 								'a' => array(
+ 									'href' => array(),
+ 									'class' => array(),
+ 									'id' => array(),
+ 									'target' => array()
+ 								),
+ 								'button' => array(
+ 									'class' => array(),
+ 									'id' => array()
+ 								)
+ 							);
+
+
+ 	if(!empty($input_decoded)) {
+ 		foreach ($input_decoded as $boxk => $box ){
+ 			foreach ($box as $key => $value){
+ 				if (($key == 'text') || ($key == 'title') || ($key == 'subtitle')){
+ 					$value = html_entity_decode($value);
+ 					$input_decoded[$boxk][$key] = wp_kses( $value, $allowed_html);
+ 				} else {
+ 					$input_decoded[$boxk][$key] = wp_kses_post( force_balance_tags( $value ) );
+ 				}
+ 			}
+ 		}
+ 		return json_encode($input_decoded);
+ 	}
+
+ 	return $input;
+ }
