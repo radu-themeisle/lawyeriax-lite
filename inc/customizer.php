@@ -11,6 +11,14 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function lawyeriax_lite_customize_register( $wp_customize ) {
+
+	/**
+	 * Add repeater PHP and template controler.
+	 */
+	require_once ( 'class/repeater-general-control.php');
+
+	require_once ( 'class/lawyeriax-lite-template-control.php');
+
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
@@ -322,22 +330,59 @@ $wp_customize->add_control('news_heading', array(
 		'section'     => 'lawyeriax_news_section',
 		'priority'    => 1,
 ));
+
+/* Control for choosing template for the frontpage */
+/*****************************************************************/
+/**********	Control for choosing a template for the frontpage ****/
+/*****************************************************************/
+
+	$wp_customize->remove_control('page_on_front');
+
+	$wp_customize->add_control(new Llorix_One_Frontpage_Templates($wp_customize, 'page_on_front',array(
+			'label'    => __( 'Front page', 'lawyeriax-lite' ),
+			'section' => 'static_front_page',
+			'priority' => 10
+	)));
+
+	$lawyeriax_lite_page_for_posts = $wp_customize->get_control('page_for_posts');
+	if(!empty($lawyeriax_lite_page_for_posts)):
+		$lawyeriax_lite_page_for_posts->priority = 11;
+	endif;
+	/**********************/
+
+$lawyeriax_lite_templates = get_page_templates();
+
+if( !empty($lawyeriax_lite_templates) ):
+
+	$lawyeriax_lite_templates_reversed = array_flip($lawyeriax_lite_templates);
+	$lawyeriax_lite_templates_reversed['default'] = 'Default';
+
+	$wp_customize->add_setting( 'lawyeriax_lite_frontpage_template_static', array(
+		'default' => esc_html__('Frontpage template','lawyeriax-lite'),
+		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
+		// 'transport' => 'postMessage'
+	));
+	$wp_customize->add_control( 'lawyeriax_lite_frontpage_template_static', array(
+		'type' => 'select',
+		'label'    => esc_html__( 'Frontpage template', 'lawyeriax-lite' ),
+		'section'  => 'static_front_page',
+		'choices' => $lawyeriax_lite_templates_reversed,
+		'priority'    => 12
+	));
+endif;
+
 }
 add_action( 'customize_register', 'lawyeriax_lite_customize_register' );
+
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function lawyeriax_lite_customize_preview_js() {
+
 	wp_enqueue_script( 'lawyeriax_lite_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
-add_action( 'customize_preview_init', 'lawyeriax_lite_customize_preview_js' );
-
-
-/**
- * Add repeater PHP and enqueue repeater JS.
- */
-require_once ( 'class/repeater-general-control.php');
+add_action( 'customize_preview_init', 'lawyeriax_lite_customize_preview_js', 10 );
 
 
 
@@ -389,3 +434,7 @@ require_once ( 'class/repeater-general-control.php');
 
  	return $input;
  }
+
+ function lawyeriax_lite_show_on_front(){
+	return is_page_template('template-frontpage.php');
+}

@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LawyeriaX Lite 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-16 16:32+0200\n"
-"PO-Revision-Date: 2016-02-16 16:32+0200\n"
-"Last-Translator: Andrei Baicus <andrei@themeisle.com>\n"
+"POT-Creation-Date: 2016-02-17 15:52+0200\n"
+"PO-Revision-Date: 2016-02-17 15:52+0200\n"
+"Last-Translator: Baicus Andrei <andrei@themeisle.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
-"X-Poedit-Basepath: ../\n"
-"X-Poedit-Language: English\n"
+"X-Poedit-KeywordsList: esc_html__;esc_html_e;__;_e\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPath-1: inc\n"
-"X-Poedit-SearchPath-2: template-parts\n"
+"X-Poedit-SearchPath-1: template-parts\n"
+"X-Poedit-SearchPath-2: inc\n"
+"X-Poedit-SearchPath-3: js\n"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
@@ -57,39 +57,35 @@ msgstr ""
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:56
+#: functions.php:57
 msgid "Primary"
 msgstr ""
 
-#: functions.php:107
+#: functions.php:108
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:117
+#: functions.php:118
 msgid "Footer left widget"
 msgstr ""
 
-#: functions.php:124
+#: functions.php:125
 msgid "Footer center widget"
 msgstr ""
 
-#: functions.php:131
+#: functions.php:132
 msgid "Footer right widget"
 msgstr ""
 
-#: functions.php:138
+#: functions.php:139
 msgid "Team Widgets"
 msgstr ""
 
-#: functions.php:250
-msgid "Continue reading "
-msgstr ""
-
-#: header.php:52
+#: header.php:48
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:104
+#: header.php:100
 msgid "Primary Menu"
 msgstr ""
 
@@ -98,270 +94,284 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/customizer.php:33
+#: inc/customizer.php:41
 msgid "Website Logo"
 msgstr ""
 
-#: inc/customizer.php:44
+#: inc/customizer.php:52
 msgid "Top Bar"
 msgstr ""
 
-#: inc/customizer.php:45
+#: inc/customizer.php:53
 msgid "Top Bar Content"
 msgstr ""
 
-#: inc/customizer.php:80
+#: inc/customizer.php:84
 msgid "Social Links"
 msgstr ""
 
-#: inc/customizer.php:81
+#: inc/customizer.php:85
 msgid "Edit, add or remove social links from the top bar"
 msgstr ""
 
-#: inc/customizer.php:93
+#: inc/customizer.php:97
 msgid "+1-888-846173"
 msgstr ""
 
-#: inc/customizer.php:98
+#: inc/customizer.php:102
 msgid "Phone Number"
 msgstr ""
 
-#: inc/customizer.php:108
+#: inc/customizer.php:112
 msgid "example@themeisle.com"
 msgstr ""
 
-#: inc/customizer.php:112
+#: inc/customizer.php:116
 msgid "Email Address"
 msgstr ""
 
-#: inc/customizer.php:123
+#: inc/customizer.php:127
 msgid "Edit, add or remove slides from the front page hero area"
 msgstr ""
 
-#: inc/customizer.php:124
-#: inc/customizer.php:155
+#: inc/customizer.php:128
+#: inc/customizer.php:159
 msgid "Slider Area"
 msgstr ""
 
-#: inc/customizer.php:132
+#: inc/customizer.php:136
 msgid "Meet Lawyeria"
 msgstr ""
 
-#: inc/customizer.php:133
+#: inc/customizer.php:137
 msgid "A WordPress theme for lawyer websites. Show everyone who you are, introduce your team, your activities, and what customers say about you. Your strengths need to be known by everybody."
 msgstr ""
 
-#: inc/customizer.php:134
+#: inc/customizer.php:138
 msgid "Request Legal Advice"
 msgstr ""
 
-#: inc/customizer.php:139
+#: inc/customizer.php:143
 msgid "Fully Responsive"
 msgstr ""
 
-#: inc/customizer.php:140
-msgid "Lawyeria will look incredibly well on all devices, as it was made to fit any mobile screen. Its beautiful design and the way your content looks won &#39;t be affected by the device you use. They will remain just the same as on desktop."
+#: inc/customizer.php:144
+msgid "Lawyeria will look incredibly well on all devices, as it was made to fit any mobile screen. Its beautiful design and the way your content looks will not be affected by the device you use. They will remain just the same as on desktop."
 msgstr ""
 
-#: inc/customizer.php:141
+#: inc/customizer.php:145
 msgid "Buy Now"
 msgstr ""
 
-#: inc/customizer.php:146
+#: inc/customizer.php:150
 msgid "Business Ready"
 msgstr ""
 
-#: inc/customizer.php:147
+#: inc/customizer.php:151
 msgid "A business-oriented theme that provides a professional and clean design, made to build trust between you and your clients. It will put your professional purposes in the spotlight, promote your best skills in a modern way, and help you increase the number of your clients."
 msgstr ""
 
-#: inc/customizer.php:148
+#: inc/customizer.php:152
 msgid "More Themes"
 msgstr ""
 
-#: inc/customizer.php:171
+#: inc/customizer.php:175
 msgid "Ribbon Section"
 msgstr ""
 
-#: inc/customizer.php:176
+#: inc/customizer.php:180
 msgid "The safety of the people shall be the highest law."
 msgstr ""
 
-#: inc/customizer.php:181
+#: inc/customizer.php:185
 msgid "Ribbon Text"
 msgstr ""
 
-#: inc/customizer.php:192
+#: inc/customizer.php:196
 msgid "Select pages that should be added to the section. "
 msgstr ""
 
-#: inc/customizer.php:193
+#: inc/customizer.php:197
 msgid "Features Area"
 msgstr ""
 
-#: inc/customizer.php:205
+#: inc/customizer.php:209
 msgid "First Panel"
 msgstr ""
 
-#: inc/customizer.php:217
+#: inc/customizer.php:221
 msgid "Second Panel"
 msgstr ""
 
-#: inc/customizer.php:229
+#: inc/customizer.php:233
 msgid "Third Panel"
 msgstr ""
 
-#: inc/customizer.php:241
+#: inc/customizer.php:245
 msgid "Fourth Panel"
 msgstr ""
 
-#: inc/customizer.php:251
+#: inc/customizer.php:255
 msgid "About us Section"
 msgstr ""
 
-#: inc/customizer.php:252
+#: inc/customizer.php:256
 msgid "About us section settings"
 msgstr ""
 
-#: inc/customizer.php:266
+#: inc/customizer.php:270
 msgid "Image"
 msgstr ""
 
-#: inc/customizer.php:276
+#: inc/customizer.php:280
 msgid "Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes."
 msgstr ""
 
-#: inc/customizer.php:282
+#: inc/customizer.php:286
 msgid "Heading"
 msgstr ""
 
-#: inc/customizer.php:292
+#: inc/customizer.php:296
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete."
 msgstr ""
 
-#: inc/customizer.php:298
+#: inc/customizer.php:302
 msgid "Text"
 msgstr ""
 
-#: inc/customizer.php:309
-#: inc/customizer.php:319
+#: inc/customizer.php:313
+#: inc/customizer.php:323
 msgid "Latest News"
 msgstr ""
 
-#: inc/customizer.php:310
+#: inc/customizer.php:314
 msgid "Latest News Content"
 msgstr ""
 
-#: inc/customizer.php:325
+#: inc/customizer.php:329
 msgid "Section Heading"
 msgstr ""
 
-#: inc/frontpage-sections.php:202
+#: inc/customizer.php:342
+msgid "Front page"
+msgstr ""
+
+#: inc/customizer.php:361
+#: inc/customizer.php:367
+msgid "Frontpage template"
+msgstr ""
+
+#: inc/frontpage-sections.php:176
+#: inc/frontpage-sections.php:183
+msgid "Read more..."
+msgstr ""
+
+#: inc/frontpage-sections.php:209
 msgid "Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes"
 msgstr ""
 
-#: inc/template-tags.php:48
-#: inc/template-tags.php:54
+#: inc/template-tags.php:52
+#: inc/template-tags.php:58
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:50
-#: inc/template-tags.php:56
+#: inc/template-tags.php:54
+#: inc/template-tags.php:60
 #, php-format
 msgid "%1$s"
 msgstr ""
 
-#: inc/template-tags.php:62
+#: inc/template-tags.php:66
 msgid "Leave a comment"
 msgstr ""
 
-#: inc/template-tags.php:62
+#: inc/template-tags.php:66
 msgid "1 Comment"
 msgstr ""
 
-#: inc/template-tags.php:62
+#: inc/template-tags.php:66
 msgid "% Comments"
 msgstr ""
 
-#: inc/template-tags.php:69
+#: inc/template-tags.php:73
 #: template-parts/content-page.php:33
 #, php-format
 msgid "Edit %s"
 msgstr ""
 
-#: inc/class/repeater-general-control.php:67
-#: inc/class/repeater-general-control.php:157
-#: inc/class/repeater-general-control.php:247
+#: inc/class/repeater-general-control.php:56
+#: inc/class/repeater-general-control.php:139
+#: inc/class/repeater-general-control.php:226
 msgid "LawyeriaX Lite"
 msgstr ""
 
-#: inc/class/repeater-general-control.php:71
-#: inc/class/repeater-general-control.php:161
-#: inc/class/repeater-general-control.php:251
+#: inc/class/repeater-general-control.php:60
+#: inc/class/repeater-general-control.php:143
+#: inc/class/repeater-general-control.php:230
 msgid "Image type"
 msgstr ""
 
-#: inc/class/repeater-general-control.php:73
-#: inc/class/repeater-general-control.php:85
-#: inc/class/repeater-general-control.php:109
-#: inc/class/repeater-general-control.php:163
-#: inc/class/repeater-general-control.php:175
-#: inc/class/repeater-general-control.php:199
-#: inc/class/repeater-general-control.php:253
-#: inc/class/repeater-general-control.php:266
-#: inc/class/repeater-general-control.php:291
+#: inc/class/repeater-general-control.php:62
+#: inc/class/repeater-general-control.php:74
+#: inc/class/repeater-general-control.php:97
+#: inc/class/repeater-general-control.php:145
+#: inc/class/repeater-general-control.php:157
+#: inc/class/repeater-general-control.php:180
+#: inc/class/repeater-general-control.php:232
+#: inc/class/repeater-general-control.php:245
+#: inc/class/repeater-general-control.php:268
 msgid "Icon"
 msgstr ""
 
-#: inc/class/repeater-general-control.php:75
-#: inc/class/repeater-general-control.php:165
-#: inc/class/repeater-general-control.php:255
+#: inc/class/repeater-general-control.php:64
+#: inc/class/repeater-general-control.php:147
+#: inc/class/repeater-general-control.php:234
 msgid "None"
 msgstr ""
 
-#: inc/class/repeater-general-control.php:81
-#: inc/class/repeater-general-control.php:102
-#: inc/class/repeater-general-control.php:171
-#: inc/class/repeater-general-control.php:194
-#: inc/class/repeater-general-control.php:262
-#: inc/class/repeater-general-control.php:286
+#: inc/class/repeater-general-control.php:70
+#: inc/class/repeater-general-control.php:91
+#: inc/class/repeater-general-control.php:153
+#: inc/class/repeater-general-control.php:176
+#: inc/class/repeater-general-control.php:241
+#: inc/class/repeater-general-control.php:264
 msgid "Upload Image"
 msgstr ""
 
-#: inc/class/repeater-general-control.php:124
-#: inc/class/repeater-general-control.php:125
-#: inc/class/repeater-general-control.php:214
-#: inc/class/repeater-general-control.php:215
-#: inc/class/repeater-general-control.php:306
-#: inc/class/repeater-general-control.php:307
+#: inc/class/repeater-general-control.php:111
+#: inc/class/repeater-general-control.php:112
+#: inc/class/repeater-general-control.php:195
+#: inc/class/repeater-general-control.php:196
+#: inc/class/repeater-general-control.php:283
+#: inc/class/repeater-general-control.php:284
 msgid "Title"
 msgstr ""
 
-#: inc/class/repeater-general-control.php:131
-#: inc/class/repeater-general-control.php:132
-#: inc/class/repeater-general-control.php:221
-#: inc/class/repeater-general-control.php:222
-#: inc/class/repeater-general-control.php:313
-#: inc/class/repeater-general-control.php:314
+#: inc/class/repeater-general-control.php:117
+#: inc/class/repeater-general-control.php:118
+#: inc/class/repeater-general-control.php:201
+#: inc/class/repeater-general-control.php:202
+#: inc/class/repeater-general-control.php:289
+#: inc/class/repeater-general-control.php:290
 msgid "Subtitle"
 msgstr ""
 
-#: inc/class/repeater-general-control.php:143
-#: inc/class/repeater-general-control.php:144
-#: inc/class/repeater-general-control.php:231
-#: inc/class/repeater-general-control.php:232
-#: inc/class/repeater-general-control.php:323
-#: inc/class/repeater-general-control.php:324
+#: inc/class/repeater-general-control.php:126
+#: inc/class/repeater-general-control.php:127
+#: inc/class/repeater-general-control.php:210
+#: inc/class/repeater-general-control.php:211
+#: inc/class/repeater-general-control.php:298
+#: inc/class/repeater-general-control.php:299
 msgid "Link"
 msgstr ""
 
-#: inc/class/repeater-general-control.php:147
-#: inc/class/repeater-general-control.php:235
-#: inc/class/repeater-general-control.php:327
+#: inc/class/repeater-general-control.php:130
+#: inc/class/repeater-general-control.php:214
+#: inc/class/repeater-general-control.php:302
 msgid "Delete field"
 msgstr ""
 
-#: inc/class/repeater-general-control.php:346
+#: inc/class/repeater-general-control.php:319
 msgid "Add new field"
 msgstr ""
 
