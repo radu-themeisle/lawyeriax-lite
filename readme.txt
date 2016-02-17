@@ -34,10 +34,10 @@ The exceptions to this license are as follows:
     Copyright (c) 2007-2013 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
     Licensed under MIT
 
-* Images	 
+* Images
 
-	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/ 	  
-	License: All pexels.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/ 	  
+	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
+	License: All pexels.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
 
 	* images/slider0.jpg
 			Source: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=091311222ab12502202f18610a55088d
