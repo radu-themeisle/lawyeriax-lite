@@ -71,13 +71,13 @@
    						<div class="carousel-caption">
    							<div class="container">
                   <?php if(!empty($slider_content->title)) { ?>
-   								<p class="col-md-8 carousel-title"> <?php esc_html_e($slider_content->title); ?> </p>
+   								<p class="col-md-8 carousel-title"> <?php echo esc_html($slider_content->title); ?> </p>
                   <?php }
                   if(!empty($slider_content->text)) { ?>
-                    <p class="col-md-8 carousel-content"> <?php esc_html_e($slider_content->text); ?> </p>
+                    <p class="col-md-8 carousel-content"> <?php echo esc_html($slider_content->text); ?> </p>
                   <?php }
                   if(!empty($slider_content->subtitle)) { ?>
-                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php esc_html_e($slider_content->subtitle); ?></a></p>
+                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php echo esc_html($slider_content->subtitle); ?></a></p>
                   <?php } ?>
                 </div>
    						</div>

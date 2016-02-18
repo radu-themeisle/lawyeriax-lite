@@ -67,8 +67,8 @@ $website_logo = get_theme_mod('lawyeriax_navbar_logo');
 					?>
 				</div>
 				<div class="top-bar-right top-bar-contact">
-					<p><i class="fa fa-phone-square"></i><span><?php esc_html_e($phone_number); ?></span></p>
-				    <p><i class="fa fa-envelope-square"></i><span><?php esc_html_e($email_address); ?></span></p>
+					<p><i class="fa fa-phone-square"></i><span><?php echo esc_html($phone_number); ?></span></p>
+				    <p><i class="fa fa-envelope-square"></i><span><?php echo esc_html($email_address); ?></span></p>
 				</div>
 			</div> <!-- container -->
 		</div>
