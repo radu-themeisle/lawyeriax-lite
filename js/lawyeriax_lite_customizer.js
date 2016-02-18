@@ -1,4 +1,4 @@
-function media_upload(button_class) {
+function lawyeriax_lite_media_upload(button_class) {
 
 	jQuery('body').on('click', button_class, function(e) {
 		var button_id ='#'+jQuery(this).attr('id');
@@ -56,7 +56,7 @@ function media_upload(button_class) {
 /********************************************
 *** Generate uniq id ***
 *********************************************/
-function lawyeriax_uniqid(prefix, more_entropy) {
+function lawyeriax_lite_uniqid(prefix, more_entropy) {
 
   if (typeof prefix === 'undefined') {
     prefix = '';
@@ -103,7 +103,7 @@ function lawyeriax_uniqid(prefix, more_entropy) {
 /********************************************
 *** General Repeater ***
 *********************************************/
-function lawyeriax_refresh_general_control_values(){
+function lawyeriax_lite_refresh_general_control_values(){
 	jQuery(".lawyeriax_general_control_repeater").each(function(){
 		var values = [];
 		var th = jQuery(this);
@@ -119,12 +119,12 @@ function lawyeriax_refresh_general_control_values(){
             if( text !='' || image_url!='' || title!='' || subtitle!='' ){
                 values.push({
                     "icon_value" : (choice === 'lawyeriax_none' ? "" : icon_value) ,
-                    "text" : escapeHtml(text),
+                    "text" : lawyeriax_lite_escapeHtml(text),
                     "link" : link,
                     "image_url" : (choice === 'lawyeriax_none' ? "" : image_url),
                     "choice" : choice,
-                    "title" : escapeHtml(title),
-                    "subtitle" : escapeHtml(subtitle),
+                    "title" : lawyeriax_lite_escapeHtml(title),
+                    "subtitle" : lawyeriax_lite_escapeHtml(subtitle),
 										"id" : id
                 });
             }
@@ -165,25 +165,25 @@ jQuery(document).ready(function(){
             jQuery(this).parent().parent().find('.lawyeriax_image_control').hide();
         }
 
-        lawyeriax_refresh_general_control_values();
+        lawyeriax_lite_refresh_general_control_values();
         return false;
     });
-    media_upload('.custom_media_button_repeater');
+    lawyeriax_lite_media_upload('.custom_media_button_repeater');
     jQuery(".custom_media_url").live('change',function(){
-        lawyeriax_refresh_general_control_values();
+        lawyeriax_lite_refresh_general_control_values();
         return false;
     });
 
 
 	jQuery("#customize-theme-controls").on('change', '.dd-selected-value',function(){
-		lawyeriax_refresh_general_control_values();
+		lawyeriax_lite_refresh_general_control_values();
 		return false;
 	});
 
 	jQuery(".lawyeriax_general_control_new_field").on("click",function(){
 
 		var th = jQuery(this).parent();
-		var id = 'lawyeriax_'+lawyeriax_uniqid();
+		var id = 'lawyeriax_'+lawyeriax_lite_uniqid();
 		if(typeof th != 'undefined') {
 
             var field = th.find(".lawyeriax_general_control_repeater_container:first").clone();
@@ -208,7 +208,7 @@ jQuery(document).ready(function(){
                 field.find(".lawyeriax_title_control").val('');
                 field.find(".lawyeriax_subtitle_control").val('');
                 th.find(".lawyeriax_general_control_repeater_container:first").parent().append(field);
-                lawyeriax_refresh_general_control_values();
+                lawyeriax_lite_refresh_general_control_values();
             }
 
 		}
@@ -218,32 +218,32 @@ jQuery(document).ready(function(){
 	jQuery("#customize-theme-controls").on("click", ".lawyeriax_general_control_remove_field",function(){
 		if( typeof	jQuery(this).parent() != 'undefined'){
 			jQuery(this).parent().parent().remove();
-			lawyeriax_refresh_general_control_values();
+			lawyeriax_lite_refresh_general_control_values();
 		}
 		return false;
 	});
 
 
 	jQuery("#customize-theme-controls").on('keyup', '.lawyeriax_title_control',function(){
-		 lawyeriax_refresh_general_control_values();
+		 lawyeriax_lite_refresh_general_control_values();
 	});
 
 	jQuery("#customize-theme-controls").on('keyup', '.lawyeriax_subtitle_control',function(){
-		 lawyeriax_refresh_general_control_values();
+		 lawyeriax_lite_refresh_general_control_values();
 	});
 
 	jQuery("#customize-theme-controls").on('keyup', '.lawyeriax_text_control',function(){
-		 lawyeriax_refresh_general_control_values();
+		 lawyeriax_lite_refresh_general_control_values();
 	});
 
 	jQuery("#customize-theme-controls").on('keyup', '.lawyeriax_link_control',function(){
-		lawyeriax_refresh_general_control_values();
+		lawyeriax_lite_refresh_general_control_values();
 	});
 
 	/*Drag and drop to change icons order*/
 	jQuery(".lawyeriax_general_control_droppable").sortable({
 		update: function( event, ui ) {
-			lawyeriax_refresh_general_control_values();
+			lawyeriax_lite_refresh_general_control_values();
 		}
 	});
 
@@ -258,7 +258,7 @@ var entityMap = {
     "/": '&#x2F;',
   };
 
-  function escapeHtml(string) {
+  function lawyeriax_lite_escapeHtml(string) {
 	  string = String(string).replace(new RegExp('\r?\n','g'), '<br />');
 	  string = String(string).replace(/\\/g,'&#92;');
 	  return String(string).replace(/[&<>"'\/]/g, function (s) {
