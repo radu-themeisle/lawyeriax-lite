@@ -1594,6 +1594,10 @@ a.read-more {
 h3.about-title {
 	margin-top: 0;
 }
+.about-image-wrap {
+	text-align: center;
+	padding-bottom: 30px;
+}
 
 /*-----------------------
 ### Latest news [frontpage]
@@ -2357,6 +2361,13 @@ div.wpcf7-mail-sent-ok {
 	}
 	a.slider-button {
     	float: left;
+	}
+
+	/*-----------------------
+	### About us [frontpage]
+	-------------------------*/
+	.about-image-wrap {
+		text-align: left;
 	}
 
 }
