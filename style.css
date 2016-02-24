@@ -649,6 +649,9 @@ a:active {
 --------------------------------------------------------------*/
 .main-navigation {
 	float: right;
+	max-height: 400px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .main-navigation ul {
@@ -779,7 +782,6 @@ button.menu-toggle:focus {
 }
 
 button.menu-toggle {
-    margin-top: -30px;
     float: right;
     border: none;
     box-shadow: none;
@@ -794,8 +796,7 @@ button.menu-toggle:hover {
 }
 
 .main-navigation-wrap {
-	width: 100%;
-	float: right;
+    width: 100%;
 }
 
 .menu-toggle span {
@@ -1366,6 +1367,19 @@ p.site-description {
 .container-header-fixed {
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+.header-inner-site-branding {
+    display: table;
+    overflow: hidden;
+    width: 100%;
+}
+.site-branding-wrap {
+    display: table-cell;
+    vertical-align: middle;
+}
+.menu-toggle-button-wrap {
+    display: table-cell;
+    vertical-align: middle;	
 }
 
 /*-----------------------
@@ -2159,6 +2173,17 @@ div.wpcf7-mail-sent-ok {
 	    display: table-cell;
 	    vertical-align: middle;
 	}
+	.header-inner-site-branding {
+		width: initial;
+		overflow: initial;
+		display: table-cell; 
+		vertical-align: middle;
+	}
+	.main-navigation {
+		max-height: initial;
+		overflow-x: initial;
+		overflow-y: initial;
+	}
 	.main-navigation li.has_children > a {
 	    padding-right: 16px;
 	    position: relative;
@@ -2207,9 +2232,15 @@ div.wpcf7-mail-sent-ok {
 	}
 	.main-navigation li {
 		border-top: none;
+		float: none;
+		display: inline-block;
 	}
 	.main-navigation ul {
 		padding-top: 0;
+		text-align: right;
+	}
+	.main-navigation ul ul {
+		text-align: left;
 	}
 	.main-navigation li.has_children {
 		font-size: 12px;
@@ -2363,6 +2394,10 @@ div.wpcf7-mail-sent-ok {
 	}
 
 }
+
+
+
+
 
 /*
 	font-family: 'Playfair Display', serif;

@@ -75,33 +75,40 @@ $website_logo = get_theme_mod('lawyeriax_navbar_logo');
 
 		<div class="container container-header">
 			<div class="header-inner">
-				<div class="site-branding-wrap">
-					<div class="site-branding">
-						<?php
-							if ( !empty ($website_logo) ) { ?>
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo('title'); ?>">
-									<img src="<?php echo esc_url($website_logo); ?>" alt="<?php get_bloginfo( 'title' ); ?>"/>
-								</a>
-							<?php } else { ?>
-							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						 <?php
-						$description = get_bloginfo( 'description', 'display' );
-						if ( $description || is_customize_preview() ) { ?>
-							<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-						<?php
-					}} ?>
-					</div><!-- .site-branding -->
-				</div><!-- .site-branding-wrap -->
 
-				<div class="main-navigation-wrap">
-					<nav id="site-navigation" class="main-navigation" role="navigation">
+				<div class="header-inner-site-branding">
+					<div class="site-branding-wrap">
+						<div class="site-branding">
+							<?php
+								if ( !empty ($website_logo) ) { ?>
+									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo('title'); ?>">
+										<img src="<?php echo esc_url($website_logo); ?>" alt="<?php get_bloginfo( 'title' ); ?>"/>
+									</a>
+								<?php } else { ?>
+								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+							 <?php
+							$description = get_bloginfo( 'description', 'display' );
+							if ( $description || is_customize_preview() ) { ?>
+								<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+							<?php
+						}} ?>
+						</div><!-- .site-branding -->
+					</div><!-- .site-branding-wrap -->
+
+					<div class="menu-toggle-button-wrap">
 						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 							<i class="fa fa-bars"></i>
 							<span><?php esc_html_e( 'Primary Menu', 'lawyeriax-lite' ); ?></span>
 						</button>
+					</div>
+				</div>
+
+				<div class="main-navigation-wrap">
+					<nav id="site-navigation" class="main-navigation" role="navigation">
 						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 					</nav><!-- #site-navigation -->
 				</div>
+
 			</div><!-- .header-inner -->
 		</div><!-- .container -->
 

@@ -15,7 +15,7 @@
 			return;
 		}
 
-		button = container.getElementsByTagName( 'button' )[0];
+		button = container.parentNode.parentNode.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
 			return;
 		}
@@ -189,10 +189,5 @@
 	function stickyHeader() {
 		$( '#page' ).css( 'padding-top', $( '.sticky-navigation' ).height() );
 	}
-
-
-
-
-
 
 } )(jQuery,window)
