@@ -1571,6 +1571,7 @@ h3.feature-title {
 .features-content {
 	float: left;
 	display: block;
+	clear: left;
 }
 .features-content p {
 	font-size: 13px;
