@@ -160,6 +160,7 @@
 
 		veryTopHeaderHeight = $( '#top-bar' ).height();
 		adminBarHeight      = $( '#wpadminbar' ).height();
+		isAdminBar          = ( $( '#wpadminbar').length != 0 ? true : false );
 		$container 			= $( '.container-header' );
 		myClass 			= 'container-header-fixed';
 
@@ -177,11 +178,8 @@
 		            if ( ! $container.hasClass( myClass ) ) {
 						$container.addClass( myClass );
 					}
-		            console.log( 'i' );
 		        } else {
 		            $nav.css('top', window_offset );
-		            console.log( 'ii' );
-
 		            if ( $container.hasClass( myClass ) ) {
 						 $container.removeClass( myClass );
 					}
@@ -192,17 +190,6 @@
 
 	});
 
-	/*** Sticky header ***/
-	function stickyHeaderInit() {
-		/*** Sticky header ***/
-	    veryTopHeaderHeight = $( '#top-bar' ).height();
-	    adminBarHeight      = $( '#wpadminbar' ).height();
-	    isAdminBar          = ( $( '#wpadminbar').length != 0 ? true : false );
-	    limit               = 0;
-	    if( isAdminBar ) {
-	    	$nav.css('top', adminBarHeight );
-	    }
-	}
 	function stickyHeader() {
 		$( '#page' ).css( 'padding-top', $( '.sticky-navigation' ).height() );
 	}
