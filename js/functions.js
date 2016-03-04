@@ -111,12 +111,10 @@
 	    jQuery(".preloader").delay(1000).fadeOut("slow");
 
 		setTimeout( fixFooterBottom, 100 );
-		stickyHeaderInit();
 		stickyHeader();
 	} );
 	$(window).resize(function() {
 		setTimeout( fixFooterBottom, 100 );
-		stickyHeaderInit();
 		setTimeout( stickyHeader, 100 );
 	} );
 
@@ -157,29 +155,40 @@
 		}
 	}
 
-	
-	jQuery(window).scroll(function(){
-	    
-	    /*** Sticky header ***/
-	    if( window.innerWidth > 768 ) {
-	        var window_offset  = $body.offset().top - jQuery(window).scrollTop();
-	        if( isAdminBar ) {
-	            limit = -veryTopHeaderHeight + adminBarHeight;
-	        } else {
-	            limit = -veryTopHeaderHeight;
-	        }
-	        var changed = (  window_offset < limit ? true : false );
-	        if( lastChanged != changed  ){
-		        if( changed == true ) {
-		            $nav.css('top', limit );
 
+	jQuery(document).ready(function(){
+
+		veryTopHeaderHeight = $( '#top-bar' ).height();
+		adminBarHeight      = $( '#wpadminbar' ).height();
+		$container 			= $( '.container-header' );
+		myClass 			= 'container-header-fixed';
+
+		jQuery(window).scroll(function(){
+
+		    if( window.innerWidth > 768 ) {
+		        var window_offset       = $body.offset().top - jQuery(window).scrollTop();
+		        if( isAdminBar ) {
+		            limit = -veryTopHeaderHeight + adminBarHeight;
+		        } else {
+		            limit = -veryTopHeaderHeight;
+		        }
+		        if( window_offset < limit ) {
+		            $nav.css('top', limit );
+		            if ( ! $container.hasClass( myClass ) ) {
+						$container.addClass( myClass );
+					}
+		            console.log( 'i' );
 		        } else {
 		            $nav.css('top', window_offset );
+		            console.log( 'ii' );
+
+		            if ( $container.hasClass( myClass ) ) {
+						 $container.removeClass( myClass );
+					}
 		        }
-		        $( '.container-header' ).toggleClass( 'container-header-fixed' );
 		    }
-	        lastChanged = changed;
-	    }
+
+		});
 
 	});
 
