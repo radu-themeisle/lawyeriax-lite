@@ -112,6 +112,7 @@
 
 		setTimeout( fixFooterBottom, 100 );
 		stickyHeader();
+		carouselNormalization();
 	} );
 	$(window).resize(function() {
 		setTimeout( fixFooterBottom, 100 );
@@ -192,6 +193,30 @@
 
 	function stickyHeader() {
 		$( '#page' ).css( 'padding-top', $( '.sticky-navigation' ).height() );
+	}
+
+	function carouselNormalization() {
+		var items = $('#main-slider .item'), //grab all slides
+	    	heights = [], //create empty array to store height values
+	    	tallest; //create variable to make note of the tallest slide
+
+		if( ! items.length )
+	    	return;
+
+		function normalizeHeights() {
+			items.each( function() { //add heights to array
+				heights.push( $(this).height() ); 
+			} );
+			tallest = Math.max.apply( null, heights ); //cache largest value
+			items.css( 'min-height', tallest + 'px' );
+		};
+		normalizeHeights();
+
+		$( window ).on( 'resize orientationchange', function () {
+			tallest = 0, heights.length = 0; //reset vars
+			items.css( 'min-height', '0' ); //reset min-height
+			normalizeHeights(); //run it again 
+		} );
 	}
 
 } )(jQuery,window)

@@ -1407,6 +1407,10 @@ p.site-description {
 	width: 100%;
 	position: relative;
 }
+.item {
+	background-size: cover;
+	background-position: top center;
+}
 .item-inner {
 	background-size: cover;
 	padding: 140px 0 120px;

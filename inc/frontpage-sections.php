@@ -63,11 +63,11 @@
 
           foreach($slider_content_decoded as $slider_content) {
             if($var1 == 0) { ?>
-              <div class="item active">
+              <div class="item active" style="background-image: url('<?php echo esc_attr($slider_content->image_url); ?>');">
                 <?php } else { ?>
-              <div class="item">
+              <div class="item" style="background-image: url('<?php echo esc_attr($slider_content->image_url); ?>');">
                 <?php } ?>
-   					<div class="item-inner" style="background-image: url('<?php echo esc_attr($slider_content->image_url); ?>');">
+   					<div class="item-inner">
    						<div class="carousel-caption">
    							<div class="container">
                   <?php if(!empty($slider_content->title)) { ?>
