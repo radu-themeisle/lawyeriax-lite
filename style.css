@@ -2060,6 +2060,60 @@ h2.widget-title {
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
+### Pirate Form
+--------------------------------------------------------------*/
+.pirate_forms_wrap input {
+  	box-shadow: none;
+    font-size: 13px;
+    color: #200303;
+    border: 1px solid #EBEBEB;
+    border-radius: 2px;
+    max-width: 100%;
+    line-height: 25px;
+    padding: 7px;
+    height: auto;
+}
+
+.pirate_forms_wrap textarea {
+    border: 1px solid #EBEBEB;
+    min-height: 150px;
+    box-shadow: none;
+}
+
+.pirate_forms_wrap label {
+	float: left;
+	height: 1px;
+}
+
+.widget-area .pirate_forms_wrap .form_field_wrap,
+.site-footer .pirate_forms_wrap .form_field_wrap {
+    width: 100%;
+    padding: 0;
+}
+
+.contact_submit_wrap {
+	text-align: left;
+}
+
+.widget-area .contact_submit_wrap input.form-control:not([type="submit"]),
+.widget-area .contact_submit_wrap textarea.form-control,
+.site-footer .contact_submit_wrap input.form-control:not([type="submit"]),
+.site-footer .contact_submit_wrap textarea.form-control {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.widget-area .pirate_forms_thankyou_wrap,
+.site-footer .pirate_forms_thankyou_wrap {
+	padding: 0;
+}
+
+.entry-content .pirate_forms_thankyou_wrap p {
+	margin-bottom: 1.5em;
+}
+
+/*--------------------------------------------------------------
 ### Contact Form 7
 --------------------------------------------------------------*/
 div.wpcf7-validation-errors {
