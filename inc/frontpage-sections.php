@@ -63,21 +63,21 @@
 
           foreach($slider_content_decoded as $slider_content) {
             if($var1 == 0) { ?>
-              <div class="item active">
+              <div class="item active" style="background-image: url('<?php echo esc_attr($slider_content->image_url); ?>');">
                 <?php } else { ?>
-              <div class="item">
+              <div class="item" style="background-image: url('<?php echo esc_attr($slider_content->image_url); ?>');">
                 <?php } ?>
-   					<div class="item-inner" style="background-image: url('<?php echo esc_attr($slider_content->image_url); ?>');">
+   					<div class="item-inner">
    						<div class="carousel-caption">
    							<div class="container">
                   <?php if(!empty($slider_content->title)) { ?>
-   								<p class="col-md-8 carousel-title"> <?php esc_html_e($slider_content->title); ?> </p>
+   								<p class="col-md-8 carousel-title"> <?php echo esc_html($slider_content->title); ?> </p>
                   <?php }
                   if(!empty($slider_content->text)) { ?>
-                    <p class="col-md-8 carousel-content"> <?php esc_html_e($slider_content->text); ?> </p>
+                    <p class="col-md-8 carousel-content"> <?php echo esc_html($slider_content->text); ?> </p>
                   <?php }
                   if(!empty($slider_content->subtitle)) { ?>
-                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php esc_html_e($slider_content->subtitle); ?></a></p>
+                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php echo esc_html($slider_content->subtitle); ?></a></p>
                   <?php } ?>
                 </div>
    						</div>
@@ -142,62 +142,74 @@ endif;
   * Features sections
   */
  function lawyeriax_lite_features_section() {
+
+      $feature_box_first = get_theme_mod('first_feature_box');
+      $feature_box_second = get_theme_mod('second_feature_box');
+      $feature_box_third = get_theme_mod('third_feature_box');
+      $feature_box_fourth = get_theme_mod('fourth_feature_box');
+
+      $box_ids = array( $feature_box_first, $feature_box_second, $feature_box_third, $feature_box_fourth );
+
+      if ( array_sum($box_ids) > 0 ) {
+
   ?>
 
- 	<section id="features" class="features">
- 		<div class="container">
- 			<div class="home-section-inner feature-boxes-wrap">
-
-        <?php
-        $box_ids = array(get_theme_mod('first_feature_box'), get_theme_mod('second_feature_box'), get_theme_mod('third_feature_box'), get_theme_mod('fourth_feature_box'));
-        if(!empty($box_ids)) {
-          foreach($box_ids as $id) {
-            if($id != 0) {
-            $page = get_post($id); ?>
-            <div class="col-xs-12 col-sm-6 col-md-3 feature-box">
-              <div class="features-title">
-                <span class="features-title-icon"><i class="fa fa-gavel"></i></span>
-
-                <?php if(!empty($page->post_title)) { ?>
-
-                  <div class="feature-title-wrap">
-                    <h3 class="feature-title"><?php echo esc_html($page->post_title); ?></h3>
-                  </div>
-
-                <?php } ?>
-
-              </div>
-
-              <?php
-
-               if(!empty($page->post_excerpt)) { ?>
-                <div class="border-left features-content">
-                  <p><?php echo esc_html(substr($page->post_excerpt, 0, 100)) . '...'; ?></p>
-                  <a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more"> <?php echo __('Read more...', 'lawyeriax-lite') ?> </a>
-                </div>
-
-              <?php } else if(!empty($page->post_content)) { ?>
-
-                <div class="border-left features-content">
-                  <p><?php echo esc_html(substr($page->post_content, 0 , 100)) . '...'; ?></p>
-                  <a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more"> <?php echo __('Read more...', 'lawyeriax-lite') ?> </a>
-                </div>
-
-              <?php } ?>
-
-            </div>
+     	<section id="features" class="features">
+     		<div class="container">
+     			<div class="home-section-inner feature-boxes-wrap">
 
             <?php
+
+            if(!empty($box_ids)) {
+              foreach($box_ids as $id) {
+                if($id != 0) {
+                $page = get_post($id); ?>
+                <div class="col-xs-12 col-sm-6 col-md-3 feature-box">
+                  <div class="features-title">
+                    <span class="features-title-icon"><i class="fa fa-gavel"></i></span>
+
+                    <?php if(!empty($page->post_title)) { ?>
+
+                      <div class="feature-title-wrap">
+                        <h3 class="feature-title"><?php echo esc_html($page->post_title); ?></h3>
+                      </div>
+
+                    <?php } ?>
+
+                  </div>
+
+                  <?php
+
+                   if(!empty($page->post_excerpt)) { ?>
+                    <div class="border-left features-content">
+                      <p><?php echo esc_html(substr($page->post_excerpt, 0, 100)) . '...'; ?></p>
+                      <a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more"> <?php echo __('Read more...', 'lawyeriax-lite') ?> </a>
+                    </div>
+
+                  <?php } else if(!empty($page->post_content)) { ?>
+
+                    <div class="border-left features-content">
+                      <p><?php echo esc_html(substr($page->post_content, 0 , 100)) . '...'; ?></p>
+                      <a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more"> <?php echo __('Read more...', 'lawyeriax-lite') ?> </a>
+                    </div>
+
+                  <?php } ?>
+
+                </div>
+
+                <?php
+              }
+            }
           }
-        }
-      }
         ?>
 
       </div>
     <div class="col-sm-10 col-sm-offset-1 section-line"></div>
   </div><!-- .container -->
 </section>
- <?php }
+ 
+<?php } 
+  }
 endif;
 
  if ( ! function_exists( 'lawyeriax_lite_about_us_section' ) ) :

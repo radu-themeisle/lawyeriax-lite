@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/lawyeriax-lite
 Author: Themeisle
 Author URI: http://themeisle.com
 Description: LawyeriaX Lite is a neat and minimalist theme for lawyers, law-related websites, or any other business and agency. It has a professional and simple look, with full-width beautiful slider, simple content structure, easy-to-use interface, blog section, custom widgets, widgetized footer, live customizer, social links, customizable ribbon, custom logo, front page displays, and SEO friendly code. The theme comes with a range of great customization options, so you can change them the way you want.
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: lawyeriax-lite
@@ -656,7 +656,10 @@ a:active {
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
-	padding-top: 20px;
+	max-height: 400px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	margin-top: 20px;
 }
 
 .main-navigation li {
@@ -683,6 +686,7 @@ a:active {
 	float: left;
 	padding-left: 20px;
 	padding-top: 0;
+	margin-top: 0;
 }
 
 .main-navigation ul ul ul {
@@ -779,13 +783,12 @@ button.menu-toggle:focus {
 }
 
 button.menu-toggle {
-    margin-top: -30px;
     float: right;
     border: none;
     box-shadow: none;
     background: none;
     font-size: 25px;
-    padding: 5px 20px;
+    padding: 5px 0;
     color: #200303;
     margin-bottom: -10px;
 }
@@ -794,8 +797,7 @@ button.menu-toggle:hover {
 }
 
 .main-navigation-wrap {
-	width: 100%;
-	float: right;
+    width: 100%;
 }
 
 .menu-toggle span {
@@ -825,8 +827,8 @@ button.menu-toggle:hover {
 	transition: all 0.3s;
 }
 
-.dropdownmenu:hover,
-.main-navigation.toggled ul li.this-open > .dropdownmenu {
+.dropdownmenu:hover i,
+.main-navigation.toggled ul li.this-open > .dropdownmenu i {
     -ms-transform: rotate(180deg); /* IE 9 */
     -webkit-transform: rotate(180deg); /* Safari */
     transform: rotate(180deg);
@@ -837,7 +839,8 @@ button.menu-toggle:hover {
     color: #200303;
 }
 
-.main-navigation.toggled ul li.this-open > .dropdownmenu:hover {
+.dropdownmenu i,
+.main-navigation.toggled ul li.this-open > .dropdownmenu:hover i {
     -ms-transform: rotate(0deg); /* IE 9 */
     -webkit-transform: rotate(0deg); /* Safari */
     transform: rotate(0deg);
@@ -847,6 +850,7 @@ button.menu-toggle:hover {
 	transition: all 0.3s;
 	color: #DB3936;
 }
+
 
 .main-navigation.toggled ul ul {
 	display: none;
@@ -1367,6 +1371,28 @@ p.site-description {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+.header-inner-site-branding {
+    display: table;
+    overflow: hidden;
+    width: 100%;
+}
+.site-branding-wrap {
+    display: table-cell;
+    vertical-align: middle;
+}
+.menu-toggle-button-wrap {
+    display: table-cell;
+    vertical-align: middle;	
+}
+.main-navigation div > ul::-webkit-scrollbar {
+	width: 1em;
+}
+.main-navigation div > ul::-webkit-scrollbar-track {
+	background-color: #EBEBEB;
+}
+.main-navigation div > ul::-webkit-scrollbar-thumb {
+	background-color: #200303;
+}
 
 /*-----------------------
 ## Slider
@@ -1380,6 +1406,10 @@ p.site-description {
 	height: 100%;
 	width: 100%;
 	position: relative;
+}
+.item {
+	background-size: cover;
+	background-position: top center;
 }
 .item-inner {
 	background-size: cover;
@@ -1545,6 +1575,7 @@ h3.feature-title {
 .features-content {
 	float: left;
 	display: block;
+	clear: left;
 }
 .features-content p {
 	font-size: 13px;
@@ -1567,6 +1598,10 @@ a.read-more {
 }
 h3.about-title {
 	margin-top: 0;
+}
+.about-image-wrap {
+	text-align: center;
+	padding-bottom: 30px;
 }
 
 /*-----------------------
@@ -2025,6 +2060,60 @@ h2.widget-title {
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
+### Pirate Form
+--------------------------------------------------------------*/
+.pirate_forms_wrap input {
+  	box-shadow: none;
+    font-size: 13px;
+    color: #200303;
+    border: 1px solid #EBEBEB;
+    border-radius: 2px;
+    max-width: 100%;
+    line-height: 25px;
+    padding: 7px;
+    height: auto;
+}
+
+.pirate_forms_wrap textarea {
+    border: 1px solid #EBEBEB;
+    min-height: 150px;
+    box-shadow: none;
+}
+
+.pirate_forms_wrap label {
+	float: left;
+	height: 1px;
+}
+
+.widget-area .pirate_forms_wrap .form_field_wrap,
+.site-footer .pirate_forms_wrap .form_field_wrap {
+    width: 100%;
+    padding: 0;
+}
+
+.contact_submit_wrap {
+	text-align: left;
+}
+
+.widget-area .contact_submit_wrap input.form-control:not([type="submit"]),
+.widget-area .contact_submit_wrap textarea.form-control,
+.site-footer .contact_submit_wrap input.form-control:not([type="submit"]),
+.site-footer .contact_submit_wrap textarea.form-control {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.widget-area .pirate_forms_thankyou_wrap,
+.site-footer .pirate_forms_thankyou_wrap {
+	padding: 0;
+}
+
+.entry-content .pirate_forms_thankyou_wrap p {
+	margin-bottom: 1.5em;
+}
+
+/*--------------------------------------------------------------
 ### Contact Form 7
 --------------------------------------------------------------*/
 div.wpcf7-validation-errors {
@@ -2159,12 +2248,23 @@ div.wpcf7-mail-sent-ok {
 	    display: table-cell;
 	    vertical-align: middle;
 	}
+	.header-inner-site-branding {
+		width: 250px;
+		overflow: initial;
+		display: table-cell; 
+		vertical-align: middle;
+	}
+	.main-navigation {
+		max-height: initial;
+		overflow-x: visible;
+		overflow-y: visible;
+	}
 	.main-navigation li.has_children > a {
 	    padding-right: 16px;
 	    position: relative;
 	    z-index: 10;
 	}
-	.main-navigation li.has_children > .dropdownmenu {
+	.main-navigation li.has_children > .dropdownmenu i {
 		right: 2px;
 		z-index: 9;
 	}
@@ -2173,9 +2273,16 @@ div.wpcf7-mail-sent-ok {
 	    position: relative;
 	    z-index: 10;
 	}
-	.main-navigation ul ul li.has_children > .dropdownmenu {
+	.main-navigation ul ul li.has_children > .dropdownmenu i {
 		right: 2px;
 		z-index: 9;
+		color: #fff;
+	}
+	.main-navigation ul {
+		max-height: initial;
+		overflow-x: visible;
+		overflow-y: visible;
+		margin-top: 0;
 	}
 
 	/*-----------------------
@@ -2199,17 +2306,21 @@ div.wpcf7-mail-sent-ok {
 	.main-navigation ul ul a {
 		width: 200px;
 	}
-	.main-navigation li {
-		width: initial;
-	}
 	.main-navigation ul ul a {
 		color: #fff;
 	}
 	.main-navigation li {
+		width: auto;
 		border-top: none;
+		float: none;
+		display: inline-block;
 	}
 	.main-navigation ul {
 		padding-top: 0;
+		text-align: right;
+	}
+	.main-navigation ul ul {
+		text-align: left;
 	}
 	.main-navigation li.has_children {
 		font-size: 12px;
@@ -2309,6 +2420,13 @@ div.wpcf7-mail-sent-ok {
     	float: left;
 	}
 
+	/*-----------------------
+	### About us [frontpage]
+	-------------------------*/
+	.about-image-wrap {
+		text-align: left;
+	}
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
@@ -2363,6 +2481,10 @@ div.wpcf7-mail-sent-ok {
 	}
 
 }
+
+
+
+
 
 /*
 	font-family: 'Playfair Display', serif;

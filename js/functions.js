@@ -15,7 +15,7 @@
 			return;
 		}
 
-		button = container.getElementsByTagName( 'button' )[0];
+		button = container.parentNode.parentNode.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
 			return;
 		}
@@ -44,6 +44,14 @@
 				menu.setAttribute( 'aria-expanded', 'true' );
 			}
 		};
+
+		window.onresize = function() {
+			if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+				container.className = container.className.replace( ' toggled', '' );
+				button.setAttribute( 'aria-expanded', 'false' );
+				menu.setAttribute( 'aria-expanded', 'false' );
+			}	
+		}
 
 		// Get all the link elements within the menu.
 		links    = menu.getElementsByTagName( 'a' );
@@ -103,12 +111,11 @@
 	    jQuery(".preloader").delay(1000).fadeOut("slow");
 
 		setTimeout( fixFooterBottom, 100 );
-		stickyHeaderInit();
 		stickyHeader();
+		carouselNormalization();
 	} );
 	$(window).resize(function() {
 		setTimeout( fixFooterBottom, 100 );
-		stickyHeaderInit();
 		setTimeout( stickyHeader, 100 );
 	} );
 
@@ -149,50 +156,67 @@
 		}
 	}
 
-	
-	jQuery(window).scroll(function(){
-	    
-	    /*** Sticky header ***/
-	    if( window.innerWidth > 768 ) {
-	        var window_offset  = $body.offset().top - jQuery(window).scrollTop();
-	        if( isAdminBar ) {
-	            limit = -veryTopHeaderHeight + adminBarHeight;
-	        } else {
-	            limit = -veryTopHeaderHeight;
-	        }
-	        var changed = (  window_offset < limit ? true : false );
-	        if( lastChanged != changed  ){
-		        if( changed == true ) {
-		            $nav.css('top', limit );
 
+	jQuery(document).ready(function(){
+
+		veryTopHeaderHeight = $( '#top-bar' ).height();
+		adminBarHeight      = $( '#wpadminbar' ).height();
+		isAdminBar          = ( $( '#wpadminbar').length != 0 ? true : false );
+		$container 			= $( '.container-header' );
+		myClass 			= 'container-header-fixed';
+
+		jQuery(window).scroll(function(){
+
+		    if( window.innerWidth > 768 ) {
+		        var window_offset       = $body.offset().top - jQuery(window).scrollTop();
+		        if( isAdminBar ) {
+		            limit = -veryTopHeaderHeight + adminBarHeight;
+		        } else {
+		            limit = -veryTopHeaderHeight;
+		        }
+		        if( window_offset < limit ) {
+		            $nav.css('top', limit );
+		            if ( ! $container.hasClass( myClass ) ) {
+						$container.addClass( myClass );
+					}
 		        } else {
 		            $nav.css('top', window_offset );
+		            if ( $container.hasClass( myClass ) ) {
+						 $container.removeClass( myClass );
+					}
 		        }
-		        $( '.container-header' ).toggleClass( 'container-header-fixed' );
 		    }
-	        lastChanged = changed;
-	    }
+
+		});
 
 	});
 
-	/*** Sticky header ***/
-	function stickyHeaderInit() {
-		/*** Sticky header ***/
-	    veryTopHeaderHeight = $( '#top-bar' ).height();
-	    adminBarHeight      = $( '#wpadminbar' ).height();
-	    isAdminBar          = ( $( '#wpadminbar').length != 0 ? true : false );
-	    limit               = 0;
-	    if( isAdminBar ) {
-	    	$nav.css('top', adminBarHeight );
-	    }
-	}
 	function stickyHeader() {
 		$( '#page' ).css( 'padding-top', $( '.sticky-navigation' ).height() );
 	}
 
+	function carouselNormalization() {
+		var items = $('#main-slider .item'), //grab all slides
+	    	heights = [], //create empty array to store height values
+	    	tallest; //create variable to make note of the tallest slide
 
+		if( ! items.length )
+	    	return;
 
+		function normalizeHeights() {
+			items.each( function() { //add heights to array
+				heights.push( $(this).height() ); 
+			} );
+			tallest = Math.max.apply( null, heights ); //cache largest value
+			items.css( 'min-height', tallest + 'px' );
+		};
+		normalizeHeights();
 
-
+		$( window ).on( 'resize orientationchange', function () {
+			tallest = 0, heights.length = 0; //reset vars
+			items.css( 'min-height', '0' ); //reset min-height
+			normalizeHeights(); //run it again 
+		} );
+	}
 
 } )(jQuery,window)
