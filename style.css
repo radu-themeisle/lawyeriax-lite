@@ -1746,6 +1746,7 @@ h2.widget-title {
     background: #FFF;
     box-shadow: none;
     font-weight: 400;
+    height: 24px;
 }
 .widget_search form {
 	position: relative;
