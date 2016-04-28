@@ -2415,10 +2415,12 @@ div.wpcf7-mail-sent-ok {
 	    text-align: center;
 		opacity: 1;
 		text-shadow: none;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EAEAEA', endColorstr='#EAEAEA', GradientType=1);
 	}
 	.carousel-control.left:hover,
 	.carousel-control.right:hover {
 		background: rgba(255,255,255,0.5);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D4D4D4', endColorstr='#D4D4D4', GradientType=1);
 	}
 	.carousel-control.right {
 		left: auto;
