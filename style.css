@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/lawyeriax-lite
 Author: Themeisle
 Author URI: http://themeisle.com
 Description: LawyeriaX Lite is a neat and minimalist theme for lawyers, law-related websites, or any other business and agency. It has a professional and simple look, with full-width beautiful slider, simple content structure, easy-to-use interface, blog section, custom widgets, widgetized footer, live customizer, social links, customizable ribbon, custom logo, front page displays, and SEO friendly code. The theme comes with a range of great customization options, so you can change them the way you want.
-Version: 1.0.1
+Version: 1.0.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: lawyeriax-lite
@@ -342,6 +342,8 @@ textarea {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	line-height: 25px;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
 }
 
 h1,
@@ -965,8 +967,8 @@ button.menu-toggle:hover {
 --------------------------------------------------------------*/
 .content-area,
 .widget-area {
-	margin-top: 60px;
-	margin-bottom: 60px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 	float: left;
 }
 
@@ -1116,6 +1118,7 @@ button.menu-toggle:hover {
 .content-area,
 .widget-area {
 	flex: 1 100%;
+	max-width: 100%;
 }
 
 .more-link {
@@ -1743,6 +1746,7 @@ h2.widget-title {
     background: #FFF;
     box-shadow: none;
     font-weight: 400;
+    height: 24px;
 }
 .widget_search form {
 	position: relative;
@@ -1785,7 +1789,8 @@ h2.widget-title {
 .widget_search label {
     width: 100%;
     padding-right: 120px;
-    position: relativew    float: left;
+    position: relative;
+    float: left;
 }
 .widget-area.border-left {
 	padding-left: 15px;
@@ -2169,9 +2174,7 @@ div.wpcf7-mail-sent-ok {
 /*--------------------------------------------------------------
 ## Responsive
 --------------------------------------------------------------*/
-
-
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 993px) {
 
 	/*-----------------------
 	### Sidebar
@@ -2206,8 +2209,15 @@ div.wpcf7-mail-sent-ok {
 
 }
 
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
+	/*-----------------------
+	### Content
+	-------------------------*/
+	.content-area,
+	.widget-area {
+		margin-top: 60px;
+		margin-bottom: 60px;
+	}
 
 	/*-----------------------
 	### Header
@@ -2407,10 +2417,12 @@ div.wpcf7-mail-sent-ok {
 	    text-align: center;
 		opacity: 1;
 		text-shadow: none;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EAEAEA', endColorstr='#EAEAEA', GradientType=1);
 	}
 	.carousel-control.left:hover,
 	.carousel-control.right:hover {
 		background: rgba(255,255,255,0.5);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D4D4D4', endColorstr='#D4D4D4', GradientType=1);
 	}
 	.carousel-control.right {
 		left: auto;
@@ -2447,12 +2459,9 @@ div.wpcf7-mail-sent-ok {
 		margin-top: 10px;
 	}
 
-
 }
 
-
-@media screen and (min-width: 600px) {
-
+@media screen and (min-width: 601px) {
 
 	.carousel-title {
 		font-size: 80px;
@@ -2464,30 +2473,3 @@ div.wpcf7-mail-sent-ok {
 	}
 
 }
-
-
-@media screen and (min-width: 480px) {
-
-
-
-
-
-}
-
-@media screen and (max-width: 600px) {
-
-	#page {
-		padding-top: 0 !important;
-	}
-
-}
-
-
-
-
-
-/*
-	font-family: 'Playfair Display', serif;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-*/
