@@ -1789,7 +1789,8 @@ h2.widget-title {
 .widget_search label {
     width: 100%;
     padding-right: 120px;
-    position: relativew    float: left;
+    position: relative;
+    float: left;
 }
 .widget-area.border-left {
 	padding-left: 15px;
