@@ -1,5 +1,18 @@
 
 
+### 1.0.2 - 29/04/2016
+
+ Changes: 
+
+
+ * Fixed #32 Width page issue on mobile
+ * Fixed #40 Non-breaking text issue
+ * Fixed #33 Header overlaps page title
+ * Fixed #37 Arrow color in ie
+ * Fixed #36 Serch form height in ie
+ * Fixed #41 Typo in style
+
+
 ### 1.0.1 - 27/04/2016
 
  Changes: 
