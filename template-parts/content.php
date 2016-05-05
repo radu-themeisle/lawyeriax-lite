@@ -12,13 +12,13 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="post-thumbnail">
-		<?php 
+		<?php
 			if ( has_post_thumbnail() ) {
 				echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
 				the_post_thumbnail();
 				echo '</a>';
 			}
-		?> 
+		?>
 	</div>
 
 	<header class="border-left entry-header">
@@ -40,7 +40,7 @@
 	<div class="entry-content">
 
 		<?php
-			
+
 			$pos = strpos( $post->post_content, '<!--more-->' );
 
 			if ( $pos <= 0 ) {
@@ -58,6 +58,7 @@
 				'after'  => '</div>',
 			) );
 		?>
+	<a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more"> <?php echo __('Read more...', 'lawyeriax') ?> </a>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
