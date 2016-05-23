@@ -1064,6 +1064,10 @@ button.menu-toggle:hover {
 	margin-bottom: 20px;
 }
 
+.post-thumbnail img {
+	width 100%;
+}
+
 .post-thumbnail-single {
 	margin-top: 20px;
 }
@@ -2403,6 +2407,7 @@ div.wpcf7-mail-sent-ok {
 	}
 	.carousel-control.left,
 	.carousel-control.right {
+		z-index: 99;
 		display: block;
 	    height: 40px;
 	    width: 40px;
