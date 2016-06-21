@@ -151,17 +151,17 @@ add_action( 'widgets_init', 'lawyeriax_lite_widgets_init' );
  * Enqueue scripts and styles.
  */
 function lawyeriax_lite_scripts() {
-	wp_enqueue_style( 'lawyeriax-lite-style', get_stylesheet_uri(), array('lawyeriax-lite-boostrap-css') );
+	wp_enqueue_style( 'lawyeriax-lite-style', get_stylesheet_uri(), array('bootstrap-css') );
 
-	wp_enqueue_style ( 'lawyeriax-lite-boostrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'v3.3.6', 'all' );
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'v3.3.6', 'all' );
 
-	wp_enqueue_script( 'lawyeriax-lite-boostrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '20130115', true );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '20130115', true );
 
 	wp_enqueue_script( 'lawyeriax-lite-navigation', get_template_directory_uri() . '/js/functions.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'lawyeriax-lite-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-	wp_enqueue_style( 'lawyeriax-lite-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
 
 
 
@@ -174,11 +174,11 @@ add_action( 'wp_enqueue_scripts', 'lawyeriax_lite_scripts' );
 
 function lawyeriax_lite_customizer_script() {
 
-	wp_enqueue_style( 'lawyeriax-lite-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
 
-	wp_enqueue_script( 'lawyeriax_lite_ddslick', get_template_directory_uri() .'/js/jquery.ddslick.js', array("jquery"),'1.0.0', true  );
+	wp_enqueue_script( 'ddslick', get_template_directory_uri() .'/js/jquery.ddslick.js', array("jquery"),'1.0.0', true  );
 
-	wp_enqueue_script( 'lwayeriax-lite-customizer-script', get_template_directory_uri() . '/js/lawyeriax_lite_customizer.js', array("jquery","jquery-ui-draggable","lawyeriax_lite_ddslick"),'1.0.0', true);
+	wp_enqueue_script( 'lwayeriax-lite-customizer-script', get_template_directory_uri() . '/js/lawyeriax_lite_customizer.js', array("jquery","jquery-ui-draggable","ddslick"),'1.0.0', true);
 
 }
 add_action( 'customize_controls_enqueue_scripts', 'lawyeriax_lite_customizer_script', 10 );
