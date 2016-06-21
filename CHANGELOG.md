@@ -1,4 +1,8 @@
 
+### 1.0.3 - 21/06/2016
+**Changes:** 
+- Fixed slider controls in Firefox
+
 
 ### 1.0.2 - 29/04/2016
 
