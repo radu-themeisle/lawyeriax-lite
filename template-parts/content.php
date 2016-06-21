@@ -58,7 +58,7 @@
 				'after'  => '</div>',
 			) );
 		?>
-	<a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more"> <?php echo __('Read more...', 'lawyeriax') ?> </a>
+	<a href="<?php echo the_permalink($id); ?>" title="Read more" class="read-more"> <?php echo __('Read more...', 'lawyeriax-lite') ?> </a>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
