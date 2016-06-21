@@ -151,11 +151,11 @@ add_action( 'widgets_init', 'lawyeriax_lite_widgets_init' );
  * Enqueue scripts and styles.
  */
 function lawyeriax_lite_scripts() {
-	wp_enqueue_style( 'lawyeriax-lite-style', get_stylesheet_uri(), array('boostrap-css') );
+	wp_enqueue_style( 'lawyeriax-lite-style', get_stylesheet_uri(), array('bootstrap-css') );
 
-	wp_enqueue_style( 'boostrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'v3.3.6', 'all' );
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'v3.3.6', 'all' );
 
-	wp_enqueue_script( 'boostrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '20130115', true );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '20130115', true );
 
 	wp_enqueue_script( 'lawyeriax-lite-navigation', get_template_directory_uri() . '/js/functions.js', array(), '20120206', true );
 
