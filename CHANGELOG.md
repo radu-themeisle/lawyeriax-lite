@@ -1,4 +1,9 @@
 
+### 1.0.4 - 14/07/2016
+**Changes:** 
+- Update tags in readme.txt
+- Replaced ddslick with Selectric because of licensing issues
+
 ### 1.0.3 - 21/06/2016
 **Changes:** 
 - Fixed slider controls in Firefox
