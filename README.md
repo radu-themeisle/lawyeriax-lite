@@ -1,12 +1,12 @@
 # LawyeriaX Lite
 
-Contributors:           codeinwp
+Contributors:           themeisle, codeinwp
 
-Tags:				red, white, light, responsive-layout, one-column, two-columns, right-sidebar, custom-menu, featured-images, front-page-post-form, full-width-template, rtl-language-support, threaded-comments, translation-ready
+Tags:				one-column, two-columns, right-sidebar, custom-menu, featured-images, front-page-post-form, full-width-template, rtl-language-support, threaded-comments, translation-ready
 
 Requires at least:	3.3.0
 
-Tested up to:		4.4.2
+Tested up to:		4.5.3
 
 LawyeriaX Lite
 
