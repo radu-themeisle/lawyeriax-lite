@@ -30,9 +30,9 @@ The exceptions to this license are as follows:
     Created by Dave Gandy
     Licensed under SIL OFL 1.1 (http://scripts.sil.org/OFL)
 
-* ddSlick
-    Copyright (c) 2007-2013 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
-    Licensed under MIT
+* jQuery-Selectric
+    Copyright (c) 2016 Leonardo Santos
+    Licensed under MIT (https://github.com/lcdsantos/jQuery-Selectric/blob/master/LICENSE)
 
 * Images	 
 
