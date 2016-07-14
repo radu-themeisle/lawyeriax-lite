@@ -60,7 +60,9 @@ $website_logo = get_theme_mod('lawyeriax_navbar_logo');
 							$social_icons_decoded = json_decode($social_icons);
 							if(!empty($social_icons_decoded)) {
 								foreach($social_icons_decoded as $icon) {
-									echo '<a href="' . esc_url( $icon->link) . '"><i class="fa ' .$icon->icon_value. '"></i></a>';
+									if( !empty( $icon->icon_value ) ) {
+										echo '<a href="' . esc_url( $icon->link ) . '"><i class="fa ' . esc_attr( $icon->icon_value ) . '"></i></a>';
+									}
 								}
 							}
 						}

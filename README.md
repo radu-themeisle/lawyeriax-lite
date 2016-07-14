@@ -1,12 +1,12 @@
 # LawyeriaX Lite
 
-Contributors:           codeinwp
+Contributors:           themeisle, codeinwp
 
-Tags:				red, white, light, responsive-layout, one-column, two-columns, right-sidebar, custom-menu, featured-images, front-page-post-form, full-width-template, rtl-language-support, threaded-comments, translation-ready
+Tags:				one-column, two-columns, right-sidebar, custom-menu, featured-images, front-page-post-form, full-width-template, rtl-language-support, threaded-comments, translation-ready
 
 Requires at least:	3.3.0
 
-Tested up to:		4.4.2
+Tested up to:		4.5.3
 
 LawyeriaX Lite
 
@@ -30,9 +30,9 @@ The exceptions to this license are as follows:
     Created by Dave Gandy
     Licensed under SIL OFL 1.1 (http://scripts.sil.org/OFL)
 
-* ddSlick
-    Copyright (c) 2007-2013 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
-    Licensed under MIT
+* jQuery-Selectric
+    Copyright (c) 2016 Leonardo Santos
+    Licensed under MIT (https://github.com/lcdsantos/jQuery-Selectric/blob/master/LICENSE)
 
 * Images	 
 
