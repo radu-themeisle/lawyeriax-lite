@@ -9,28 +9,9 @@
  * @package lawyeriax-lite
  */
 
-$phone_number = get_theme_mod('lawyeriax_top_bar_phone_number', '+1-888-846173');
-$email_address = get_theme_mod('lawyeriax_top_bar_email_address', 'example@themeisle.com');
-$social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons', json_encode(array(
-		 array(
-				 'icon_value'	=> 'fa-facebook-square',
-				 'link'			=> '#'
-		 ),
-		 array(
-				 'icon_value' 	=> 'fa-twitter-square',
-				 'link' 		=> '#'
-		 ),
-		 array(
-				 'icon_value' 	=> 'fa-linkedin-square',
-				 'link' 		=> '#'
-		 ),
-		 array(
-				 'icon_value' 	=> 'fa-google-plus-square',
-				 'link' 		=> '#'
-		 ),
- )));
-
-$website_logo = get_theme_mod('lawyeriax_navbar_logo');
+$phone_number = get_theme_mod('lawyeriax_top_bar_phone_number');
+$email_address = get_theme_mod('lawyeriax_top_bar_email_address');
+$social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -65,12 +46,44 @@ $website_logo = get_theme_mod('lawyeriax_navbar_logo');
 									}
 								}
 							}
+						} else {
+							if ( current_user_can( 'edit_theme_options' ) ) {?>
+								<p><span><?php printf(
+											__( 'Edit social icons in <a class="link-to-customizer" href="%s">customizer</a>.', 'lawyeriax-lite' ),
+											admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_social_icons' )
+										); ?></span></p>
+								<?php
+							}
 						}
 					?>
 				</div>
 				<div class="top-bar-right top-bar-contact">
-					<p><i class="fa fa-phone-square"></i><span><?php echo esc_html($phone_number); ?></span></p>
-				    <p><i class="fa fa-envelope-square"></i><span><?php echo esc_html($email_address); ?></span></p>
+					<?php
+					if(!empty($phone_number)) { ?>
+						<p><i class="fa fa-phone-square"></i><span><?php echo esc_html( $phone_number ); ?></span></p>
+						<?php
+					} else {
+						if ( current_user_can( 'edit_theme_options' ) ) {?>
+							<p><i class="fa fa-phone-square"></i><span><?php printf(
+										__( 'Edit phone in <a href="%s">customizer</a>.', 'lawyeriax-lite' ),
+										admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_phone_number' )
+									); ?></span></p>
+							<?php
+						}
+					}
+
+					if(!empty($email_address)){					?>
+				        <p><i class="fa fa-envelope-square"></i><span><?php echo esc_html($email_address); ?></span></p>
+						<?php
+					} else {
+						if ( current_user_can( 'edit_theme_options' ) ) { ?>
+							<p><i class="fa fa-envelope-square"></i><span><?php printf(
+										__( 'Edit email in <a href="%s">customizer</a>.', 'lawyeriax-lite' ),
+										admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_email_address' )
+									); ?></span></p>
+							<?php
+						}
+					} ?>
 				</div>
 			</div> <!-- container -->
 		</div>
@@ -82,18 +95,21 @@ $website_logo = get_theme_mod('lawyeriax_navbar_logo');
 					<div class="site-branding-wrap">
 						<div class="site-branding">
 							<?php
-								if ( !empty ($website_logo) ) { ?>
-									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo('title'); ?>">
-										<img src="<?php echo esc_url($website_logo); ?>" alt="<?php get_bloginfo( 'title' ); ?>"/>
-									</a>
-								<?php } else { ?>
+							lawyeriax_lite_the_custom_logo();
+
+							if ( is_front_page() && is_home() ){ ?>
 								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-							 <?php
+								<?php
+							} else {?>
+								<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+								<?php
+							}
+
 							$description = get_bloginfo( 'description', 'display' );
 							if ( $description || is_customize_preview() ) { ?>
-								<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-							<?php
-						}} ?>
+								<p class="site-description"><?php echo $description; ?></p>
+								<?php
+							} ?>
 						</div><!-- .site-branding -->
 					</div><!-- .site-branding-wrap -->
 

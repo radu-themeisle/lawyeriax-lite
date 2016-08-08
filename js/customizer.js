@@ -49,13 +49,10 @@
  			else {
  				$( '.ribbon' ).addClass( 'lawyeriax_lite_hidden_if_not_customizer' );
  			}
+			$( '.ribbon p' ).html( to );
  		} );
  	} );
- 	wp.customize( 'lawyeriax_ribbon_tagline', function( value ) {
- 		value.bind( function( to ) {
- 			$( '.ribbon p' ).text( to );
- 		} );
- 	} );
+
 
 /********************************************************/
 /******************* Lawyers Section ********************/
@@ -90,13 +87,10 @@
 			else {
 				$( '.about h3' ).addClass( 'lawyeriax_lite_hidden_if_not_customizer' );
 			}
+			$( '.about h3' ).html( to );
 		} );
 	} );
-	wp.customize( 'lawyeriax_about_heading', function( value ) {
-		value.bind( function( to ) {
-			$( '.about h3' ).text( to );
-		} );
-	} );
+
 
 	//text
 	wp.customize( 'lawyeriax_about_text', function( value ) {
@@ -107,13 +101,10 @@
 			else {
 				$( '.about .about-content p' ).addClass( 'lawyeriax_lite_hidden_if_not_customizer' );
 			}
-		} );
-	} );
-	wp.customize( 'lawyeriax_about_text', function( value ) {
-		value.bind( function( to ) {
 			$( '.about .about-content p' ).html( to );
 		} );
 	} );
+
 
 	wp.customize( 'news_heading', function( value ) {
 		value.bind( function( to ) {
@@ -123,13 +114,10 @@
 			else {
 				$( '#news h2' ).addClass( 'lawyeriax_lite_hidden_if_not_customizer' );
 			}
-		} );
-	} );
-	wp.customize( 'news_heading', function( value ) {
-		value.bind( function( to ) {
 			$( '#news h2' ).html( to );
 		} );
 	} );
+
 
 	// wp.customize( 'lawyeriax_about_text', function( value ) {
   //    value.bind( function( to ) {
