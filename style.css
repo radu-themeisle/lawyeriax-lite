@@ -1065,7 +1065,7 @@ button.menu-toggle:hover {
 }
 
 .post-thumbnail img {
-	width 100%;
+	width: 100%;
 }
 
 .post-thumbnail-single {
@@ -1638,7 +1638,6 @@ h3.about-title {
     box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.25);
 }
 .news-date span {
-	display: block.news-posted-on a	text-align: center;
 	color: #fff;
 	font-size: 11px;
 	line-height: 15px;
@@ -1748,7 +1747,6 @@ h2.widget-title {
 .widget input:not([type="submit"]):not([type="reset"]):not([type="button"]) {
 	width: 100%;
 	max-width: 100%;
-	width: 100%;
 	font-size: 13px;
 	padding: 7px 5px;
 	border: 1px solid #EBEBEB;
@@ -1758,7 +1756,6 @@ h2.widget-title {
     background: #FFF;
     box-shadow: none;
     font-weight: 400;
-    height: 24px;
 }
 .widget_search form {
 	position: relative;
