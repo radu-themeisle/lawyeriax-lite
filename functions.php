@@ -230,6 +230,15 @@ function lawyeriax_lite_admin_styles() {
 add_action( 'admin_enqueue_scripts', 'lawyeriax_lite_admin_styles', 10 );
 
 /**
+ * Custom logo.
+ */
+function lawyeriax_lite_the_custom_logo() {
+	if ( function_exists( 'the_custom_logo' ) ) {
+		the_custom_logo();
+	}
+}
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -253,52 +262,3 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-	/*******************************************************************/
-	/*****	Change page template for the static page from Customize ****/
-	/*******************************************************************/
-
-function lawyeriax_lite_update_static_frontpage_template( $setting ) {
-
-	$lawyeriax_lite_page_on_front = get_option('page_on_front'); /* Static Frontpage ID */
-
-	$lawyeriax_lite_frontpage_template_static = get_theme_mod('lawyeriax_lite_frontpage_template_static');
-
-	if ( !empty($lawyeriax_lite_page_on_front) && !empty($lawyeriax_lite_frontpage_template_static) ) {
-
-		update_post_meta( $lawyeriax_lite_page_on_front, '_wp_page_template', $lawyeriax_lite_frontpage_template_static );
-	}
-}
-add_action( 'customize_save_after', 'lawyeriax_lite_update_static_frontpage_template', 20, 2 );
-/*
-	Function to override the default template with the one selected
-	For frontpage
-*/
-function lawyeriax_lite_redirect_to_template_page( $template ) {
-	$lawyeriax_lite_frontpage_template_static = get_theme_mod('lawyeriax_lite_frontpage_template_static');
-
-	if( !empty($lawyeriax_lite_frontpage_template_static) ):
-		$new_template = locate_template( array( $lawyeriax_lite_frontpage_template_static ) );
-		if ( !empty($new_template) ):
-			return $new_template ;
-		endif;
-	endif;
-
-	return $template;
-}
-/*
-	When in Customize, if a new template is selected for frontpage
-	Redirect it to that template
-*/
-function lawyeriax_lite_update_static_frontpage_template_customize( $setting ) {
-
-	add_filter( 'template_include', 'lawyeriax_lite_redirect_to_template_page', 99 );
-}
-add_action( 'customize_preview_init', 'lawyeriax_lite_update_static_frontpage_template_customize', 20, 2 );
-
-
-function lawyeriax_lite_the_custom_logo() {
-	if ( function_exists( 'the_custom_logo' ) ) {
-		the_custom_logo();
-	}
-}
