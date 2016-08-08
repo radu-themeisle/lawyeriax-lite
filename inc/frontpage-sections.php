@@ -218,8 +218,8 @@ endif;
   */
  function lawyeriax_lite_about_us_section() {
    $about_image = get_theme_mod('lawyeria_about_image', get_template_directory_uri() . '/images/about-us.jpg');
-   $about_title = get_theme_mod('lawyeriax_about_heading', esc_html__('Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes', 'lawyeriax-lite'));
-   $about_text = get_theme_mod('lawyeriax_about_text', esc_html('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete.', 'lawyeriax-lite'));
+   $about_title = get_theme_mod('lawyeriax_about_heading', esc_html__('About us.', 'lawyeriax-lite'));
+   $about_text = get_theme_mod('lawyeriax_about_text', esc_html('Use this section to tell a story about your business. Everything you see here is responsive and mobile-friendly - it will look great on smartphones and tablets.', 'lawyeriax-lite'));
    global $wp_customize;
  	?>
 

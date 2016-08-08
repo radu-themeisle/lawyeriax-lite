@@ -9,26 +9,9 @@
  * @package lawyeriax-lite
  */
 
-$phone_number = get_theme_mod('lawyeriax_top_bar_phone_number', '+1-888-846173');
-$email_address = get_theme_mod('lawyeriax_top_bar_email_address', 'example@themeisle.com');
-$social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons', json_encode(array(
-		 array(
-				 'icon_value'	=> 'fa-facebook-square',
-				 'link'			=> '#'
-		 ),
-		 array(
-				 'icon_value' 	=> 'fa-twitter-square',
-				 'link' 		=> '#'
-		 ),
-		 array(
-				 'icon_value' 	=> 'fa-linkedin-square',
-				 'link' 		=> '#'
-		 ),
-		 array(
-				 'icon_value' 	=> 'fa-google-plus-square',
-				 'link' 		=> '#'
-		 ),
- )));
+$phone_number = get_theme_mod('lawyeriax_top_bar_phone_number');
+$email_address = get_theme_mod('lawyeriax_top_bar_email_address');
+$social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -63,12 +46,44 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons', json_encode(arr
 									}
 								}
 							}
+						} else {
+							if ( current_user_can( 'edit_theme_options' ) ) {?>
+								<p><span><?php printf(
+											__( 'Edit social icons in <a class="link-to-customizer" href="%s">customizer</a>.', 'lawyeriax-lite' ),
+											admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_social_icons' )
+										); ?></span></p>
+								<?php
+							}
 						}
 					?>
 				</div>
 				<div class="top-bar-right top-bar-contact">
-					<p><i class="fa fa-phone-square"></i><span><?php echo esc_html($phone_number); ?></span></p>
-				    <p><i class="fa fa-envelope-square"></i><span><?php echo esc_html($email_address); ?></span></p>
+					<?php
+					if(!empty($email_address)) { ?>
+						<p><i class="fa fa-phone-square"></i><span><?php echo esc_html( $phone_number ); ?></span></p>
+						<?php
+					} else {
+						if ( current_user_can( 'edit_theme_options' ) ) {?>
+							<p><i class="fa fa-phone-square"></i><span><?php printf(
+										__( 'Edit phone in <a href="%s">customizer</a>.', 'lawyeriax-lite' ),
+										admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_phone_number' )
+									); ?></span></p>
+							<?php
+						}
+					}
+
+					if(!empty($email_address)){					?>
+				        <p><i class="fa fa-envelope-square"></i><span><?php echo esc_html($email_address); ?></span></p>
+						<?php
+					} else {
+						if ( current_user_can( 'edit_theme_options' ) ) { ?>
+							<p><i class="fa fa-envelope-square"></i><span><?php printf(
+										__( 'Edit email in <a href="%s">customizer</a>.', 'lawyeriax-lite' ),
+										admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_email_address' )
+									); ?></span></p>
+							<?php
+						}
+					} ?>
 				</div>
 			</div> <!-- container -->
 		</div>

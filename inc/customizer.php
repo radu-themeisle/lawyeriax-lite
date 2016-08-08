@@ -44,24 +44,6 @@ $wp_customize->add_section('lawyeriax_top_bar_section', array(
 =============================================================================*/
 $wp_customize->add_setting('lawyeriax_top_bar_social_icons', array(
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_repeater',
-		'default'           => json_encode(array(
-				array(
-						'icon_value'  => 'fa-facebook-square',
-						'link'				=> '#'
-				),
-				array(
-						'icon_value'  => 'fa-twitter-square',
-						'link'				=> '#'
-				),
-				array(
-						'icon_value'  => 'fa-linkedin-square',
-						'link'				=> '#'
-				),
-				array(
-						'icon_value'  => 'fa-google-plus-square',
-						'link'				=> '#'
-				),
-		))
 ));
 
 $wp_customize->add_control(new LawyeriaX_General_Repeater($wp_customize, 'lawyeriax_top_bar_social_icons', array(
@@ -78,7 +60,6 @@ $wp_customize->add_control(new LawyeriaX_General_Repeater($wp_customize, 'lawyer
 =============================================================================*/
 
 	$wp_customize->add_setting('lawyeriax_top_bar_phone_number', array(
-			'default'           => esc_html__('+1-888-846173', 'lawyeriax-lite'),
 			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 	));
 
@@ -93,7 +74,6 @@ Email address
 =============================================================================*/
 
 	$wp_customize->add_setting('lawyeriax_top_bar_email_address', array(
-			'default'           => esc_html__('example@themeisle.com', 'lawyeriax-lite'),
 			'sanitize_callback' => 'lawyeriax_lite_sanitize_text'
 	));
 	$wp_customize->add_control('lawyeriax_top_bar_email_address', array(
@@ -261,7 +241,7 @@ $wp_customize->add_setting('lawyeria_about_image', array(
 =============================================================================*/
 
 	$wp_customize->add_setting('lawyeriax_about_heading', array(
-			'default'           => esc_html__('Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes.', 'lawyeriax-lite'),
+			'default'           => esc_html__('About us.', 'lawyeriax-lite'),
 			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 			'transport'					=> 'postMessage',
 	));
@@ -277,7 +257,7 @@ $wp_customize->add_setting('lawyeria_about_image', array(
 =============================================================================*/
 
 $wp_customize->add_setting('lawyeriax_about_text', array(
-		'default'           => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete.', 'lawyeriax-lite'),
+		'default'           => esc_html__('Use this section to tell a story about your business. Everything you see here is responsive and mobile-friendly - it will look great on smartphones and tablets.', 'lawyeriax-lite'),
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 		'transport'					=> 'postMessage',
 ));
