@@ -159,7 +159,7 @@ function lawyeriax_lite_scripts() {
 
 	wp_enqueue_script( 'lawyeriax-lite-navigation', get_template_directory_uri() . '/js/functions.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'lawyeriax-lite-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
 
