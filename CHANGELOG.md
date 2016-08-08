@@ -1,4 +1,10 @@
 
+### 1.0.5 - 08/08/2016
+**Changes:** 
+- Added support for custom logo
+- Fixed layout issue with dropdown widget
+- Remove unused file
+
 ### 1.0.4 - 14/07/2016
 **Changes:** 
 - Update tags in readme.txt
