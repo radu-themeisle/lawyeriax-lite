@@ -21,27 +21,11 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-//Remove unused sections
+	//Remove unused sections
 	$wp_customize->remove_section( 'colors' );
 	$wp_customize->remove_section( 'header_image' );
 	$wp_customize->remove_section( 'background_image' );
-
-
-	/********************************************************/
-	/****************** Navbar Logo  ************************/
-	/********************************************************/
-
-	$wp_customize->add_setting('lawyeriax_navbar_logo', array(
-        'sanitize_callback' => 'esc_url'
-    ));
-
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'lawyeriax_navbar_logo', array(
-        'label'       => __('Website Logo', 'lawyeriax-lite'),
-        'section'     => 'title_tagline',
-        'priority'    => 5,
-    )));
 
 
 /********************************************************/
@@ -373,6 +357,37 @@ endif;
 
 }
 add_action( 'customize_register', 'lawyeriax_lite_customize_register' );
+
+
+function lawyeriax_lite_custom_header() {
+	add_theme_support( 'custom-header', apply_filters( 'twentysixteen_custom_header_args', array(
+		'wp-head-callback'       => 'lawyeriax_lite_header_style',
+	) ) );
+}
+add_action( 'after_setup_theme', 'lawyeriax_lite_custom_header' );
+
+
+function lawyeriax_lite_header_style() {
+	// If the header text option is untouched, let's bail.
+	if ( display_header_text() ) {
+		return;
+	}
+
+	// If the header text has been hidden.
+	?>
+	<style type="text/css" id="twentysixteen-header-css">
+		.site-branding {
+			margin: 0 auto 0 0;
+		}
+
+		.site-branding .site-title,
+		.site-description {
+			clip: rect(1px, 1px, 1px, 1px);
+			position: absolute;
+		}
+	</style>
+	<?php
+}
 
 
 /**

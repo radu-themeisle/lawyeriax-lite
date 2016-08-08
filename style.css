@@ -1401,6 +1401,14 @@ p.site-description {
 	background-color: #200303;
 }
 
+.custom-logo-link{
+	display: block;
+}
+
+.site-description{
+	display: block;
+}
+
 /*-----------------------
 ## Slider
 -------------------------*/

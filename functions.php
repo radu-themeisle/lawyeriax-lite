@@ -45,7 +45,14 @@ function lawyeriax_lite_setup() {
 	add_image_size( 'lawyeriax-lite-post-thumbnail-home', 350, 230, true );
 
 
-	remove_theme_support('custom-header');
+	/*
+	 * Enable support for custom logo.
+	 *
+	 * @link https://make.wordpress.org/core/2016/03/10/custom-logo/
+	 */
+	add_theme_support( 'custom-logo' );
+
+	add_theme_support('custom-header');
 
 	/*
 	 * Enable support for Excerpt for pages.
@@ -288,3 +295,10 @@ function lawyeriax_lite_update_static_frontpage_template_customize( $setting ) {
 	add_filter( 'template_include', 'lawyeriax_lite_redirect_to_template_page', 99 );
 }
 add_action( 'customize_preview_init', 'lawyeriax_lite_update_static_frontpage_template_customize', 20, 2 );
+
+
+function lawyeriax_lite_the_custom_logo() {
+	if ( function_exists( 'the_custom_logo' ) ) {
+		the_custom_logo();
+	}
+}
