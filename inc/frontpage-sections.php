@@ -71,13 +71,13 @@
    						<div class="carousel-caption">
    							<div class="container">
                   <?php if(!empty($slider_content->title)) { ?>
-   								<p class="col-md-8 carousel-title"> <?php echo esc_html($slider_content->title); ?> </p>
+   								<p class="col-md-8 carousel-title"> <?php echo wp_kses_post($slider_content->title); ?> </p>
                   <?php }
                   if(!empty($slider_content->text)) { ?>
-                    <p class="col-md-8 carousel-content"> <?php echo esc_html($slider_content->text); ?> </p>
+                    <p class="col-md-8 carousel-content"> <?php echo wp_kses_post($slider_content->text); ?> </p>
                   <?php }
                   if(!empty($slider_content->subtitle)) { ?>
-                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php echo esc_html($slider_content->subtitle); ?></a></p>
+                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php echo wp_kses_post($slider_content->subtitle); ?></a></p>
                   <?php } ?>
                 </div>
    						</div>
@@ -117,7 +117,7 @@ endif;
    	<section id="ribbon" class="home-section ribbon">
    		<div class="container">
    			<div class="home-section-inner">
-   				<p class="ribbon-big-title"><?php echo esc_html($ribbon_tagline) ?></p>
+   				<p class="ribbon-big-title"><?php echo wp_kses_post($ribbon_tagline) ?></p>
    			</div>
    			<div class="col-sm-10 col-sm-offset-1 section-line"></div>
    		</div><!-- .container -->
@@ -244,7 +244,7 @@ endif;
 
         if(!empty($about_title)) { ?>
 
-          <h3 class="about-title"><?php echo esc_html($about_title) ?></h3>
+          <h3 class="about-title"><?php echo wp_kses_post($about_title) ?></h3>
 
           <?php } else if (isset ( $wp_customize ) ) { ?>
 
@@ -256,7 +256,7 @@ endif;
 
           <div class="border-left about-content">
 
-            <p><?php echo esc_html($about_text); ?></p>
+            <p><?php echo wp_kses_post($about_text); ?></p>
 
           </div>
 
@@ -296,7 +296,7 @@ function lawyeriax_lite_latest_news_section() {
       <?php
       if(!empty($news_heading)) { ?>
 			     <div class="home-section-title-wrap">
-		           <h2 class="home-section-title"> <?php echo esc_html($news_heading) ?></h2>
+		           <h2 class="home-section-title"> <?php echo wp_kses_post($news_heading) ?></h2>
            </div>
        <?php	} else if (isset ( $wp_customize ) ) { ?>
            <div class="home-section-title-wrap">

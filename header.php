@@ -59,7 +59,7 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 				</div>
 				<div class="top-bar-right top-bar-contact">
 					<?php
-					if(!empty($email_address)) { ?>
+					if(!empty($phone_number)) { ?>
 						<p><i class="fa fa-phone-square"></i><span><?php echo esc_html( $phone_number ); ?></span></p>
 						<?php
 					} else {

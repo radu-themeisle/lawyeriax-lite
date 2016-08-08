@@ -375,7 +375,7 @@ function lawyeriax_lite_header_style() {
  */
 function lawyeriax_lite_customize_preview_js() {
 
-	wp_enqueue_script( 'lawyeriax_lite_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_enqueue_script( 'lawyeriax_lite_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130509', true );
 }
 add_action( 'customize_preview_init', 'lawyeriax_lite_customize_preview_js', 10 );
 
@@ -396,32 +396,26 @@ add_action( 'customize_preview_init', 'lawyeriax_lite_customize_preview_js', 10 
  function lawyeriax_lite_sanitize_repeater($input){
 
  	$input_decoded = json_decode($input,true);
- 	$allowed_html = array(
- 								'br' => array(),
- 								'em' => array(),
- 								'strong' => array(),
- 								'a' => array(
- 									'href' => array(),
- 									'class' => array(),
- 									'id' => array(),
- 									'target' => array()
- 								),
- 								'button' => array(
- 									'class' => array(),
- 									'id' => array()
- 								)
- 							);
-
 
  	if(!empty($input_decoded)) {
  		foreach ($input_decoded as $boxk => $box ){
  			foreach ($box as $key => $value){
  				if (($key == 'text') || ($key == 'title') || ($key == 'subtitle')){
  					$value = html_entity_decode($value);
- 					$input_decoded[$boxk][$key] = wp_kses( $value, $allowed_html);
- 				} else {
  					$input_decoded[$boxk][$key] = wp_kses_post( force_balance_tags( $value ) );
  				}
+
+ 				if($key == 'link'){
+				    $input_decoded[$boxk][$key] = esc_url($value);
+			    }
+
+			    if($key == 'icon_value'){
+				    $icons_array = array('none' => 'none','500px' => 'fa-500px','amazon' => 'fa-amazon','android' => 'fa-android','behance' => 'fa-behance','behance-square' => 'fa-behance-square','bitbucket' => 'fa-bitbucket','bitbucket-square' => 'fa-bitbucket-square','american-express' => 'fa-cc-amex','diners-club' => 'fa-cc-diners-club','discover' => 'fa-cc-discover','jcb' => 'fa-cc-jcb','mastercard' => 'fa-cc-mastercard','paypal' => 'fa-cc-paypal','stripe' => 'fa-cc-stripe','visa' => 'fa-cc-visa','codepen' => 'fa-codepen','css3' => 'fa-css3','delicious' => 'fa-delicious','deviantart' => 'fa-deviantart','digg' => 'fa-digg','dribble' => 'fa-dribbble','dropbox' => 'fa-dropbox','drupal' => 'fa-drupal','facebook' => 'fa-facebook','facebook-official' => 'fa-facebook-official','facebook-square' => 'fa-facebook-square','flickr' => 'fa-flickr','foursquare' => 'fa-foursquare','git' => 'fa-git','git-square' => 'fa-git-square','github' => 'fa-github','github-alt' => 'fa-github-alt','github-square' => 'fa-github-square','google' => 'fa-google','google-plus' => 'fa-google-plus','google-plus-square' => 'fa-google-plus-square','html5' => 'fa-html5','instagram' => 'fa-instagram','joomla' => 'fa-joomla','jsfiddle' => 'fa-jsfiddle','linkedin' => 'fa-linkedin','linkedin-square' => 'fa-linkedin-square','opencart' => 'fa-opencart','openid' => 'fa-openid','paypal' => 'fa-paypal','pinterest' => 'fa-pinterest','pinterest-p' => 'fa-pinterest-p','pinterest-square' => 'fa-pinterest-square','rebel' => 'fa-rebel','reddit' => 'fa-reddit','reddit-square' => 'fa-reddit-square','share' => 'fa-share-alt','share-square' => 'fa-share-alt-square','skype' => 'fa-skype','slack' => 'fa-slack','soundcloud' => 'fa-soundcloud','spotify' => 'fa-spotify','stack-overflow' => 'fa-stack-overflow','steam' => 'fa-steam','steam-square' => 'fa-steam-square','tripadvisor' => 'fa-tripadvisor','tumblr' => 'fa-tumblr','tumblr-square' => 'fa-tumblr-square','twitch' => 'fa-twitch','twitter' => 'fa-twitter','twitter-square' => 'fa-twitter-square','vimeo' => 'fa-vimeo','vimeo-square' => 'fa-vimeo-square','vine' => 'fa-vine','whatsapp' => 'fa-whatsapp','wordpress' => 'fa-wordpress','yahoo' => 'fa-yahoo','youtube' => 'fa-youtube','youtube-play' => 'fa-youtube-play','youtube-squar' => 'fa-youtube-square');
+					if(in_array($value,$icons_array)){
+						$input_decoded[$boxk][$key] = esc_html($value);
+					}
+			    }
+
  			}
  		}
  		return json_encode($input_decoded);
