@@ -89,6 +89,12 @@ function lawyeriax_lite_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	/*
+	 * This theme styles the visual editor to resemble the theme style,
+	 * specifically font, colors, icons, and column width.
+	 */
+	add_editor_style( array( 'css/editor-style.css', lawyeriax_lite_fonts_url() ) );
 }
 endif;
 add_action( 'after_setup_theme', 'lawyeriax_lite_setup' );
