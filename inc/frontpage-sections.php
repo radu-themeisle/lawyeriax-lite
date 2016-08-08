@@ -71,13 +71,13 @@
    						<div class="carousel-caption">
    							<div class="container">
                   <?php if(!empty($slider_content->title)) { ?>
-   								<p class="col-md-8 carousel-title"> <?php echo esc_html($slider_content->title); ?> </p>
+   								<p class="col-md-8 carousel-title"> <?php echo wp_kses_post($slider_content->title); ?> </p>
                   <?php }
                   if(!empty($slider_content->text)) { ?>
-                    <p class="col-md-8 carousel-content"> <?php echo esc_html($slider_content->text); ?> </p>
+                    <p class="col-md-8 carousel-content"> <?php echo wp_kses_post($slider_content->text); ?> </p>
                   <?php }
                   if(!empty($slider_content->subtitle)) { ?>
-                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php echo esc_html($slider_content->subtitle); ?></a></p>
+                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php echo wp_kses_post($slider_content->subtitle); ?></a></p>
                   <?php } ?>
                 </div>
    						</div>
@@ -117,7 +117,7 @@ endif;
    	<section id="ribbon" class="home-section ribbon">
    		<div class="container">
    			<div class="home-section-inner">
-   				<p class="ribbon-big-title"><?php echo esc_html($ribbon_tagline) ?></p>
+   				<p class="ribbon-big-title"><?php echo wp_kses_post($ribbon_tagline) ?></p>
    			</div>
    			<div class="col-sm-10 col-sm-offset-1 section-line"></div>
    		</div><!-- .container -->
@@ -218,8 +218,8 @@ endif;
   */
  function lawyeriax_lite_about_us_section() {
    $about_image = get_theme_mod('lawyeria_about_image', get_template_directory_uri() . '/images/about-us.jpg');
-   $about_title = get_theme_mod('lawyeriax_about_heading', esc_html__('Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes', 'lawyeriax-lite'));
-   $about_text = get_theme_mod('lawyeriax_about_text', esc_html('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete.', 'lawyeriax-lite'));
+   $about_title = get_theme_mod('lawyeriax_about_heading', esc_html__('About us.', 'lawyeriax-lite'));
+   $about_text = get_theme_mod('lawyeriax_about_text', esc_html('Use this section to tell a story about your business. Everything you see here is responsive and mobile-friendly - it will look great on smartphones and tablets.', 'lawyeriax-lite'));
    global $wp_customize;
  	?>
 
@@ -244,7 +244,7 @@ endif;
 
         if(!empty($about_title)) { ?>
 
-          <h3 class="about-title"><?php echo esc_html($about_title) ?></h3>
+          <h3 class="about-title"><?php echo wp_kses_post($about_title) ?></h3>
 
           <?php } else if (isset ( $wp_customize ) ) { ?>
 
@@ -256,7 +256,7 @@ endif;
 
           <div class="border-left about-content">
 
-            <p><?php echo esc_html($about_text); ?></p>
+            <p><?php echo wp_kses_post($about_text); ?></p>
 
           </div>
 
@@ -296,7 +296,7 @@ function lawyeriax_lite_latest_news_section() {
       <?php
       if(!empty($news_heading)) { ?>
 			     <div class="home-section-title-wrap">
-		           <h2 class="home-section-title"> <?php echo esc_html($news_heading) ?></h2>
+		           <h2 class="home-section-title"> <?php echo wp_kses_post($news_heading) ?></h2>
            </div>
        <?php	} else if (isset ( $wp_customize ) ) { ?>
            <div class="home-section-title-wrap">
@@ -307,19 +307,24 @@ function lawyeriax_lite_latest_news_section() {
 			<div class="home-section-inner latest-news">
 				<!-- Posts Loop -->
 				<?php
-				if ( have_posts() ) : query_posts("showposts= 2" );
+				$the_query = new WP_Query( array(
+					'posts_per_page' => 3,
+					'ignore_sticky_posts' => 1
+				) );
+				if ( $the_query->have_posts() ) {
 					if ( is_home() && ! is_front_page() ) : ?>
 						<header>
 							<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 						</header>
 					<?php endif;
-					while ( have_posts() ) : the_post();
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
 						get_template_part( 'template-parts/content-home-single', get_post_format() );
-					endwhile;
-				else :
+					}
+				} else {
 					get_template_part( 'template-parts/content', 'none' );
 					wp_reset_query();
-				endif; ?>
+				} ?>
 			</div>
 
 			<div class="col-sm-10 col-sm-offset-1 section-line"></div>

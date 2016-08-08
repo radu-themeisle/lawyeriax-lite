@@ -17,31 +17,13 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 	 */
 	require_once ( 'class/repeater-general-control.php');
 
-	require_once ( 'class/lawyeriax-lite-template-control.php');
-
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-//Remove unused sections
+	//Remove unused sections
 	$wp_customize->remove_section( 'colors' );
 	$wp_customize->remove_section( 'header_image' );
 	$wp_customize->remove_section( 'background_image' );
-
-
-	/********************************************************/
-	/****************** Navbar Logo  ************************/
-	/********************************************************/
-
-	$wp_customize->add_setting('lawyeriax_navbar_logo', array(
-        'sanitize_callback' => 'esc_url'
-    ));
-
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'lawyeriax_navbar_logo', array(
-        'label'       => __('Website Logo', 'lawyeriax-lite'),
-        'section'     => 'title_tagline',
-        'priority'    => 5,
-    )));
 
 
 /********************************************************/
@@ -60,24 +42,6 @@ $wp_customize->add_section('lawyeriax_top_bar_section', array(
 =============================================================================*/
 $wp_customize->add_setting('lawyeriax_top_bar_social_icons', array(
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_repeater',
-		'default'           => json_encode(array(
-				array(
-						'icon_value'  => 'fa-facebook-square',
-						'link'				=> '#'
-				),
-				array(
-						'icon_value'  => 'fa-twitter-square',
-						'link'				=> '#'
-				),
-				array(
-						'icon_value'  => 'fa-linkedin-square',
-						'link'				=> '#'
-				),
-				array(
-						'icon_value'  => 'fa-google-plus-square',
-						'link'				=> '#'
-				),
-		))
 ));
 
 $wp_customize->add_control(new LawyeriaX_General_Repeater($wp_customize, 'lawyeriax_top_bar_social_icons', array(
@@ -94,7 +58,6 @@ $wp_customize->add_control(new LawyeriaX_General_Repeater($wp_customize, 'lawyer
 =============================================================================*/
 
 	$wp_customize->add_setting('lawyeriax_top_bar_phone_number', array(
-			'default'           => esc_html__('+1-888-846173', 'lawyeriax-lite'),
 			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 	));
 
@@ -109,7 +72,6 @@ Email address
 =============================================================================*/
 
 	$wp_customize->add_setting('lawyeriax_top_bar_email_address', array(
-			'default'           => esc_html__('example@themeisle.com', 'lawyeriax-lite'),
 			'sanitize_callback' => 'lawyeriax_lite_sanitize_text'
 	));
 	$wp_customize->add_control('lawyeriax_top_bar_email_address', array(
@@ -277,7 +239,7 @@ $wp_customize->add_setting('lawyeria_about_image', array(
 =============================================================================*/
 
 	$wp_customize->add_setting('lawyeriax_about_heading', array(
-			'default'           => esc_html__('Choose the color that suits you for the following: Menu, Header, Footer and Frontpage boxes.', 'lawyeriax-lite'),
+			'default'           => esc_html__('About us.', 'lawyeriax-lite'),
 			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 			'transport'					=> 'postMessage',
 	));
@@ -293,7 +255,7 @@ $wp_customize->add_setting('lawyeria_about_image', array(
 =============================================================================*/
 
 $wp_customize->add_setting('lawyeriax_about_text', array(
-		'default'           => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expressa vero in iis aetatibus, quae iam confirmatae sunt. Nihil opus est exemplis hoc facere longius. Restincta enim sitis stabilitatem voluptatis habet, inquit, illa autem voluptas ipsius restinctionis in motu est. Sed tu, ut dignum est tua erga me et philosophiam voluntate ab adolescentulo suscepta, fac ut Metrodori tueare liberos. Vitae autem degendae ratio maxime quidem illis placuit quieta. Quae si potest singula consolando levare, universa quo modo sustinebit? Ita fit beatae vitae domina fortuna, quam Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete. Epicurus ait exiguam intervenire sapienti. Duo Reges: constructio interrete.', 'lawyeriax-lite'),
+		'default'           => esc_html__('Use this section to tell a story about your business. Everything you see here is responsive and mobile-friendly - it will look great on smartphones and tablets.', 'lawyeriax-lite'),
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 		'transport'					=> 'postMessage',
 ));
@@ -331,48 +293,39 @@ $wp_customize->add_control('news_heading', array(
 		'priority'    => 1,
 ));
 
-/* Control for choosing template for the frontpage */
-/*****************************************************************/
-/**********	Control for choosing a template for the frontpage ****/
-/*****************************************************************/
-
-	$wp_customize->remove_control('page_on_front');
-
-	$wp_customize->add_control(new LawyeriaX_Lite_Frontpage_Templates($wp_customize, 'page_on_front',array(
-			'label'    => __( 'Front page', 'lawyeriax-lite' ),
-			'section' => 'static_front_page',
-			'priority' => 10
-	)));
-
-	$lawyeriax_lite_page_for_posts = $wp_customize->get_control('page_for_posts');
-	if(!empty($lawyeriax_lite_page_for_posts)):
-		$lawyeriax_lite_page_for_posts->priority = 11;
-	endif;
-	/**********************/
-
-$lawyeriax_lite_templates = get_page_templates();
-
-if( !empty($lawyeriax_lite_templates) ):
-
-	$lawyeriax_lite_templates_reversed = array_flip($lawyeriax_lite_templates);
-	$lawyeriax_lite_templates_reversed['default'] = 'Default';
-
-	$wp_customize->add_setting( 'lawyeriax_lite_frontpage_template_static', array(
-		'default' => esc_html__('Frontpage template','lawyeriax-lite'),
-		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
-		// 'transport' => 'postMessage'
-	));
-	$wp_customize->add_control( 'lawyeriax_lite_frontpage_template_static', array(
-		'type' => 'select',
-		'label'    => esc_html__( 'Frontpage template', 'lawyeriax-lite' ),
-		'section'  => 'static_front_page',
-		'choices' => $lawyeriax_lite_templates_reversed,
-		'priority'    => 12
-	));
-endif;
-
 }
 add_action( 'customize_register', 'lawyeriax_lite_customize_register' );
+
+
+function lawyeriax_lite_custom_header() {
+	add_theme_support( 'custom-header', apply_filters( 'twentysixteen_custom_header_args', array(
+		'wp-head-callback'       => 'lawyeriax_lite_header_style',
+	) ) );
+}
+add_action( 'after_setup_theme', 'lawyeriax_lite_custom_header' );
+
+
+function lawyeriax_lite_header_style() {
+	// If the header text option is untouched, let's bail.
+	if ( display_header_text() ) {
+		return;
+	}
+
+	// If the header text has been hidden.
+	?>
+	<style type="text/css" id="twentysixteen-header-css">
+		.site-branding {
+			margin: 0 auto 0 0;
+		}
+
+		.site-branding .site-title,
+		.site-description {
+			clip: rect(1px, 1px, 1px, 1px);
+			position: absolute;
+		}
+	</style>
+	<?php
+}
 
 
 /**
@@ -380,7 +333,7 @@ add_action( 'customize_register', 'lawyeriax_lite_customize_register' );
  */
 function lawyeriax_lite_customize_preview_js() {
 
-	wp_enqueue_script( 'lawyeriax_lite_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_enqueue_script( 'lawyeriax_lite_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130509', true );
 }
 add_action( 'customize_preview_init', 'lawyeriax_lite_customize_preview_js', 10 );
 
@@ -401,32 +354,26 @@ add_action( 'customize_preview_init', 'lawyeriax_lite_customize_preview_js', 10 
  function lawyeriax_lite_sanitize_repeater($input){
 
  	$input_decoded = json_decode($input,true);
- 	$allowed_html = array(
- 								'br' => array(),
- 								'em' => array(),
- 								'strong' => array(),
- 								'a' => array(
- 									'href' => array(),
- 									'class' => array(),
- 									'id' => array(),
- 									'target' => array()
- 								),
- 								'button' => array(
- 									'class' => array(),
- 									'id' => array()
- 								)
- 							);
-
 
  	if(!empty($input_decoded)) {
  		foreach ($input_decoded as $boxk => $box ){
  			foreach ($box as $key => $value){
  				if (($key == 'text') || ($key == 'title') || ($key == 'subtitle')){
  					$value = html_entity_decode($value);
- 					$input_decoded[$boxk][$key] = wp_kses( $value, $allowed_html);
- 				} else {
  					$input_decoded[$boxk][$key] = wp_kses_post( force_balance_tags( $value ) );
  				}
+
+ 				if($key == 'link'){
+				    $input_decoded[$boxk][$key] = esc_url($value);
+			    }
+
+			    if($key == 'icon_value'){
+				    $icons_array = array('none' => 'none','500px' => 'fa-500px','amazon' => 'fa-amazon','android' => 'fa-android','behance' => 'fa-behance','behance-square' => 'fa-behance-square','bitbucket' => 'fa-bitbucket','bitbucket-square' => 'fa-bitbucket-square','american-express' => 'fa-cc-amex','diners-club' => 'fa-cc-diners-club','discover' => 'fa-cc-discover','jcb' => 'fa-cc-jcb','mastercard' => 'fa-cc-mastercard','paypal' => 'fa-cc-paypal','stripe' => 'fa-cc-stripe','visa' => 'fa-cc-visa','codepen' => 'fa-codepen','css3' => 'fa-css3','delicious' => 'fa-delicious','deviantart' => 'fa-deviantart','digg' => 'fa-digg','dribble' => 'fa-dribbble','dropbox' => 'fa-dropbox','drupal' => 'fa-drupal','facebook' => 'fa-facebook','facebook-official' => 'fa-facebook-official','facebook-square' => 'fa-facebook-square','flickr' => 'fa-flickr','foursquare' => 'fa-foursquare','git' => 'fa-git','git-square' => 'fa-git-square','github' => 'fa-github','github-alt' => 'fa-github-alt','github-square' => 'fa-github-square','google' => 'fa-google','google-plus' => 'fa-google-plus','google-plus-square' => 'fa-google-plus-square','html5' => 'fa-html5','instagram' => 'fa-instagram','joomla' => 'fa-joomla','jsfiddle' => 'fa-jsfiddle','linkedin' => 'fa-linkedin','linkedin-square' => 'fa-linkedin-square','opencart' => 'fa-opencart','openid' => 'fa-openid','paypal' => 'fa-paypal','pinterest' => 'fa-pinterest','pinterest-p' => 'fa-pinterest-p','pinterest-square' => 'fa-pinterest-square','rebel' => 'fa-rebel','reddit' => 'fa-reddit','reddit-square' => 'fa-reddit-square','share' => 'fa-share-alt','share-square' => 'fa-share-alt-square','skype' => 'fa-skype','slack' => 'fa-slack','soundcloud' => 'fa-soundcloud','spotify' => 'fa-spotify','stack-overflow' => 'fa-stack-overflow','steam' => 'fa-steam','steam-square' => 'fa-steam-square','tripadvisor' => 'fa-tripadvisor','tumblr' => 'fa-tumblr','tumblr-square' => 'fa-tumblr-square','twitch' => 'fa-twitch','twitter' => 'fa-twitter','twitter-square' => 'fa-twitter-square','vimeo' => 'fa-vimeo','vimeo-square' => 'fa-vimeo-square','vine' => 'fa-vine','whatsapp' => 'fa-whatsapp','wordpress' => 'fa-wordpress','yahoo' => 'fa-yahoo','youtube' => 'fa-youtube','youtube-play' => 'fa-youtube-play','youtube-squar' => 'fa-youtube-square');
+					if(in_array($value,$icons_array)){
+						$input_decoded[$boxk][$key] = esc_html($value);
+					}
+			    }
+
  			}
  		}
  		return json_encode($input_decoded);

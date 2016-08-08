@@ -1065,7 +1065,7 @@ button.menu-toggle:hover {
 }
 
 .post-thumbnail img {
-	width 100%;
+	width: 100%;
 }
 
 .post-thumbnail-single {
@@ -1308,7 +1308,7 @@ object {
     box-shadow: 0px 4px 10px 0px rgba(32, 3, 3, 0.1);
     background: #FFF;
 }
-.top-bar {
+.top-bar{
 	background: #200303;
 	font-size: 13px;
 	line-height: 18px;
@@ -1327,7 +1327,7 @@ object {
 	padding-right: 20px;
 	min-width: 200px;
 }
-.top-bar-social a {
+.top-bar-social a:not(.link-to-customizer) {
 	font-size: 18px;
     color: #878787;
     display: inline-block;
@@ -1399,6 +1399,14 @@ p.site-description {
 }
 .main-navigation div > ul::-webkit-scrollbar-thumb {
 	background-color: #200303;
+}
+
+.custom-logo-link{
+	display: block;
+}
+
+.site-description{
+	display: block;
 }
 
 /*-----------------------
@@ -1630,7 +1638,6 @@ h3.about-title {
     box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.25);
 }
 .news-date span {
-	display: block.news-posted-on a	text-align: center;
 	color: #fff;
 	font-size: 11px;
 	line-height: 15px;
@@ -1740,7 +1747,6 @@ h2.widget-title {
 .widget input:not([type="submit"]):not([type="reset"]):not([type="button"]) {
 	width: 100%;
 	max-width: 100%;
-	width: 100%;
 	font-size: 13px;
 	padding: 7px 5px;
 	border: 1px solid #EBEBEB;
@@ -1750,7 +1756,6 @@ h2.widget-title {
     background: #FFF;
     box-shadow: none;
     font-weight: 400;
-    height: 24px;
 }
 .widget_search form {
 	position: relative;
