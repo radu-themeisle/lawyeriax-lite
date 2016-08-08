@@ -307,19 +307,24 @@ function lawyeriax_lite_latest_news_section() {
 			<div class="home-section-inner latest-news">
 				<!-- Posts Loop -->
 				<?php
-				if ( have_posts() ) : query_posts("showposts= 2" );
+				$the_query = new WP_Query( array(
+					'posts_per_page' => 3,
+					'ignore_sticky_posts' => 1
+				) );
+				if ( $the_query->have_posts() ) {
 					if ( is_home() && ! is_front_page() ) : ?>
 						<header>
 							<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 						</header>
 					<?php endif;
-					while ( have_posts() ) : the_post();
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
 						get_template_part( 'template-parts/content-home-single', get_post_format() );
-					endwhile;
-				else :
+					}
+				} else {
 					get_template_part( 'template-parts/content', 'none' );
 					wp_reset_query();
-				endif; ?>
+				} ?>
 			</div>
 
 			<div class="col-sm-10 col-sm-offset-1 section-line"></div>
