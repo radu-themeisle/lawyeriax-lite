@@ -57,7 +57,7 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 												admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_social_icons' )
 											);
 										} else {
-											echo esc_html_e( 'Edit social icons in customizer.','themotion' );
+											esc_html_e( 'Edit social icons in customizer.','themotion' );
 										} ?>
 									</span>
 								</p>
