@@ -57,7 +57,7 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 												admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_social_icons' )
 											);
 										} else {
-											esc_html_e( 'Edit social icons in customizer.','themotion' );
+											esc_html_e( 'Edit social icons in customizer.','lawyeriax-lite' );
 										} ?>
 									</span>
 								</p>
@@ -83,7 +83,7 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 											admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_phone_number' )
 										);
 									} else {
-										esc_html_e( 'Edit phone in customizer.', 'themotion' );
+										esc_html_e( 'Edit phone in customizer.', 'lawyeriax-lite' );
 									} ?>
 								</span>
 							</p>
@@ -106,7 +106,7 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 											admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_email_address' )
 										);
 									} else {
-										esc_html_e( 'Edit email in customizer.', 'themotion' );
+										esc_html_e( 'Edit email in customizer.', 'lawyeriax-lite' );
 									} ?>
 								</span>
 							</p>
