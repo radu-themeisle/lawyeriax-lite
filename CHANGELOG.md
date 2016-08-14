@@ -1,4 +1,8 @@
 
+### 1.0.6 - 14/08/2016
+**Changes:** 
+- Fix text domain issue
+
 ### 1.0.5 - 08/08/2016
 **Changes:** 
 - Added support for custom logo
