@@ -2180,6 +2180,28 @@ div.wpcf7-mail-sent-ok {
 }
 
 
+.teammate .team-member-image{
+	float: left;
+	display: inline-block;
+	padding-right: 20px;
+}
+
+.teammate .entry-header:before{
+	content: "";
+	position: absolute;
+	height: 100%;
+	left: 0;
+	width: 5px;
+	-webkit-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+	-moz-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+	box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+}
+.teammate .entry-header{
+	display:inline-block;
+	position: relative;
+	padding-left: 24px;
+}
+
 /*--------------------------------------------------------------
 ## Responsive
 --------------------------------------------------------------*/
