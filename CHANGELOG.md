@@ -1,4 +1,8 @@
 
+### 1.0.7 - 12/10/2016
+**Changes:** 
+- Fixed single page for Lawyers
+
 ### 1.0.6 - 14/08/2016
 **Changes:** 
 - Fix text domain issue
