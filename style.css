@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/lawyeriax-lite
 Author: Themeisle
 Author URI: http://themeisle.com
 Description: LawyeriaX Lite is a neat and minimalist theme for lawyers, law-related websites, or any other business and agency. It has a professional and simple look, with full-width beautiful slider, simple content structure, easy-to-use interface, blog section, custom widgets, widgetized footer, live customizer, social links, customizable ribbon, custom logo, front page displays, and SEO friendly code. The theme comes with a range of great customization options, so you can change them the way you want.
-Version: 1.0.6
+Version: 1.0.7
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: lawyeriax-lite
@@ -2179,6 +2179,28 @@ div.wpcf7-mail-sent-ok {
 	height: 140px;
 }
 
+
+.teammate .team-member-image{
+	float: left;
+	display: inline-block;
+	padding-right: 20px;
+}
+
+.teammate .entry-header:before{
+	content: "";
+	position: absolute;
+	height: 100%;
+	left: 0;
+	width: 5px;
+	-webkit-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+	-moz-box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+	box-shadow: inset 4px 0px 0px 0px rgba(50, 50, 50, 0.1);
+}
+.teammate .entry-header{
+	display:inline-block;
+	position: relative;
+	padding-left: 24px;
+}
 
 /*--------------------------------------------------------------
 ## Responsive
