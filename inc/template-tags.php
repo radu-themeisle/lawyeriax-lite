@@ -49,15 +49,21 @@ function lawyeriax_lite_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'lawyeriax-lite' ) );
+		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'lawyeriax-lite' ) );
 		if ( $categories_list && lawyeriax_lite_categorized_blog() ) {
-			printf( '<span class="cat-links"><i class="fa fa-folder"></i>' . esc_html__( '%1$s', 'lawyeriax-lite' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span><i class="fa fa-folder"></i>%2$s</span>',
+				_x( 'Categories', 'Used before category names.', 'lawyeriax-lite' ),
+				$categories_list
+			);
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'lawyeriax-lite' ) );
+		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'lawyeriax-lite' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links"><i class="fa fa-tags"></i>' . esc_html__( '%1$s', 'lawyeriax-lite' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span><i class="fa fa-tags"></i>%2$s</span>',
+				_x( 'Tags', 'Used before tag names.', 'lawyeriax-lite' ),
+				$tags_list
+			);
 		}
 	}
 
