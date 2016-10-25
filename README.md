@@ -4,9 +4,9 @@ Contributors:           themeisle, codeinwp
 
 Tags:				one-column, two-columns, right-sidebar, custom-menu, featured-images, front-page-post-form, full-width-template, rtl-language-support, threaded-comments, translation-ready
 
-Requires at least:	3.3.0
+Requires at least:	4.0.0
 
-Tested up to:		4.5.3
+Tested up to:		4.6.1
 
 LawyeriaX Lite
 
@@ -26,13 +26,13 @@ The exceptions to this license are as follows:
     Copyright 2011-2016 Twitter, Inc.
     Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 
-* Fontawesome v4.5.0
+* Fontawesome v4.7.0
     Created by Dave Gandy
     Licensed under SIL OFL 1.1 (http://scripts.sil.org/OFL)
 
-* jQuery-Selectric
-    Copyright (c) 2016 Leonardo Santos
-    Licensed under MIT (https://github.com/lcdsantos/jQuery-Selectric/blob/master/LICENSE)
+* Font Awesome Iconpicker from repeater
+    Copyright (c) 2014 Javier Aguilar @mjolnic
+    Licensed under the MIT license. (https://github.com/itsjavi/fontawesome-iconpicker/blob/master/LICENSE)
 
 * Images	 
 

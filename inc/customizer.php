@@ -15,7 +15,7 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 	/**
 	 * Add repeater PHP and template controler.
 	 */
-	require_once ( 'class/repeater-general-control.php');
+	require_once ( 'customizer-repeater/repeater-general-control.php');
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
