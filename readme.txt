@@ -44,10 +44,10 @@ The exceptions to this license are as follows:
 	License: All pexels.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
 
 	* images/slider0.jpg
-			Source: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=091311222ab12502202f18610a55088d
+			Source: https://unsplash.com/photos/OQMZwNd3ThU
 	* images/slider1.jpg
-			Source: https://images.unsplash.com/photo-1447968954315-3f0c44f7313c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=dbefc6e14ea8c329ebe2799db99bfb7b
+			Source: https://unsplash.com/photos/ABAmxzlot8E
 	* images/slider2.jpg
-			Source: https://images.unsplash.com/photo-1426523038054-a260f3ef5bc9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=60e2c1af0221c9f5b39c091a11151da2
+			Source: https://unsplash.com/photos/dgOJDAv96s8
     * images/about-us.jpg
-			Source: https://static.pexels.com/photos/3274/building-council-columns.jpg
+			Source: https://www.pexels.com/photo/building-council-columns-3274/
