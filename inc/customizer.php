@@ -36,6 +36,18 @@ $wp_customize->add_section('lawyeriax_top_bar_section', array(
 	'priority'        => 30,
 ));
 
+$wp_customize->add_setting( 'lawyeriax_top_bar_hide', array(
+	'sanitize_callback' => 'lawyeriax_sanitize_checkbox',
+	'default' => true
+) );
+
+$wp_customize->add_control( 'lawyeriax_top_bar_hide', array(
+	'type' => 'checkbox',
+	'label' => __( 'Disable top bar','lawyeriax-lite' ),
+	'section' => 'lawyeriax_top_bar_section',
+	'priority' => 1,
+) );
+
 
 /*=============================================================================
 		Social icons
@@ -43,6 +55,7 @@ $wp_customize->add_section('lawyeriax_top_bar_section', array(
 $wp_customize->add_setting('lawyeriax_top_bar_social_icons', array(
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_repeater',
 ));
+
 
 $wp_customize->add_control(new LawyeriaX_General_Repeater($wp_customize, 'lawyeriax_top_bar_social_icons', array(
 		'label'                   => __('Social Links', 'lawyeriax-lite'),
@@ -384,4 +397,9 @@ add_action( 'customize_preview_init', 'lawyeriax_lite_customize_preview_js', 10 
 
  function lawyeriax_lite_show_on_front(){
 	return is_page_template('template-frontpage.php');
+}
+
+
+function lawyeriax_sanitize_checkbox( $input ) {
+	return ( isset( $input ) && true === (bool) $input ? true : false );
 }
