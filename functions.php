@@ -52,7 +52,6 @@ function lawyeriax_lite_setup() {
 	 */
 	add_theme_support( 'custom-logo' );
 
-	add_theme_support('custom-header');
 
 	/*
 	 * Enable support for Excerpt for pages.
@@ -83,15 +82,6 @@ function lawyeriax_lite_setup() {
 	add_theme_support( 'post-formats', array(
 		'quote',
 	) );
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'lawyeriax_lite_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-
-	// Custom header support
-	add_theme_support( 'custom-header' );
 
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
@@ -270,7 +260,7 @@ require get_template_directory() . '/inc/jetpack.php';
 
 
 function lawyeriax_lite_inline_style() {
-	$header_image = get_header_image();
+	$header_image = get_theme_mod('lawyeriax_bigtitle_background');
 	$custom_css = '';
 	if ( ! empty( $header_image ) ) {
 		$custom_css .= '
