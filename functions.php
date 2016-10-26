@@ -90,6 +90,9 @@ function lawyeriax_lite_setup() {
 		'default-image' => '',
 	) ) );
 
+	// Custom header support
+	add_theme_support( 'custom-header' );
+
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
@@ -264,3 +267,23 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+function lawyeriax_lite_inline_style() {
+	$header_image = get_header_image();
+	$custom_css = '';
+	if ( ! empty( $header_image ) ) {
+		$custom_css .= '
+                .lawyeriax-lite-big-title{
+	                    background-image: url(' . esc_url( $header_image ) . ');
+	                    background-size:cover;
+	                    background-repeat: no-repeat;
+	                    background-position: center center;
+	            }';
+		if(is_admin_bar_showing()){
+			$custom_css .= '.sticky-navigation{ top: 32px; }';
+		}
+	}
+	wp_add_inline_style( 'lawyeriax-lite-style', $custom_css );
+}
+add_action( 'wp_enqueue_scripts', 'lawyeriax_lite_inline_style' );
