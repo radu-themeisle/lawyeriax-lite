@@ -120,7 +120,7 @@ class LawyeriaX_General_Repeater extends WP_Customize_Control {
             foreach($array as $icon){ ?>
                 <div class="lawyeriax_general_control_repeater_container lawyeriax_draggable">
                     <div class="repeater-customize-control-title">
-                        <?php esc_html_e( $this->boxtitle, 'lawyeriax-lite' ) ?>
+                        <?php echo esc_html( $this->boxtitle ); ?>
                     </div>
                     <div class="repeater-box-content-hidden">
                         <?php
@@ -203,7 +203,7 @@ class LawyeriaX_General_Repeater extends WP_Customize_Control {
         } else { ?>
             <div class="lawyeriax_general_control_repeater_container">
                 <div class="repeater-customize-control-title">
-                    <?php esc_html_e( $this->boxtitle, 'lawyeriax-lite' ) ?>
+                    <?php echo esc_html($this->boxtitle); ?>
                 </div>
                 <div class="repeater-box-content-hidden">
                     <?php
@@ -282,7 +282,7 @@ class LawyeriaX_General_Repeater extends WP_Customize_Control {
                 <?php esc_html_e('Image','lawyeriax-lite')?>
             </span>
             <input type="text" class="widefat custom_media_url" value="<?php echo esc_attr( $value ); ?>">
-            <input type="button" class="button button-primary custom_media_button_repeater" value="<?php esc_html_e('Upload Image','lawyeriax-lite'); ?>" />
+            <input type="button" class="button button-primary custom_media_button_repeater" value="<?php esc_attr_e('Upload Image','lawyeriax-lite'); ?>" />
         </div>
         <?php
     }
