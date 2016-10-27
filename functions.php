@@ -52,7 +52,6 @@ function lawyeriax_lite_setup() {
 	 */
 	add_theme_support( 'custom-logo' );
 
-	add_theme_support('custom-header');
 
 	/*
 	 * Enable support for Excerpt for pages.
@@ -83,12 +82,6 @@ function lawyeriax_lite_setup() {
 	add_theme_support( 'post-formats', array(
 		'quote',
 	) );
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'lawyeriax_lite_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
 
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
@@ -174,7 +167,7 @@ function lawyeriax_lite_scripts() {
 
 	wp_enqueue_script( 'lawyeriax-lite-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.7.0', false );
 
 
 
@@ -189,11 +182,7 @@ function lawyeriax_lite_customizer_script() {
 
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
 
-	wp_enqueue_style( 'selectric-css', get_stylesheet_directory_uri().'/css/selectric.css',array(), '1.0.0' );
-
-	wp_enqueue_script( 'selectric', get_template_directory_uri() .'/js/jquery.selectric.js', array('jquery'), '1.0.0');
-
-	wp_enqueue_script( 'lwayeriax-lite-customizer-script', get_template_directory_uri() . '/js/lawyeriax_lite_customizer.js', array('jquery','jquery-ui-draggable','selectric'),'1.0.0', true);
+	wp_enqueue_script( 'lwayeriax-lite-customizer-script', get_template_directory_uri() . '/js/lawyeriax_lite_customizer.js', array('jquery'),'1.0.1', true);
 
 }
 add_action( 'customize_controls_enqueue_scripts', 'lawyeriax_lite_customizer_script', 10 );
@@ -268,3 +257,23 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+function lawyeriax_lite_inline_style() {
+	$header_image = get_theme_mod('lawyeriax_bigtitle_background');
+	$custom_css = '';
+	if ( ! empty( $header_image ) ) {
+		$custom_css .= '
+                .lawyeriax-lite-big-title{
+	                    background-image: url(' . esc_url( $header_image ) . ');
+	                    background-size:cover;
+	                    background-repeat: no-repeat;
+	                    background-position: center center;
+	            }';
+		if(is_admin_bar_showing()){
+			$custom_css .= '.sticky-navigation{ top: 32px; }';
+		}
+	}
+	wp_add_inline_style( 'lawyeriax-lite-style', $custom_css );
+}
+add_action( 'wp_enqueue_scripts', 'lawyeriax_lite_inline_style' );

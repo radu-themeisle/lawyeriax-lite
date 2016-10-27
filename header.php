@@ -12,8 +12,9 @@
 $phone_number = get_theme_mod('lawyeriax_top_bar_phone_number');
 $email_address = get_theme_mod('lawyeriax_top_bar_email_address');
 $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
+$lawyeriax_top_bar_hide = get_theme_mod('lawyeriax_top_bar_hide', true); ?>
 
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -33,51 +34,53 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 
 <div class="navbar navbar-main sticky-navigation navbar-fixed-top">
 
+	<?php
+	if ( (bool) $lawyeriax_top_bar_hide !== true ) { ?>
 		<div id="top-bar" class="top-bar">
 			<div class="container">
 				<div class="top-bar-left top-bar-social">
 					<?php
-						if(!empty($social_icons)) {
-							$social_icons_decoded = json_decode($social_icons);
-							if(!empty($social_icons_decoded)) {
-								foreach($social_icons_decoded as $icon) {
-									if( !empty( $icon->icon_value ) ) {
-										echo '<a href="' . esc_url( $icon->link ) . '"><i class="fa ' . esc_attr( $icon->icon_value ) . '"></i></a>';
-									}
+					if ( ! empty( $social_icons ) ) {
+						$social_icons_decoded = json_decode( $social_icons );
+						if ( ! empty( $social_icons_decoded ) ) {
+							foreach ( $social_icons_decoded as $icon ) {
+								if ( ! empty( $icon->icon_value ) ) {
+									echo '<a href="' . esc_url( $icon->link ) . '"><i class="fa ' . esc_attr( $icon->icon_value ) . '"></i></a>';
 								}
 							}
-						} else {
-							if ( current_user_can( 'edit_theme_options' ) ) {?>
-								<p>
+						}
+					} else {
+						if ( current_user_can( 'edit_theme_options' ) ) { ?>
+							<p>
 									<span>
 										<?php
-										if(!is_customize_preview()){
+										if ( ! is_customize_preview() ) {
 											printf(
 												__( 'Edit social icons in <a class="link-to-customizer" href="%s">customizer</a>.', 'lawyeriax-lite' ),
 												admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_social_icons' )
 											);
 										} else {
-											esc_html_e( 'Edit social icons in customizer.','lawyeriax-lite' );
+											esc_html_e( 'Edit social icons in customizer.', 'lawyeriax-lite' );
 										} ?>
 									</span>
-								</p>
-								<?php
-							}
+							</p>
+							<?php
 						}
+					}
 					?>
 				</div>
 				<div class="top-bar-right top-bar-contact">
 					<?php
-					if(!empty($phone_number)) { ?>
+					if ( ! empty( $phone_number ) ) { ?>
 						<p><i class="fa fa-phone-square"></i><span><?php echo esc_html( $phone_number ); ?></span></p>
 						<?php
 					} else {
-						if ( current_user_can( 'edit_theme_options' ) ) {?>
+						if ( current_user_can( 'edit_theme_options' ) ) { ?>
 							<p>
 								<i class="fa fa-phone-square"></i>
 								<span>
 									<?php
-									if(!is_customize_preview()) {
+									if ( ! is_customize_preview() ) {
 										printf(
 											__( 'Edit phone in <a href="%s">customizer</a>.', 'lawyeriax-lite' ),
 											admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_phone_number' )
@@ -91,8 +94,8 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 						}
 					}
 
-					if(!empty($email_address)){					?>
-				        <p><i class="fa fa-envelope-square"></i><span><?php echo esc_html($email_address); ?></span></p>
+					if ( ! empty( $email_address ) ) { ?>
+						<p><i class="fa fa-envelope-square"></i><span><?php echo esc_html( $email_address ); ?></span></p>
 						<?php
 					} else {
 						if ( current_user_can( 'edit_theme_options' ) ) { ?>
@@ -100,7 +103,7 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 								<i class="fa fa-envelope-square"></i>
 								<span>
 									<?php
-									if(!is_customize_preview()) {
+									if ( ! is_customize_preview() ) {
 										printf(
 											__( 'Edit email in <a href="%s">customizer</a>.', 'lawyeriax-lite' ),
 											admin_url( 'customize.php?autofocus[control]=lawyeriax_top_bar_email_address' )
@@ -116,7 +119,8 @@ $social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
 				</div>
 			</div> <!-- container -->
 		</div>
-
+		<?php
+	} ?>
 		<div class="container container-header">
 			<div class="header-inner">
 

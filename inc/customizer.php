@@ -15,15 +15,10 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 	/**
 	 * Add repeater PHP and template controler.
 	 */
-	require_once ( 'class/repeater-general-control.php');
+	require_once ( 'customizer-repeater/repeater-general-control.php');
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-
-	//Remove unused sections
-	$wp_customize->remove_section( 'colors' );
-	$wp_customize->remove_section( 'header_image' );
-	$wp_customize->remove_section( 'background_image' );
 
 
 /********************************************************/
@@ -36,6 +31,18 @@ $wp_customize->add_section('lawyeriax_top_bar_section', array(
 	'priority'        => 30,
 ));
 
+$wp_customize->add_setting( 'lawyeriax_top_bar_hide', array(
+	'sanitize_callback' => 'lawyeriax_sanitize_checkbox',
+	'default' => true
+) );
+
+$wp_customize->add_control( 'lawyeriax_top_bar_hide', array(
+	'type' => 'checkbox',
+	'label' => __( 'Disable top bar','lawyeriax-lite' ),
+	'section' => 'lawyeriax_top_bar_section',
+	'priority' => 1,
+) );
+
 
 /*=============================================================================
 		Social icons
@@ -43,6 +50,7 @@ $wp_customize->add_section('lawyeriax_top_bar_section', array(
 $wp_customize->add_setting('lawyeriax_top_bar_social_icons', array(
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_repeater',
 ));
+
 
 $wp_customize->add_control(new LawyeriaX_General_Repeater($wp_customize, 'lawyeriax_top_bar_social_icons', array(
 		'label'                   => __('Social Links', 'lawyeriax-lite'),
@@ -82,51 +90,67 @@ Email address
 
 
 /********************************************************/
-/******************* Slider Section *********************/
+/******************* Big Title Area *********************/
 /********************************************************/
 
-	$wp_customize->add_section('lawyeria_slider_section', array(
-			'description'		=> __('Edit, add or remove slides from the front page hero area', 'lawyeriax-lite'),
-			'title' 				=> __('Slider Area', 'lawyeriax-lite'),
-			'priority' 			=> 31,
+	$wp_customize->add_section('lawyeria_bigtitle_section', array(
+		'description'		=> __('Edit, add or remove slides from the front page hero area', 'lawyeriax-lite'),
+		'title' 				=> __('Big Title Area', 'lawyeriax-lite'),
+		'priority' 			=> 31,
 	));
 
-	$wp_customize->add_setting('lawyeriax_slider_content', array(
-			'sanitize_callback' => 'lawyeriax_lite_sanitize_repeater',
-			'default'           => json_encode(array(
-					array(
-		          'title'      => esc_html__('Meet Lawyeria', 'lawyeriax-lite'),
-		          'text'       => esc_html__('A WordPress theme for lawyer websites. Show everyone who you are, introduce your team, your activities, and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
-		          'subtitle'   => esc_html__('Request Legal Advice', 'lawyeriax-lite'),
-		          'link'				=> '#',
-		          'image_url'	=> get_template_directory_uri() . '/images/slider0.jpg'
-		      ),
-		      array(
-		          'title'      => esc_html__('Fully Responsive', 'lawyeriax-lite'),
-		          'text'       => esc_html__('Lawyeria will look incredibly well on all devices, as it was made to fit any mobile screen. Its beautiful design and the way your content looks will not be affected by the device you use. They will remain just the same as on desktop.', 'lawyeriax-lite'),
-		          'subtitle'   => esc_html__('Buy Now', 'lawyeriax-lite'),
-		          'link'				=> esc_url('#'),
-		          'image_url'	=> get_template_directory_uri() . '/images/slider1.jpg'
-		      ),
-		      array(
-		          'title'      => esc_html__('Business Ready', 'lawyeriax-lite'),
-		          'text'       => esc_html__('A business-oriented theme that provides a professional and clean design, made to build trust between you and your clients. It will put your professional purposes in the spotlight, promote your best skills in a modern way, and help you increase the number of your clients.', 'lawyeriax-lite'),
-		          'subtitle'   => esc_html__('More Themes', 'lawyeriax-lite'),
-		          'link'				=> esc_url('#'),
-		          'image_url'	=> get_template_directory_uri() . '/images/slider2.jpg'
-		      ),
-				))));
+	/* Header Image	*/
+	$wp_customize->add_setting( 'lawyeriax_bigtitle_background', array(
+		'sanitize_callback' => 'esc_url'
+	) );
 
-	$wp_customize->add_control(new LawyeriaX_General_Repeater($wp_customize, 'lawyeriax_slider_content', array(
-			'label' 											=> __('Slider Area', 'lawyeriax-lite'),
-			'section'                 		=> 'lawyeria_slider_section',
-			'priority'                		=> 1,
-			'lawyeriax_title_control' 		=> true,
-			'lawyeriax_subtitle_control'	=> true,
-			'lawyeriax_text_control'  		=> true,
-			'lawyeriax_link_control'  		=> true,
-			'lawyeriax_image_control'			=> true,
-	)));
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'lawyeriax_bigtitle_background', array(
+		'label'    => esc_html__( 'Header Image', 'lawyeriax-lite' ),
+		'section'  => 'lawyeria_bigtitle_section',
+		'priority' => 1,
+	) ) );
+
+	/* Control for header title */
+	$wp_customize->add_setting( 'lawyeriax_bigtitle_title', array(
+		'sanitize_callback' => 'lawyeriax_lite_sanitize_text'
+	) );
+
+	$wp_customize->add_control( 'lawyeriax_bigtitle_title', array(
+		'label'    => esc_html__( 'Header text', 'lawyeriax-lite' ),
+		'section'  => 'lawyeria_bigtitle_section',
+		'priority' => 2,
+	) );
+
+	/* Control for header text */
+	$wp_customize->add_setting( 'lawyeriax_bigtitle_text', array(
+		'sanitize_callback' => 'lawyeriax_lite_sanitize_text'
+	) );
+
+	$wp_customize->add_control( 'lawyeriax_bigtitle_text', array(
+		'label'    => esc_html__( 'Header text', 'lawyeriax-lite' ),
+		'section'  => 'lawyeria_bigtitle_section',
+		'priority' => 3,
+	) );
+
+	/* Control for button text*/
+	$wp_customize->add_setting( 'lawyeriax_bigtitle_button_text', array(
+		'sanitize_callback' => 'lawyeriax_lite_sanitize_text'
+	) );
+	$wp_customize->add_control( 'lawyeriax_bigtitle_button_text', array(
+		'label'    => esc_html__( 'Button text', 'lawyeriax-lite' ),
+		'section'  => 'lawyeria_bigtitle_section',
+		'priority' => 4,
+	) );
+
+	/* Control for button link*/
+	$wp_customize->add_setting( 'lawyeriax_bigtitle_button_link', array(
+		'sanitize_callback' => 'esc_url'
+	) );
+	$wp_customize->add_control( 'lawyeriax_bigtitle_button_link', array(
+		'label'    => esc_html__( 'Button URL', 'lawyeriax-lite' ),
+		'section'  => 'lawyeria_bigtitle_section',
+		'priority' => 5,
+	) );
 
 
 /********************************************************/
@@ -297,13 +321,6 @@ $wp_customize->add_control('news_heading', array(
 add_action( 'customize_register', 'lawyeriax_lite_customize_register' );
 
 
-function lawyeriax_lite_custom_header() {
-	add_theme_support( 'custom-header', apply_filters( 'twentysixteen_custom_header_args', array(
-		'wp-head-callback'       => 'lawyeriax_lite_header_style',
-	) ) );
-}
-add_action( 'after_setup_theme', 'lawyeriax_lite_custom_header' );
-
 
 function lawyeriax_lite_header_style() {
 	// If the header text option is untouched, let's bail.
@@ -384,4 +401,9 @@ add_action( 'customize_preview_init', 'lawyeriax_lite_customize_preview_js', 10 
 
  function lawyeriax_lite_show_on_front(){
 	return is_page_template('template-frontpage.php');
+}
+
+
+function lawyeriax_sanitize_checkbox( $input ) {
+	return ( isset( $input ) && true === (bool) $input ? true : false );
 }
