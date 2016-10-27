@@ -93,8 +93,7 @@ Email address
 /******************* Big Title Area *********************/
 /********************************************************/
 
-	$wp_customize->add_section('lawyeria_bigtitle_section', array(
-		'description'		=> __('Edit, add or remove slides from the front page hero area', 'lawyeriax-lite'),
+	$wp_customize->add_section('lawyeriax_bigtitle_section', array(
 		'title' 				=> __('Big Title Area', 'lawyeriax-lite'),
 		'priority' 			=> 31,
 	));
@@ -105,8 +104,8 @@ Email address
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'lawyeriax_bigtitle_background', array(
-		'label'    => esc_html__( 'Header Image', 'lawyeriax-lite' ),
-		'section'  => 'lawyeria_bigtitle_section',
+		'label'    => esc_html__( 'Image', 'lawyeriax-lite' ),
+		'section'  => 'lawyeriax_bigtitle_section',
 		'priority' => 1,
 	) ) );
 
@@ -116,8 +115,8 @@ Email address
 	) );
 
 	$wp_customize->add_control( 'lawyeriax_bigtitle_title', array(
-		'label'    => esc_html__( 'Header text', 'lawyeriax-lite' ),
-		'section'  => 'lawyeria_bigtitle_section',
+		'label'    => esc_html__( 'Title', 'lawyeriax-lite' ),
+		'section'  => 'lawyeriax_bigtitle_section',
 		'priority' => 2,
 	) );
 
@@ -127,8 +126,8 @@ Email address
 	) );
 
 	$wp_customize->add_control( 'lawyeriax_bigtitle_text', array(
-		'label'    => esc_html__( 'Header text', 'lawyeriax-lite' ),
-		'section'  => 'lawyeria_bigtitle_section',
+		'label'    => esc_html__( 'Text', 'lawyeriax-lite' ),
+		'section'  => 'lawyeriax_bigtitle_section',
 		'priority' => 3,
 	) );
 
@@ -138,7 +137,7 @@ Email address
 	) );
 	$wp_customize->add_control( 'lawyeriax_bigtitle_button_text', array(
 		'label'    => esc_html__( 'Button text', 'lawyeriax-lite' ),
-		'section'  => 'lawyeria_bigtitle_section',
+		'section'  => 'lawyeriax_bigtitle_section',
 		'priority' => 4,
 	) );
 
@@ -148,7 +147,7 @@ Email address
 	) );
 	$wp_customize->add_control( 'lawyeriax_bigtitle_button_link', array(
 		'label'    => esc_html__( 'Button URL', 'lawyeriax-lite' ),
-		'section'  => 'lawyeria_bigtitle_section',
+		'section'  => 'lawyeriax_bigtitle_section',
 		'priority' => 5,
 	) );
 
