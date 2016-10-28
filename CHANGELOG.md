@@ -1,4 +1,11 @@
 
+### 1.0.8 - 28/10/2016
+**Changes:** 
+- Fixed escaping issues
+- Updated tags
+- Add option to remove the Top bar, and hide it by default
+- Update readme file
+
 ### 1.0.7 - 12/10/2016
 **Changes:** 
 - Fixed single page for Lawyers
