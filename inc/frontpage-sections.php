@@ -3,89 +3,121 @@
  * Frontpage sections
  */
 
+if ( ! function_exists( 'lawyeriax_lite_big_title_section' ) ) :
+function lawyeriax_lite_big_title_section($data){ ?>
+	<section class="header-slider">
+		<div class="carousel">
+			<div class="lawyeriax-lite-big-title">
+				<div class="item-inner">
+					<div class="carousel-caption">
+						<div class="container">
+							<?php
+							if(!empty($data['title'])){?>
+								<p class="col-md-8 carousel-title">
+									<?php echo wp_kses_post($data['title']); ?>
+								</p>
+								<?php
+							}
+							if(!empty($data['text'])){ ?>
+								<p class="col-md-8 carousel-content">
+									<?php echo wp_kses_post($data['text']); ?>
+								</p>
+								<?php
+							}
+							if(!empty($data['button_text']) && !empty($data['button_link'])){ ?>
+								<p class="col-md-8 carousel-button">
+									<a href="<?php echo esc_url($data['button_link']); ?>" class="slider-button" title="Title">
+										<?php echo wp_kses_post($data['button_text']); ?>
+									</a>
+								</p>
+								<?php
+							} ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<?php
+}
+endif;
 
+if ( ! function_exists( 'lawyeriax_lite_slider_section' ) ) :
+/**
+ * Ribbon sections
+ */
+function lawyeriax_lite_slider_section() {
+	$slider_content = get_theme_mod('lawyeriax_slider_content');
+	if(empty($slider_content)){
+		return;
+	}
+	$var   = 0;
+	$var1  = 0; ?>
 
- if ( ! function_exists( 'lawyeriax_lite_slider_section' ) ) :
- /**
-  * Ribbon sections
-  */
- function lawyeriax_lite_slider_section() {
-   $slider_content = get_theme_mod('lawyeriax_slider_content', json_encode(array(
-     array(
-         'title'      => esc_html__('Meet Lawyeria', 'lawyeriax-lite'),
-         'text'       => esc_html__('A WordPress theme for lawyer websites. Show everyone who you are, introduce your team, your activities, and what customers say about you. Your strengths need to be known by everybody.', 'lawyeriax-lite'),
-         'subtitle'   => esc_html__('Request Legal Advice', 'lawyeriax-lite'),
-         'link'				=> '#',
-         'image_url'	=> get_template_directory_uri() . '/images/slider0.jpg'
-     ),
-     array(
-         'title'      => esc_html__('Fully Responsive', 'lawyeriax-lite'),
-         'text'       => esc_html__('Lawyeria will look incredibly well on all devices, as it was made to fit any mobile screen. Its beautiful design and the way your content looks will not be affected by the device you use. They will remain just the same as on desktop.', 'lawyeriax-lite'),
-         'subtitle'   => esc_html__('Buy Now', 'lawyeriax-lite'),
-         'link'				=> esc_url('#'),
-         'image_url'	=> get_template_directory_uri() . '/images/slider1.jpg'
-     ),
-     array(
-         'title'      => esc_html__('Business Ready', 'lawyeriax-lite'),
-         'text'       => esc_html__('A business-oriented theme that provides a professional and clean design, made to build trust between you and your clients. It will put your professional purposes in the spotlight, promote your best skills in a modern way, and help you increase the number of your clients.', 'lawyeriax-lite'),
-         'subtitle'   => esc_html__('More Themes', 'lawyeriax-lite'),
-         'link'				=> esc_url('#'),
-         'image_url'	=> get_template_directory_uri() . '/images/slider2.jpg'
-     ),
+	<section id="slider" class="header-slider">
+		<div id="main-slider" class="carousel slide" data-ride="carousel">
+			<?php
+			if(!empty($slider_content)) {
+				$slider_content_decoded = json_decode( $slider_content );
+				if ( ! empty( $slider_content_decoded ) ) { ?>
+					<ol class="carousel-indicators">
+						<?php
+						foreach ( $slider_content_decoded as $slider_content ) {
+							if ( $var == 0 ) { ?>
+								<li data-target="#main-slider" data-slide-to="<?php echo $var; ?>" class="active"></li>
+								<?php
+								$var ++;
+							} else { ?>
+								<li data-target="#main-slider" data-slide-to="<?php echo $var; ?>"></li>
+								<?php
+								$var ++;
+							}
+						} ?>
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<?php
+						foreach ( $slider_content_decoded as $slider_content ) { ?>
+							<div class="item <?php if ( $var1 === 0 ) {
+								echo 'active';
+							} ?>" style="background-image: url('<?php echo esc_attr( $slider_content->image_url ); ?>');">
+								<div class="item-inner">
+									<div class="carousel-caption">
+										<div class="container">
+											<?php
+											if ( ! empty( $slider_content->title ) ) { ?>
+												<p class="col-md-8 carousel-title">
+													<?php echo wp_kses_post( $slider_content->title ); ?>
+												</p>
+												<?php
+											}
 
-     )));
-       $var   = 0;
-       $var1  = 0;
- 	?>
+											if ( ! empty( $slider_content->text ) ) { ?>
+												<p class="col-md-8 carousel-content">
+													<?php echo wp_kses_post( $slider_content->text ); ?>
+												</p>
+												<?php
+											}
 
- 	<section id="slider" class="header-slider">
- 		<div id="main-slider" class="carousel slide" data-ride="carousel">
-      <?php if(!empty($slider_content)){
-        $slider_content_decoded = json_decode($slider_content);
-        if(!empty($slider_content_decoded)) { ?>
-      <ol class="carousel-indicators">
+											if ( ! empty( $slider_content->subtitle ) ) { ?>
+												<p class="col-md-8 carousel-button">
+													<a href="<?php echo esc_url( $slider_content->link ); ?>" class="slider-button" title="Title">
+														<?php echo wp_kses_post( $slider_content->subtitle ); ?>
+													</a>
+												</p>
+												<?php
+											} ?>
+										</div>
+									</div>
+								</div>
+							</div>
+							<?php
+							$var1++;
+						} ?>
+					</div>
+					<?php
+				}
+			}?>
 
-        <?php
-
-            foreach($slider_content_decoded as $slider_content) {
-              if($var == 0) {
-                echo '<li data-target="#main-slider" data-slide-to="'. $var .'" class="active"></li>';
-                $var++;
-              } else {
-                echo '<li data-target="#main-slider" data-slide-to="'. $var .'"></li>';
-                $var++;
-              }} ?>
- 			</ol>
-
- 			<div class="carousel-inner" role="listbox">
-
-        <?php
-
-          foreach($slider_content_decoded as $slider_content) {
-            if($var1 == 0) { ?>
-              <div class="item active" style="background-image: url('<?php echo esc_attr($slider_content->image_url); ?>');">
-                <?php } else { ?>
-              <div class="item" style="background-image: url('<?php echo esc_attr($slider_content->image_url); ?>');">
-                <?php } ?>
-   					<div class="item-inner">
-   						<div class="carousel-caption">
-   							<div class="container">
-                  <?php if(!empty($slider_content->title)) { ?>
-   								<p class="col-md-8 carousel-title"> <?php echo wp_kses_post($slider_content->title); ?> </p>
-                  <?php }
-                  if(!empty($slider_content->text)) { ?>
-                    <p class="col-md-8 carousel-content"> <?php echo wp_kses_post($slider_content->text); ?> </p>
-                  <?php }
-                  if(!empty($slider_content->subtitle)) { ?>
-                  <p class="col-md-8 carousel-button"><a href="<?php echo esc_url($slider_content->link); ?>" class="slider-button" title="Title"><?php echo wp_kses_post($slider_content->subtitle); ?></a></p>
-                  <?php } ?>
-                </div>
-   						</div>
-   					</div>
-   				</div>
-
-        <?php $var1++; } } } ?>
- 			</div>
 
  			<a class="left carousel-control" href="#main-slider" role="button" data-slide="prev">
  				<span class="fa fa-angle-left" aria-hidden="true"></span>
@@ -96,10 +128,8 @@
  				<span class="sr-only">Next</span>
  			</a>
  		</div>
-
  	</section><!-- #slider -->
-
- 	<?php
+	<?php
 }
 endif;
 

@@ -1,18 +1,18 @@
 # LawyeriaX Lite
 
-Contributors:           codeinwp
+Contributors: codeinwp
 
-Tags:				red, white, light, responsive-layout, one-column, two-columns, right-sidebar, custom-menu, featured-images, front-page-post-form, full-width-template, rtl-language-support, threaded-comments, translation-ready
+Tags: one-column, two-columns, right-sidebar, custom-menu, custom-logo, editor-style, featured-images, front-page-post-form, full-width-template, post-formats, rtl-language-support, threaded-comments, translation-ready, blog, news
 
-Requires at least:	3.3.0
+Requires at least: 4.0.0
 
-Tested up to:		4.4.2
+Tested up to: 4.6.1
 
 LawyeriaX Lite
 
 ## Description
 
-LawyeriaX Lite is a neat and minimalist theme for lawyers, law-related websites, or any other business and agency. It has a professional and simple look, with full-width beautiful slider, simple content structure, easy-to-use interface, blog section, custom widgets, widgetized footer, live customizer, social links, customizable ribbon, custom logo, front page displays, and SEO friendly code. The theme comes with a range of great customization options, so you can change them the way you want.
+LawyeriaX Lite is a neat and minimalist theme for lawyers, law-related websites, or any other business and agency. It has a professional and simple look, with full-width beautiful header image, simple content structure, easy-to-use interface, blog section, custom widgets, widgetized footer, live customizer, social links, customizable ribbon, custom logo, front page displays, and SEO friendly code. The theme comes with a range of great customization options, so you can change them the way you want.
 
 ## License #
 
@@ -26,13 +26,17 @@ The exceptions to this license are as follows:
     Copyright 2011-2016 Twitter, Inc.
     Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 
-* Fontawesome v4.5.0
+* Fontawesome
     Created by Dave Gandy
-    Licensed under SIL OFL 1.1 (http://scripts.sil.org/OFL)
+    -> Font License
+        Licensed under SIL OFL 1.1 (http://scripts.sil.org/OFL)
+    -> Code License
+        Licensed under MIT License (http://opensource.org/licenses/mit-license.html)
 
-* ddSlick
-    Copyright (c) 2007-2013 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
-    Licensed under MIT
+* Font Awesome Iconpicker from repeater
+    Copyright (c) 2014 Javier Aguilar @mjolnic
+    Licensed under the MIT license. (https://github.com/itsjavi/fontawesome-iconpicker/blob/master/LICENSE)
+
 
 * Images
 
@@ -40,10 +44,10 @@ The exceptions to this license are as follows:
 	License: All pexels.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
 
 	* images/slider0.jpg
-			Source: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=091311222ab12502202f18610a55088d
+			Source: https://unsplash.com/photos/OQMZwNd3ThU
 	* images/slider1.jpg
-			Source: https://images.unsplash.com/photo-1447968954315-3f0c44f7313c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=dbefc6e14ea8c329ebe2799db99bfb7b
+			Source: https://unsplash.com/photos/ABAmxzlot8E
 	* images/slider2.jpg
-			Source: https://images.unsplash.com/photo-1426523038054-a260f3ef5bc9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=60e2c1af0221c9f5b39c091a11151da2
-  * images/about-us.jpg
-			Source: https://static.pexels.com/photos/3274/building-council-columns.jpg
+			Source: https://unsplash.com/photos/dgOJDAv96s8
+    * images/about-us.jpg
+			Source: https://www.pexels.com/photo/building-council-columns-3274/
