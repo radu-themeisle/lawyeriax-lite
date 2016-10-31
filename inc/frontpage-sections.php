@@ -121,11 +121,11 @@ function lawyeriax_lite_slider_section() {
 
  			<a class="left carousel-control" href="#main-slider" role="button" data-slide="prev">
  				<span class="fa fa-angle-left" aria-hidden="true"></span>
- 				<span class="sr-only">Previous</span>
+ 				<span class="sr-only"><?php _e( 'Previous','lawyeriax-lite' ); ?></span>
  			</a>
  			<a class="right carousel-control" href="#main-slider" role="button" data-slide="next">
  				<span class="fa fa-angle-right" aria-hidden="true"></span>
- 				<span class="sr-only">Next</span>
+ 				<span class="sr-only"><?php _e( 'Next','lawyeriax-lite' ); ?></span>
  			</a>
  		</div>
  	</section><!-- #slider -->

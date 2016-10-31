@@ -88,6 +88,8 @@ function lawyeriax_lite_setup() {
 	 * specifically font, colors, icons, and column width.
 	 */
 	add_editor_style( array( 'css/editor-style.css', lawyeriax_lite_fonts_url() ) );
+
+	add_theme_support( 'custom-header', array('width' => 1800, 'height' => 650) );
 }
 endif;
 add_action( 'after_setup_theme', 'lawyeriax_lite_setup' );
@@ -260,7 +262,7 @@ require get_template_directory() . '/inc/jetpack.php';
 
 
 function lawyeriax_lite_inline_style() {
-	$header_image = get_theme_mod('lawyeriax_bigtitle_background');
+	$header_image = get_theme_mod('header_image');
 	$custom_css = '';
 	if ( ! empty( $header_image ) ) {
 		$custom_css .= '

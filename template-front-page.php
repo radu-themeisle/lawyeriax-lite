@@ -13,7 +13,7 @@ get_header(); ?>
 
 	<?php
 
-		$lawyeriax_bigtitle_background = get_theme_mod('lawyeriax_bigtitle_background');
+		$lawyeriax_bigtitle_background = get_theme_mod('header_image');
 		$lawyeriax_bigtitle_title = get_theme_mod('lawyeriax_bigtitle_title');
 		$lawyeriax_bigtitle_text = get_theme_mod('lawyeriax_bigtitle_text');
 		$lawyeriax_bigtitle_button_text = get_theme_mod('lawyeriax_bigtitle_button_text');
