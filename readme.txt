@@ -2,7 +2,7 @@
 
 Contributors: codeinwp
 
-Tags: one-column, two-columns, right-sidebar, custom-menu, custom-logo, editor-style, featured-images, front-page-post-form, full-width-template, post-formats, rtl-language-support, threaded-comments, translation-ready, blog, news
+Tags: one-column, two-columns, right-sidebar, custom-menu, custom-header, custom-logo, editor-style, featured-images, front-page-post-form, full-width-template, post-formats, rtl-language-support, threaded-comments, translation-ready, blog, news
 
 Requires at least: 4.0.0
 
