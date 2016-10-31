@@ -1,4 +1,10 @@
 
+### 1.0.9 - 31/10/2016
+**Changes:** 
+- Fixed issue with strings not beeing translatable
+- Added unminified versions for minified css and js files
+- Replaced big title control with custom header
+
 ### 1.0.8 - 28/10/2016
 **Changes:** 
 - Fixed escaping issues
