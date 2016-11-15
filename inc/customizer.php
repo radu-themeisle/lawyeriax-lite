@@ -98,21 +98,6 @@ Email address
 /********************************************************/
 
 	/* Control for header title */
-	$wp_customize->add_setting( 'lawyeriax_slider_shortcode', array(
-		'sanitize_callback' => 'lawyeriax_lite_sanitize_text'
-	) );
-
-	$wp_customize->add_control( 'lawyeriax_slider_shortcode', array(
-		'label'    => esc_html__( 'Slider ', 'lawyeriax-lite' ),
-		'description' => sprintf(
-			__( 'We recommend you install %1$s to get one of the most advanced slider plugin.', 'lawyeriax-lite' ),
-			sprintf( '<a href="'. esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=nivo-slider-lite' ), 'install-plugin_nivo-slider-lite' ) ) .'" rel="nofollow">%s</a>', esc_html__( 'Nivo Slider Lite Plugin', 'lawyeriax-lite' ) )
-		),
-		'section'  => 'header_image',
-		'priority' => 18,
-	) );
-
-	/* Control for header title */
 	$wp_customize->add_setting( 'lawyeriax_bigtitle_title', array(
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_text'
 	) );
@@ -152,6 +137,21 @@ Email address
 		'label'    => esc_html__( 'Button URL', 'lawyeriax-lite' ),
 		'section'  => 'header_image',
 		'priority' => 35,
+	) );
+	
+	/* Control for slider shortcode */
+	$wp_customize->add_setting( 'lawyeriax_slider_shortcode', array(
+		'sanitize_callback' => 'lawyeriax_lite_sanitize_text'
+	) );
+
+	$wp_customize->add_control( 'lawyeriax_slider_shortcode', array(
+		'label'    => esc_html__( 'Slider ', 'lawyeriax-lite' ),
+		'description' => sprintf(
+			__( 'We recommend you install %1$s to get one of the most advanced slider plugin.', 'lawyeriax-lite' ),
+			sprintf( '<a href="'. esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=nivo-slider-lite' ), 'install-plugin_nivo-slider-lite' ) ) .'" rel="nofollow">%s</a>', esc_html__( 'Nivo Slider Lite Plugin', 'lawyeriax-lite' ) )
+		),
+		'section'  => 'header_image',
+		'priority' => 40,
 	) );
 
 
