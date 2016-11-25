@@ -43,6 +43,9 @@ The exceptions to this license are as follows:
 	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
 	License: All pexels.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
 
+    Images from screenshot:
+        * https://unsplash.com/photos/ABAmxzlot8E
+
 	* images/slider0.jpg
 			Source: https://unsplash.com/photos/OQMZwNd3ThU
 	* images/slider1.jpg
