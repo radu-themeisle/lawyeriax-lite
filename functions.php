@@ -260,6 +260,10 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+/**
+ *  Customizer info
+ */
+require_once get_template_directory() . '/inc/customizer-info/class/class-singleton-customizer-info-section.php';
 
 function lawyeriax_lite_inline_style() {
 	$header_image = get_theme_mod('header_image');

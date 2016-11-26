@@ -25,6 +25,20 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 	$wp_customize->remove_section( 'colors' );
 
 
+
+	require_once( 'class/lawyeriax-info.php' );
+	$wp_customize->add_section('lawyeriax_theme_info', array(
+		'title' => __( 'Theme info', 'parallax-one' ),
+		'priority' => 0,
+	) );
+	$wp_customize->add_setting('lawyeriax_theme_info', array(
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
+	) );
+	$wp_customize->add_control( new LawyeriaX_Info( $wp_customize, 'lawyeriax_theme_info', array(
+		'section' => 'lawyeriax_theme_info',
+		'priority' => 10,
+	) ) );
 /********************************************************/
 /***************** TOP BAR AREA  ************************/
 /********************************************************/
