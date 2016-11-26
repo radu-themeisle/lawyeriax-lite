@@ -28,7 +28,7 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 
 	require_once( 'class/lawyeriax-info.php' );
 	$wp_customize->add_section('lawyeriax_theme_info', array(
-		'title' => __( 'Theme info', 'parallax-one' ),
+		'title' => __( 'Theme info', 'lawyeriax-lite' ),
 		'priority' => 0,
 	) );
 	$wp_customize->add_setting('lawyeriax_theme_info', array(
