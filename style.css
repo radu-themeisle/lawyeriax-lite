@@ -1325,7 +1325,7 @@ object {
 .site-branding {
 	float: left;
 	padding-right: 20px;
-	width: 200px;
+	min-width: 200px;
 }
 .top-bar-social a:not(.link-to-customizer) {
 	font-size: 18px;
