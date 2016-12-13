@@ -1,4 +1,11 @@
 
+### 1.1.0 - 13/12/2016
+**Changes:** 
+- NEW Option for slider shortcode
+- Update readme file with license for images
+- Redo customize upsells
+- Compatibility with Nivo Slider Lite plugin
+
 ### 1.0.9 - 31/10/2016
 **Changes:** 
 - Fixed issue with strings not beeing translatable
