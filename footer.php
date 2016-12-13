@@ -17,26 +17,26 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="container">
 		  <div class="col-sm-4">
-		    <?php if ( is_active_sidebar('footer_widget_col_1') ) {
-		      dynamic_sidebar( 'footer_widget_col_1' );
-		    } ?>
+		    <?php if ( is_active_sidebar( 'footer_widget_col_1' ) ) {
+				dynamic_sidebar( 'footer_widget_col_1' );
+} ?>
 		  </div>
 
 		  <div class="col-sm-4">
-		    <?php if ( is_active_sidebar('footer_widget_col_2') ) {
-		    dynamic_sidebar( 'footer_widget_col_2' );
-		  } ?>
+		    <?php if ( is_active_sidebar( 'footer_widget_col_2' ) ) {
+				dynamic_sidebar( 'footer_widget_col_2' );
+} ?>
 		  </div>
 		  <div class="col-sm-4">
-		    <?php if ( is_active_sidebar('footer_widget_col_3') ) {
-		    dynamic_sidebar( 'footer_widget_col_3' );
-		  } ?>
+		    <?php if ( is_active_sidebar( 'footer_widget_col_3' ) ) {
+				dynamic_sidebar( 'footer_widget_col_3' );
+} ?>
 		  </div>
 		</div>
 
 		<div class="container">
 			<div class="site-info">
-				<?php if ( is_active_sidebar('footer_widget_col_1') || is_active_sidebar('footer_widget_col_2') || is_active_sidebar('footer_widget_col_3') ): ?>
+				<?php if ( is_active_sidebar( 'footer_widget_col_1' ) || is_active_sidebar( 'footer_widget_col_2' ) || is_active_sidebar( 'footer_widget_col_3' ) ) : ?>
 					<div class="col-sm-10 col-sm-offset-1 section-line section-line-footer"></div>
 				<?php endif; ?>
 				<div class="site-info-inner">

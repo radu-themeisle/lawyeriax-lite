@@ -9,10 +9,10 @@
  * @package lawyeriax-lite
  */
 
-$phone_number = get_theme_mod('lawyeriax_top_bar_phone_number');
-$email_address = get_theme_mod('lawyeriax_top_bar_email_address');
-$social_icons = get_theme_mod ('lawyeriax_top_bar_social_icons');
-$lawyeriax_top_bar_hide = get_theme_mod('lawyeriax_top_bar_hide', true); ?>
+$phone_number = get_theme_mod( 'lawyeriax_top_bar_phone_number' );
+$email_address = get_theme_mod( 'lawyeriax_top_bar_email_address' );
+$social_icons = get_theme_mod( 'lawyeriax_top_bar_social_icons' );
+$lawyeriax_top_bar_hide = get_theme_mod( 'lawyeriax_top_bar_hide', true ); ?>
 
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -130,10 +130,10 @@ $lawyeriax_top_bar_hide = get_theme_mod('lawyeriax_top_bar_hide', true); ?>
 							<?php
 							lawyeriax_lite_the_custom_logo();
 
-							if ( is_front_page() && is_home() ){ ?>
+							if ( is_front_page() && is_home() ) { ?>
 								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 								<?php
-							} else {?>
+							} else { ?>
 								<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 								<?php
 							}

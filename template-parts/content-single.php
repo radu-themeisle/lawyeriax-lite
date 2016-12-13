@@ -13,11 +13,11 @@
 
 	<header class="border-left entry-header">
 		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			}
+		if ( is_single() ) {
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		} else {
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		}
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
@@ -28,11 +28,11 @@
 	</header><!-- .entry-header -->
 
 	<?php
-		if ( has_post_thumbnail() ) {
-			echo '<div class="post-thumbnail-single">';
-			the_post_thumbnail();
-			echo '</div>';
-		}
+	if ( has_post_thumbnail() ) {
+		echo '<div class="post-thumbnail-single">';
+		the_post_thumbnail();
+		echo '</div>';
+	}
 	?>
 
 	<div class="entry-content">

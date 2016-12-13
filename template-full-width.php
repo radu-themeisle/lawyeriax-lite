@@ -7,7 +7,7 @@
  * @package lawyeriax-lite
  */
 
-get_header(); 
+get_header();
 ?>
 
 	<div id="primary" class="col-sm-12 content-area">
