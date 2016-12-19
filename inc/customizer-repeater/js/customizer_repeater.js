@@ -1,7 +1,7 @@
 /*global wp*/
 function lawyeriax_lite_media_upload(button_class) {
     'use strict';
-    jQuery('body').on('click', button_class, function(e) {
+    jQuery('body').on('click', button_class, function() {
         var button_id ='#'+jQuery(this).attr('id');
         var display_field = jQuery(this).parent().children('input:text');
         var _custom_media = true;
@@ -46,7 +46,7 @@ function lawyeriax_lite_media_upload(button_class) {
             }
         };
         wp.media.editor.open(button_class);
-        window.send_to_editor = function(html) {
+        window.send_to_editor = function() {
 
         };
         return false;
@@ -103,12 +103,12 @@ function lawyeriax_lite_uniqid(prefix, more_entropy) {
 }
 
 var entityMap = {
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
     '"': '&quot;',
-    "'": '&#39;',
-    "/": '&#x2F;'
+    '\'': '&#39;',
+    '/': '&#x2F;'
 };
 
 
@@ -119,28 +119,28 @@ var entityMap = {
  *********************************************/
 function lawyeriax_lite_refresh_general_control_values(){
     'use strict';
-    jQuery(".lawyeriax_general_control_repeater").each(function(){
+    jQuery('.lawyeriax_general_control_repeater').each(function(){
         var values = [];
         var th = jQuery(this);
-        th.find(".lawyeriax_general_control_repeater_container").each(function(){
+        th.find('.lawyeriax_general_control_repeater_container').each(function(){
             var icon_value = jQuery(this).find('.icp').val();
-            var text = jQuery(this).find(".lawyeriax_text_control").val();
-            var link = jQuery(this).find(".lawyeriax_link_control").val();
-            var image_url = jQuery(this).find(".custom_media_url").val();
-            var choice = jQuery(this).find(".lawyeriax_image_choice").val();
-            var title = jQuery(this).find(".lawyeriax_title_control").val();
-            var subtitle = jQuery(this).find(".lawyeriax_subtitle_control").val();
-            var id = jQuery(this).find(".lawyeriax_box_id").val();
+            var text = jQuery(this).find('.lawyeriax_text_control').val();
+            var link = jQuery(this).find('.lawyeriax_link_control').val();
+            var image_url = jQuery(this).find('.custom_media_url').val();
+            var choice = jQuery(this).find('.lawyeriax_image_choice').val();
+            var title = jQuery(this).find('.lawyeriax_title_control').val();
+            var subtitle = jQuery(this).find('.lawyeriax_subtitle_control').val();
+            var id = jQuery(this).find('.lawyeriax_box_id').val();
             if( text !== '' || image_url !== '' || title !== '' || subtitle !== '' ){
                 values.push({
-                    "icon_value" : (choice === 'lawyeriax_none' ? "" : icon_value) ,
-                    "text" : lawyeriax_lite_escapeHtml(text),
-                    "link" : link,
-                    "image_url" : (choice === 'lawyeriax_none' ? "" : image_url),
-                    "choice" : choice,
-                    "title" : lawyeriax_lite_escapeHtml(title),
-                    "subtitle" : lawyeriax_lite_escapeHtml(subtitle),
-                    "id" : id
+                    'icon_value' : (choice === 'lawyeriax_none' ? '' : icon_value) ,
+                    'text' : lawyeriax_lite_escapeHtml(text),
+                    'link' : link,
+                    'image_url' : (choice === 'lawyeriax_none' ? '' : image_url),
+                    'choice' : choice,
+                    'title' : lawyeriax_lite_escapeHtml(title),
+                    'subtitle' : lawyeriax_lite_escapeHtml(subtitle),
+                    'id' : id
                 });
             }
 
@@ -183,29 +183,29 @@ jQuery(document).ready(function(){
         return false;
     });
     lawyeriax_lite_media_upload('.custom_media_button_repeater');
-    jQuery(".custom_media_url").live('change',function(){
+    jQuery('.custom_media_url').live('change',function(){
         lawyeriax_lite_refresh_general_control_values();
         return false;
     });
 
-    jQuery(".lawyeriax_general_control_new_field").on("click",function(){
+    jQuery('.lawyeriax_general_control_new_field').on('click',function(){
 
         var th = jQuery(this).parent();
         var id = 'lawyeriax_'+lawyeriax_lite_uniqid();
         if(typeof th !== 'undefined') {
 
-            var field = th.find(".lawyeriax_general_control_repeater_container:first").clone();
+            var field = th.find('.lawyeriax_general_control_repeater_container:first').clone();
             if(typeof field !== 'undefined'){
-                field.find(".lawyeriax_image_choice").val('lawyeriax_icon');
+                field.find('.lawyeriax_image_choice').val('lawyeriax_icon');
                 field.find('.lawyeriax_general_control_icon').show();
                 if(field.find('.lawyeriax_general_control_icon').length > 0){
                     field.find('.lawyeriax_image_control').hide();
                 }
 
-                field.find(".lawyeriax_general_control_remove_field").show();
-                field.find(".lawyeriax_text_control").val('');
-                field.find(".lawyeriax_link_control").val('');
-                field.find(".lawyeriax_box_id").val(id);
+                field.find('.lawyeriax_general_control_remove_field').show();
+                field.find('.lawyeriax_text_control').val('');
+                field.find('.lawyeriax_link_control').val('');
+                field.find('.lawyeriax_box_id').val(id);
                 /* Empty control for icon */
                 field.find( '.icp' ).iconpicker().on( 'iconpickerUpdated', function() {
                     jQuery( this ).trigger( 'change' );
@@ -216,17 +216,17 @@ jQuery(document).ready(function(){
                 field.find('.icp').val('');
 
 
-                field.find(".custom_media_url").val('');
-                field.find(".lawyeriax_title_control").val('');
-                field.find(".lawyeriax_subtitle_control").val('');
-                th.find(".lawyeriax_general_control_repeater_container:first").parent().append(field);
+                field.find('.custom_media_url').val('');
+                field.find('.lawyeriax_title_control').val('');
+                field.find('.lawyeriax_subtitle_control').val('');
+                th.find('.lawyeriax_general_control_repeater_container:first').parent().append(field);
             }
 
         }
         return false;
     });
 
-    theme_conrols.on("click", ".lawyeriax_general_control_remove_field",function(){
+    theme_conrols.on('click', '.lawyeriax_general_control_remove_field',function(){
         if( typeof	jQuery(this).parent() !== 'undefined'){
             jQuery(this).parent().parent().remove();
             lawyeriax_lite_refresh_general_control_values();
@@ -261,8 +261,8 @@ jQuery(document).ready(function(){
     });
 
     /*Drag and drop to change icons order*/
-    jQuery(".lawyeriax_general_control_droppable").sortable({
-        update: function( event, ui ) {
+    jQuery('.lawyeriax_general_control_droppable').sortable({
+        update: function() {
             lawyeriax_lite_refresh_general_control_values();
         }
     });

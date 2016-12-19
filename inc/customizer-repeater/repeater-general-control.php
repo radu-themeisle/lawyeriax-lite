@@ -1,20 +1,83 @@
 <?php
+/**
+ * General repeater class
+ *
+ * @package LawyeriaX Lite
+ */
+
 if ( ! class_exists( 'WP_Customize_Control' ) ) {
 	return null;
 }
 
+/**
+ * Class LawyeriaX_General_Repeater
+ */
 class LawyeriaX_General_Repeater extends WP_Customize_Control {
 
+	/**
+	 * Id
+	 *
+	 * @var integer $id id
+	 */
 	public $id;
+
+	/**
+	 * Box title
+	 *
+	 * @var array $boxtitle Box title
+	 */
 	private $boxtitle = array();
+
+	/**
+	 * Control for image
+	 *
+	 * @var bool $customizer_repeater_image_control Control for image
+	 */
 	private $customizer_repeater_image_control = false;
+
+	/**
+	 * Control for icon
+	 *
+	 * @var bool $customizer_repeater_icon_control Control for icon
+	 */
 	private $customizer_repeater_icon_control = false;
+
+
+	/**
+	 * Control for title
+	 *
+	 * @var bool $customizer_repeater_title_control Control for title
+	 */
 	private $customizer_repeater_title_control = false;
+
+	/**
+	 * Control for subtitle
+	 *
+	 * @var bool $customizer_repeater_subtitle_control Control for subtitle
+	 */
 	private $customizer_repeater_subtitle_control = false;
+
+	/**
+	 * Control for text
+	 *
+	 * @var bool $customizer_repeater_text_control Control for text
+	 */
 	private $customizer_repeater_text_control = false;
+
+	/**
+	 * Control for link
+	 *
+	 * @var bool $customizer_repeater_link_control Control for link
+	 */
 	private $customizer_repeater_link_control = false;
 
-	/*Class constructor*/
+	/**
+	 * LawyeriaX_General_Repeater constructor.
+	 *
+	 * @param string  $manager Manager.
+	 * @param integer $id Id.
+	 * @param array   $args Array of parameters.
+	 */
 	public function __construct( $manager, $id, $args = array() ) {
 
 		parent::__construct( $manager, $id, $args );
@@ -50,7 +113,9 @@ class LawyeriaX_General_Repeater extends WP_Customize_Control {
 		}
 	}
 
-	/*Enqueue resources for the control*/
+	/**
+	 * Enqueue resources for the control
+	 */
 	public function enqueue() {
 		wp_enqueue_style( 'customizer-repeater-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css','4.7.0' );
 
@@ -65,6 +130,9 @@ class LawyeriaX_General_Repeater extends WP_Customize_Control {
 		wp_enqueue_style( 'customizer-repeater-fontawesome-iconpicker-script', get_template_directory_uri() . '/inc/customizer-repeater/css/fontawesome-iconpicker.min.css' );
 	}
 
+	/**
+	 * Render the content on the theme customizer page
+	 */
 	public function render_content() {
 
 		/*Get default options*/
@@ -112,6 +180,11 @@ class LawyeriaX_General_Repeater extends WP_Customize_Control {
 		<?php
 	}
 
+	/**
+	 * Iterate through repeater's content
+	 *
+	 * @param array $array Repeater's content.
+	 */
 	private function iterate_array( $array = array() ) {
 		/*Counter that helps checking if the box is first and should have the delete button disabled*/
 		$it = 0;
@@ -249,6 +322,12 @@ class LawyeriaX_General_Repeater extends WP_Customize_Control {
 		}
 	}
 
+	/**
+	 * Input control.
+	 *
+	 * @param array  $options Settings of this input.
+	 * @param string $value Value of this input.
+	 */
 	private function input_control( $options, $value = '' ) {
 	?>
 		<span class="customize-control-title"><?php echo $options['label']; ?></span>
@@ -262,6 +341,12 @@ class LawyeriaX_General_Repeater extends WP_Customize_Control {
 		}
 	}
 
+	/**
+	 * Icon picker input
+	 *
+	 * @param string $value Value of this input.
+	 * @param string $show Option to show or hide this.
+	 */
 	private function icon_picker_control( $value = '', $show = '' ) {
 	?>
 		<div class="lawyeriax_general_control_icon" <?php if ( $show === 'lawyeriax_image' || $show === 'lawyeriax_none' ) { echo 'style="display:none;"'; } ?>>
@@ -276,6 +361,12 @@ class LawyeriaX_General_Repeater extends WP_Customize_Control {
 		<?php
 	}
 
+	/**
+	 * Image input
+	 *
+	 * @param string $value Value of this input.
+	 * @param string $show Option to show or hide this.
+	 */
 	private function image_control( $value = '', $show = '' ) {
 	?>
 		<div class="lawyeriax_image_control" <?php if ( $show === 'lawyeriax_icon' || $show === 'lawyeriax_none' ) { echo 'style="display:none;"'; } ?>>
@@ -288,6 +379,11 @@ class LawyeriaX_General_Repeater extends WP_Customize_Control {
 		<?php
 	}
 
+	/**
+	 * Switch between icon and image input
+	 *
+	 * @param string $value Value of this input.
+	 */
 	private function icon_type_choice( $value = 'lawyeriax_icon' ) {
 	?>
 		<span class="customize-control-title">

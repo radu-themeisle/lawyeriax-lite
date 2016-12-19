@@ -51,7 +51,7 @@
 				button.setAttribute( 'aria-expanded', 'false' );
 				menu.setAttribute( 'aria-expanded', 'false' );
 			}	
-		}
+		};
 
 		// Get all the link elements within the menu.
 		links    = menu.getElementsByTagName( 'a' );
@@ -94,21 +94,15 @@
 	/*** Sticky header ***/
 	var $body = jQuery( 'body' ),
 		$nav  = jQuery( '.sticky-navigation' ),
-		veryTopHeaderHeight,
-		adminBarHeight,
-		isAdminBar,
-		limit,
-		lastChanged;
+		limit;
 
 	$(document).ready( function() {
 		callback_mobile_dropdown();
 	} );
 	$(window).load(function(){
-	    "use strict";
-
 		/* PRE LOADER */
-	    jQuery(".status").fadeOut();
-	    jQuery(".preloader").delay(1000).fadeOut("slow");
+	    jQuery('.status').fadeOut();
+	    jQuery('.preloader').delay(1000).fadeOut('slow');
 
 		setTimeout( fixFooterBottom, 100 );
 		stickyHeader();
@@ -159,10 +153,10 @@
 
 	jQuery(document).ready(function(){
 
-		veryTopHeaderHeight = $( '#top-bar' ).height();
-		adminBarHeight      = $( '#wpadminbar' ).height();
-		isAdminBar          = ( $( '#wpadminbar').length != 0 ? true : false );
-		$container 			= $( '.container-header' );
+		var veryTopHeaderHeight = $( '#top-bar' ).height(),
+		adminBarHeight      = $( '#wpadminbar' ).height(),
+		isAdminBar          = ( $( '#wpadminbar').length !== 0 ? true : false ),
+		$container 			= $( '.container-header' ),
 		myClass 			= 'container-header-fixed';
 
 		jQuery(window).scroll(function(){
@@ -200,8 +194,9 @@
 	    	heights = [], //create empty array to store height values
 	    	tallest; //create variable to make note of the tallest slide
 
-		if( ! items.length )
-	    	return;
+		if( ! items.length ){
+            return;
+        }
 
 		function normalizeHeights() {
 			items.each( function() { //add heights to array
@@ -209,7 +204,7 @@
 			} );
 			tallest = Math.max.apply( null, heights ); //cache largest value
 			items.css( 'min-height', tallest + 'px' );
-		};
+		}
 		normalizeHeights();
 
 		$( window ).on( 'resize orientationchange', function () {
@@ -219,4 +214,4 @@
 		} );
 	}
 
-} )(jQuery,window)
+} )(jQuery,window);

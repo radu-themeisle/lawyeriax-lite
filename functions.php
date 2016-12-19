@@ -1,6 +1,6 @@
 <?php
 /**
- * lawyeriax-lite functions and definitions.
+ * Lawyeriax Lite functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -171,10 +171,14 @@ function lawyeriax_lite_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	wp_enqueue_style( 'lawyeriax-lite-fonts', lawyeriax_lite_fonts_url(), array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'lawyeriax_lite_scripts' );
 
-
+/**
+ * Enqueue scripts and style for customizer
+ */
 function lawyeriax_lite_customizer_script() {
 
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v4.5.0', false );
@@ -184,8 +188,14 @@ function lawyeriax_lite_customizer_script() {
 }
 add_action( 'customize_controls_enqueue_scripts', 'lawyeriax_lite_customizer_script', 10 );
 
+/**
+ * Enqueue fonts
+ *
+ * @return string
+ */
 function lawyeriax_lite_fonts_url() {
 	$fonts_url = '';
+
 	/*
 	 Translators: If there are characters in your language that are not
 	* supported by Lora, translate this to 'off'. Do not translate
@@ -209,10 +219,6 @@ function lawyeriax_lite_fonts_url() {
 	}
 	return $fonts_url;
 }
-function lawyeriax_lite_scripts_styles() {
-	wp_enqueue_style( 'lawyeriax-lite-fonts', lawyeriax_lite_fonts_url(), array(), null );
-}
-add_action( 'wp_enqueue_scripts', 'lawyeriax_lite_scripts_styles' );
 
 /**
  * Enqueue admin style.
@@ -261,6 +267,9 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require_once get_template_directory() . '/inc/customizer-info/class/class-singleton-customizer-info-section.php';
 
+/**
+ * Add inline style.
+ */
 function lawyeriax_lite_inline_style() {
 	$header_image = get_theme_mod( 'header_image' );
 	$custom_css = '';

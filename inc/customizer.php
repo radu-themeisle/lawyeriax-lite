@@ -1,8 +1,8 @@
 <?php
 /**
- * lawyeriax-lite Theme Customizer.
+ * LawyeriaX Lite Theme Customizer.
  *
- * @package lawyeriax-lite
+ * @package LawyeriaX Lite
  */
 
 /**
@@ -37,11 +37,10 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 		'section' => 'lawyeriax_theme_info',
 		'priority' => 10,
 	) ) );
-	/**
-	*/
-	/**
-	*************** TOP BAR AREA  */
 
+	/**
+	 * TOP BAR AREA
+	 */
 	$wp_customize->add_section('lawyeriax_top_bar_section', array(
 		'title' 				=> __( 'Top Bar', 'lawyeriax-lite' ),
 		'description' 	=> __( 'Top Bar Content', 'lawyeriax-lite' ),
@@ -60,10 +59,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 		'priority' => 1,
 	) );
 
-	/*
-	=============================================================================
-		Social icons
-	=============================================================================*/
+	/**
+	 * Social icons
+	 */
 	$wp_customize->add_setting('lawyeriax_top_bar_social_icons', array(
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_repeater',
 	));
@@ -77,11 +75,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 		'lawyeriax_link_control'   => true,
 	)));
 
-	/*
-	=============================================================================
-	Phone number
-	=============================================================================*/
-
+	/**
+	 * Phone number
+	 */
 	$wp_customize->add_setting('lawyeriax_top_bar_phone_number', array(
 			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 	));
@@ -92,11 +88,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 			'priority'    => 2,
 	));
 
-	/*
-	=============================================================================
-    Email address
-	=============================================================================*/
-
+	/**
+	 * Email address
+	 */
 	$wp_customize->add_setting('lawyeriax_top_bar_email_address', array(
 			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 	));
@@ -107,11 +101,12 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 	));
 
 	/**
-	*/
-	/**
-	*******************  Header  */
+	 * Header
+	 */
 
-	/* Control for header title */
+	/**
+	 * Control for header title
+	 */
 	$wp_customize->add_setting( 'lawyeriax_bigtitle_title', array(
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 	) );
@@ -122,7 +117,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 		'priority' => 20,
 	) );
 
-	/* Control for header text */
+	/**
+	 * Control for header text
+	 */
 	$wp_customize->add_setting( 'lawyeriax_bigtitle_text', array(
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 	) );
@@ -133,7 +130,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 		'priority' => 25,
 	) );
 
-	/* Control for button text*/
+	/**
+	 * Control for button text
+	 */
 	$wp_customize->add_setting( 'lawyeriax_bigtitle_button_text', array(
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 	) );
@@ -143,7 +142,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 		'priority' => 30,
 	) );
 
-	/* Control for button link*/
+	/**
+	 * Control for button link
+	 */
 	$wp_customize->add_setting( 'lawyeriax_bigtitle_button_link', array(
 		'sanitize_callback' => 'esc_url',
 	) );
@@ -153,7 +154,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 		'priority' => 35,
 	) );
 
-	/* Control for slider shortcode */
+	/**
+	 * Control for slider shortcode
+	 */
 	$wp_customize->add_setting( 'lawyeriax_slider_shortcode', array(
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
 	) );
@@ -175,10 +178,8 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 	) );
 
 	/**
-	*/
-	/**
-	***************** Ribbon Section */
-
+	 * Ribbon Section
+	 */
 	$wp_customize->add_section('lawyeriax_ribbon_section', array(
 		'title' 				=> __( 'Ribbon Section', 'lawyeriax-lite' ),
 		'priority'      => 32,
@@ -196,9 +197,8 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 	));
 
 	/**
-	*/
-	/**
-	***************** Features Section */
+	 * Features Section
+	 */
 
 	$wp_customize->add_section('lawyeria_features_section', array(
 		'description'		=> __( 'Select pages that should be added to the section. ', 'lawyeriax-lite' ),
@@ -256,9 +256,8 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 	));
 
 	/**
-	*/
-	/**
-	***************** About us Section */
+	 * About us Section
+	 */
 
 	$wp_customize->add_section('lawyeriax_about_section', array(
 		'title' 				=> __( 'About us Section', 'lawyeriax-lite' ),
@@ -266,11 +265,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 		'priority'        => 34,
 	));
 
-	/*
-	=============================================================================
-	About us Image
-	=============================================================================*/
-
+	/**
+	 * About us Image
+	 */
 	$wp_customize->add_setting('lawyeria_about_image', array(
 			'default'           => get_template_directory_uri() . '/images/about-us.jpg',
 			'sanitize_callback' => 'esc_url',
@@ -282,11 +279,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 			'priority'    => 1,
 	)));
 
-	/*
-	=============================================================================
-	About us heading
-	=============================================================================*/
-
+	/**
+	 * About us heading
+	 */
 	$wp_customize->add_setting('lawyeriax_about_heading', array(
 			'default'           => esc_html__( 'About us.', 'lawyeriax-lite' ),
 			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
@@ -299,11 +294,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 			'priority'    => 2,
 	));
 
-	/*
-	=============================================================================
-	About us text
-	=============================================================================*/
-
+	/**
+	 * About us text
+	 */
 	$wp_customize->add_setting('lawyeriax_about_text', array(
 		'default'           => esc_html__( 'Use this section to tell a story about your business. Everything you see here is responsive and mobile-friendly - it will look great on smartphones and tablets.', 'lawyeriax-lite' ),
 		'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
@@ -318,21 +311,17 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 	));
 
 	/**
-	*/
-	/**
-	***************** News Section */
-
+	 * News Section
+	 */
 	$wp_customize->add_section('lawyeriax_news_section', array(
 		'title' 				=> __( 'Latest News', 'lawyeriax-lite' ),
 		'description' 	=> __( 'Latest News Content', 'lawyeriax-lite' ),
 		'priority'      => 35,
 	));
 
-	/*
-	=============================================================================
-	Heading
-	=============================================================================*/
-
+	/**
+	 * Heading
+	 */
 	$wp_customize->add_setting('news_heading', array(
 			'default'           => esc_html__( 'Latest News', 'lawyeriax-lite' ),
 			'sanitize_callback' => 'lawyeriax_lite_sanitize_text',
@@ -349,7 +338,9 @@ function lawyeriax_lite_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'lawyeriax_lite_customize_register' );
 
 
-
+/**
+ * Inline style for header.
+ */
 function lawyeriax_lite_header_style() {
 	// If the header text option is untouched, let's bail.
 	if ( display_header_text() ) {
@@ -425,11 +416,13 @@ function lawyeriax_lite_sanitize_repeater( $input ) {
 		return $input;
 }
 
-function lawyeriax_lite_show_on_front() {
-	return is_page_template( 'template-frontpage.php' );
-}
-
-
+/**
+ * Function to sanitize checkbox
+ *
+ * @param bool $input Control Input.
+ *
+ * @return bool
+ */
 function lawyeriax_sanitize_checkbox( $input ) {
 	return ( isset( $input ) && true === (bool) $input ? true : false );
 }
