@@ -5,9 +5,11 @@
  *
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */
+/* global wp */
 
 ( function( $ ) {
 	// Site title and description.
+	'use strict';
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
 			$( '.site-title a' ).text( to );
@@ -43,7 +45,7 @@
 	/********************************************************/
  	wp.customize( 'lawyeriax_ribbon_tagline', function( value ) {
  		value.bind( function( to ) {
- 			if( to != '1' ) {
+ 			if( true !== to ) {
  				$( '.ribbon' ).removeClass( 'lawyeriax_lite_hidden_if_not_customizer' );
  			}
  			else {
@@ -59,7 +61,7 @@
 /********************************************************/
 	wp.customize( 'lawyeriax_lawyers_heading', function( value ) {
 		value.bind( function( to ) {
-			if( to != '1' ) {
+			if( true !== to ) {
 				$( '.lawyer h2' ).removeClass( 'lawyeriax_lite_hidden_if_not_customizer' );
 			}
 			else {
@@ -81,7 +83,7 @@
 //heading
 	wp.customize( 'lawyeriax_about_heading', function( value ) {
 		value.bind( function( to ) {
-			if( to != '1' ) {
+			if( true !== to ) {
 				$( '.about h3' ).removeClass( 'lawyeriax_lite_hidden_if_not_customizer' );
 			}
 			else {
@@ -95,7 +97,7 @@
 	//text
 	wp.customize( 'lawyeriax_about_text', function( value ) {
 		value.bind( function( to ) {
-			if( to != '1' ) {
+			if( true !== to ) {
 				$( '.about .about-content p' ).removeClass( 'lawyeriax_lite_hidden_if_not_customizer' );
 			}
 			else {
@@ -108,7 +110,7 @@
 
 	wp.customize( 'news_heading', function( value ) {
 		value.bind( function( to ) {
-			if( to != '1' ) {
+			if( true !== to ) {
 				$( '#news h2' ).removeClass( 'lawyeriax_lite_hidden_if_not_customizer' );
 			}
 			else {
@@ -117,18 +119,5 @@
 			$( '#news h2' ).html( to );
 		} );
 	} );
-
-
-	// wp.customize( 'lawyeriax_about_text', function( value ) {
-  //    value.bind( function( to ) {
-  //      $( '#about .about-content p' ).html( to );
-  //    } );
-  //  } );
-  //  wp.customize( 'custom_plugin_css', function( value ) {
-  //    value.bind( function( to ) {
-  //      $( '#about .about-content p' ).html( to );
-  //    } );
-  //  } );
-
 
 } )( jQuery );

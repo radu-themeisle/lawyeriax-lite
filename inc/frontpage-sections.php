@@ -1,9 +1,17 @@
 <?php
-/*
+/**
  * Frontpage sections
+ *
+ * @package LawyeriaX Lite
  */
 
 if ( ! function_exists( 'lawyeriax_lite_big_title_section' ) ) :
+
+	/**
+	 * Show bigtitle section.
+	 *
+	 * @param array $data Sections settings.
+	 */
 	function lawyeriax_lite_big_title_section( $data ) {
 	?>
 			<section class="header-slider">
@@ -154,7 +162,7 @@ if ( ! function_exists( 'lawyeriax_lite_ribbon_section' ) ) :
 				 </div><!-- .container -->
 			 </section>
 			<?php
-		} else if ( isset( $wp_customize ) ) { ?>
+		} elseif ( isset( $wp_customize ) ) { ?>
 				 <section id="ribbon" class="home-section ribbon">
 				   <div class="container">
 					 <div class="home-section-inner">
@@ -217,7 +225,7 @@ if ( ! function_exists( 'lawyeriax_lite_features_section' ) ) :
 						 <a href="<?php echo the_permalink( $id ); ?>" title="Read more" class="read-more"> <?php echo __( 'Read more...', 'lawyeriax-lite' ) ?> </a>
 					   </div>
 
-						<?php } else if ( ! empty( $page->post_content ) ) { ?>
+						<?php } elseif ( ! empty( $page->post_content ) ) { ?>
 
 					<div class="border-left features-content">
 					  <p><?php echo esc_html( substr( $page->post_content, 0 , 100 ) ) . '...'; ?></p>
@@ -277,7 +285,7 @@ if ( ! empty( $about_title ) ) { ?>
 
 		  <h3 class="about-title"><?php echo wp_kses_post( $about_title ) ?></h3>
 
-			<?php } else if ( isset( $wp_customize ) ) { ?>
+			<?php } elseif ( isset( $wp_customize ) ) { ?>
 
 			<h3 class="about-title lawyeriax_lite_only_customizer"></h3>
 
@@ -291,7 +299,7 @@ if ( ! empty( $about_text ) ) { ?>
 
 		  </div>
 
-			<?php } else if ( isset( $wp_customize ) ) { ?>
+			<?php } elseif ( isset( $wp_customize ) ) { ?>
 
 			<div class="border-left about-content">
 
@@ -329,7 +337,7 @@ if ( ! function_exists( 'lawyeriax_lite_latest_news_section' ) ) :
 					   <div class="home-section-title-wrap">
 						 <h2 class="home-section-title"> <?php echo wp_kses_post( $news_heading ) ?></h2>
 				 </div>
-				<?php	} else if ( isset( $wp_customize ) ) { ?>
+				<?php	} elseif ( isset( $wp_customize ) ) { ?>
 		   <div class="home-section-title-wrap">
 			   <h2 class="home-section-title lawyeriax_lite_only_customizer"></h2>
 		   </div>

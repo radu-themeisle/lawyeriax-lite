@@ -1,9 +1,17 @@
+<?php
+/**
+ * Content Home Single
+ *
+ * @package LawyeriaX Lite
+ */
+?>
+
 <div class="col-md-4 news-box">
-  <div class="news-title-wrap">
-    <div class="news-date">
-      <?php
-	  $day    = get_the_time( 'd' );
-	  $month  = get_the_time( 'M' ); ?>
+	<div class="news-title-wrap">
+	<div class="news-date">
+		<?php
+		$day    = get_the_time( 'd' );
+		$month  = get_the_time( 'M' ); ?>
 
 	  <span><?php echo $day ?></span>
 	  <span><?php echo $month ?></span>
